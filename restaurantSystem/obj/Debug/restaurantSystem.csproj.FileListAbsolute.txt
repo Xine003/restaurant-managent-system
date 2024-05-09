@@ -192,3 +192,4 @@ C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSys
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.pdb
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\bin\Debug\Krypton.Toolkit.dll
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\bin\Debug\Krypton.Toolkit.xml
+C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.Dashboard.resources

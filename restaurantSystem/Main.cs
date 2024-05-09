@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using restaurantSystem.DesignCodes;
 
 namespace restaurantSystem
 {
     public partial class Main : Form
     {
         private Timer timer;
+        private Dashboard dashboardForm;
+        private Order orderForm;
 
         public Main()
         {
@@ -22,6 +25,19 @@ namespace restaurantSystem
             linepanel.BackgroundImageLayout = ImageLayout.Stretch;
             this.FormBorderStyle = FormBorderStyle.None;
 
+            home_btn.FlatAppearance.BorderSize = 0;
+            foodcategory_btn.FlatAppearance.BorderSize = 0;
+            products_btn.FlatAppearance.BorderSize = 0;
+            employee_btn.FlatAppearance.BorderSize = 0;
+            logout_btn.FlatAppearance.BorderSize = 0;
+
+            DesignCodes.Borders.SetBorderRadius(home_btn, 20);
+            DesignCodes.Borders.SetBorderRadius(foodcategory_btn, 20);
+            DesignCodes.Borders.SetBorderRadius(products_btn, 20);
+            DesignCodes.Borders.SetBorderRadius(employee_btn, 20);
+            DesignCodes.Borders.SetBorderRadius(logout_btn, 20);
+
+            LoadDashboardForm();
 
             //timer to tick the time
             timer = new Timer();
@@ -57,9 +73,7 @@ namespace restaurantSystem
 
         private void order_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Order order = new Order();
-            order.Show();
+            LoadCategoryForm();
         }
 
         private void user_btn_Click(object sender, EventArgs e)
@@ -111,9 +125,49 @@ namespace restaurantSystem
         private void DateTimeLabel()
         {
             DateTime currentDateTime = DateTime.Now;
-            dateTime_label.Text = currentDateTime.ToString();
+            dateTime_label.Text = $"{currentDateTime.ToString("dddd, MMMM dd, yyyy - hh:mm:ss tt")}";
         }
 
 
+        private void LoadDashboardForm()
+        {
+            // Initialize the dashboard form
+            dashboardForm = new Dashboard();
+            dashboardForm.TopLevel = false;
+            dashboardForm.FormBorderStyle = FormBorderStyle.None;
+            dashboardForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Add(dashboardForm);
+            dashboardForm.Show();
+        }
+        private void LoadCategoryForm()
+        {
+            // Initialize the dashboard form
+            orderForm = new Order();
+            orderForm.TopLevel = false;
+            orderForm.FormBorderStyle = FormBorderStyle.None;
+            orderForm.Dock = DockStyle.Fill;
+            orderForm.Controls.Add(dashboardForm);
+            orderForm.Show();
+        }
+
+
+
+
+        private void dateTime_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void logout_btn_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            User user = new User();
+            user.Show();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

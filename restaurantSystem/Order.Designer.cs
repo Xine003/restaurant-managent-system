@@ -33,9 +33,10 @@
             // 
             // back_btn
             // 
-            this.back_btn.Location = new System.Drawing.Point(49, 468);
+            this.back_btn.Location = new System.Drawing.Point(567, 477);
+            this.back_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.back_btn.Name = "back_btn";
-            this.back_btn.Size = new System.Drawing.Size(75, 23);
+            this.back_btn.Size = new System.Drawing.Size(100, 28);
             this.back_btn.TabIndex = 1;
             this.back_btn.Text = "Back";
             this.back_btn.UseVisualStyleBackColor = true;
@@ -43,13 +44,14 @@
             // 
             // Order
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(814, 556);
+            this.ClientSize = new System.Drawing.Size(1296, 577);
             this.Controls.Add(this.back_btn);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Order";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
