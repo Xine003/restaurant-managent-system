@@ -30,6 +30,11 @@ namespace restaurantSystem
             DesignCodes.Borders.SetBorderRadius(txtUsername, 10);
             DesignCodes.Borders.SetBorderRadius(txtPassword, 10);
             DesignCodes.Borders.SetBorderRadius(btnLogin, 20);
+            this.FormBorderStyle = FormBorderStyle.None;
+            loginContainer.BackColor = Color.FromArgb(191, loginContainer.BackColor);
+            btnLogin.FlatStyle = FlatStyle.Flat;
+            btnLogin.FlatAppearance.BorderSize = 0;
+            panel2.BackColor = Color.Transparent;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -113,6 +118,18 @@ namespace restaurantSystem
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterForm registerform = new RegisterForm();
+            registerform.Show();
+        }
+
+        private void panel2_MouseClick(object sender, MouseEventArgs e)
+        {
+            this.Close();
         }
     }
 }
