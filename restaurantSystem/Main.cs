@@ -12,9 +12,25 @@ namespace restaurantSystem
 {
     public partial class Main : Form
     {
+        private Timer timer;
+
         public Main()
         {
             InitializeComponent();
+
+            navbar.BackgroundImageLayout = ImageLayout.Stretch;
+            linepanel.BackgroundImageLayout = ImageLayout.Stretch;
+            this.FormBorderStyle = FormBorderStyle.None;
+
+
+            //timer to tick the time
+            timer = new Timer();
+            timer.Interval = 1000; // Update every second
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            DateTimeLabel();
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -75,5 +91,29 @@ namespace restaurantSystem
             User user = new User();
             user.Show();
         }
+
+        private void linepanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // functions 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            DateTimeLabel();
+        }
+
+        private void DateTimeLabel()
+        {
+            DateTime currentDateTime = DateTime.Now;
+            dateTime_label.Text = currentDateTime.ToString();
+        }
+
+
     }
 }

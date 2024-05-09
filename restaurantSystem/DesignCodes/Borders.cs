@@ -21,6 +21,8 @@ namespace restaurantSystem.DesignCodes
             panel.Region = new Region(path);
         }
 
+        
+
         public static void SetBorderRadius(TextBox textBox, int borderRadius)
         {
             GraphicsPath path = new GraphicsPath();
