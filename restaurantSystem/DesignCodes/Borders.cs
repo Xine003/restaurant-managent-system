@@ -43,5 +43,21 @@ namespace restaurantSystem.DesignCodes
             button.Region = new Region(path);
         }
 
+        public static void SetBorderRadiusWithBorder(Panel panel, int borderRadius, int borderWidth)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, borderRadius, borderRadius, 180, 90);
+            path.AddArc(panel.Width - borderRadius, 0, borderRadius, borderRadius, 270, 90);
+            path.AddArc(panel.Width - borderRadius, panel.Height - borderRadius, borderRadius, borderRadius, 0, 90);
+            path.AddArc(0, panel.Height - borderRadius, borderRadius, borderRadius, 90, 90);
+            panel.Region = new Region(path);
+
+            Pen borderPen = new Pen(Color.White, borderWidth);
+
+            Graphics panelGraphics = panel.CreateGraphics();
+            panelGraphics.DrawPath(borderPen, path);
+        }
+
+
     }
 }

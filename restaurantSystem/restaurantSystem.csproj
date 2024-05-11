@@ -310,5 +310,26 @@
   <ItemGroup>
     <None Include="Resources\Line 1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 373.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 383.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 3831.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1642.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

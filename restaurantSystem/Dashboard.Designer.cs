@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,13 +47,13 @@
             this.panel1.Size = new System.Drawing.Size(1296, 577);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // panel4
             // 
-            this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Location = new System.Drawing.Point(52, 26);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(424, 530);
-            this.panel2.TabIndex = 1;
+            this.panel4.BackColor = System.Drawing.Color.DimGray;
+            this.panel4.Location = new System.Drawing.Point(496, 296);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(723, 260);
+            this.panel4.TabIndex = 3;
             // 
             // panel3
             // 
@@ -63,13 +63,13 @@
             this.panel3.Size = new System.Drawing.Size(723, 260);
             this.panel3.TabIndex = 2;
             // 
-            // panel4
+            // panel2
             // 
-            this.panel4.BackColor = System.Drawing.Color.DimGray;
-            this.panel4.Location = new System.Drawing.Point(496, 296);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(723, 260);
-            this.panel4.TabIndex = 3;
+            this.panel2.BackColor = System.Drawing.Color.DimGray;
+            this.panel2.Location = new System.Drawing.Point(52, 26);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(424, 530);
+            this.panel2.TabIndex = 1;
             // 
             // Dashboard
             // 
