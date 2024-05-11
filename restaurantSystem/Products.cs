@@ -41,5 +41,10 @@ namespace restaurantSystem
             AddItems add_item = new AddItems();
             add_item.Show();
        }
-   }
+
+        private void Products_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

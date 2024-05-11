@@ -103,6 +103,16 @@ namespace restaurantSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Group_1643 {
+            get {
+                object obj = ResourceManager.GetObject("Group 1643", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Line_1 {
             get {
                 object obj = ResourceManager.GetObject("Line 1", resourceCulture);
@@ -136,6 +146,36 @@ namespace restaurantSystem.Properties {
         internal static System.Drawing.Bitmap plus_1 {
             get {
                 object obj = ResourceManager.GetObject("plus 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reciept {
+            get {
+                object obj = ResourceManager.GetObject("reciept", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reciept1 {
+            get {
+                object obj = ResourceManager.GetObject("reciept1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reciept2 {
+            get {
+                object obj = ResourceManager.GetObject("reciept2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

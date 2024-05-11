@@ -12,9 +12,17 @@ namespace restaurantSystem
 {
     public partial class Cashier : Form
     {
+        private NewOrder newOrderForm;
+
         public Cashier()
         {
             InitializeComponent();
+            panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            home_btn.FlatAppearance.BorderSize = 0;
+            tableReservation_btn.FlatAppearance.BorderSize = 0;
+            orderList_btn.FlatAppearance.BorderSize = 0;
+            logOut_btn.FlatAppearance.BorderSize = 0;
+            LoadNewOrderForm();
         }
 
         private void menu_btn_Click(object sender, EventArgs e)
@@ -38,9 +46,54 @@ namespace restaurantSystem
 
         private void logout_btn_Click_1(object sender, EventArgs e)
         {
+           
+        }
+
+        private void Cashier_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             this.Hide();
             User user = new User();
             user.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            User user = new User();
+            user.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //functions
+        private void LoadNewOrderForm()
+        {
+            // Initialize the dashboard form
+            newOrderForm = new NewOrder();
+            newOrderForm.TopLevel = false;
+            newOrderForm.FormBorderStyle = FormBorderStyle.None;
+            newOrderForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(newOrderForm);
+            newOrderForm.Show();
+        }
+
+        private void home_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

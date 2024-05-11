@@ -194,3 +194,4 @@ C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSys
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\bin\Debug\Krypton.Toolkit.xml
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.Dashboard.resources
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.Products.resources
+C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.NewOrder.resources

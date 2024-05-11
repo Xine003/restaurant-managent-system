@@ -167,6 +167,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewOrder.Designer.cs">
+      <DependentUpon>NewOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewOrder.resx">
+      <DependentUpon>NewOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +339,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Group 1642.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1643.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reciept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reciept1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reciept2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

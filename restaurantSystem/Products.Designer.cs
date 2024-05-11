@@ -89,6 +89,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Products";
             this.Text = "Products";
+            this.Load += new System.EventHandler(this.Products_Load);
             this.panel1.ResumeLayout(false);
             this.productsPanel.ResumeLayout(false);
             this.productsPanel.PerformLayout();

@@ -17,8 +17,10 @@ namespace restaurantSystem
         public AddItems()
         {
             InitializeComponent();
-            bgpanel.BackgroundImageLayout = ImageLayout.Stretch;
+          
             this.FormBorderStyle = FormBorderStyle.None;
+            DesignCodes.Borders.SetBorderRadius(additem_btn,30);
+            DesignCodes.Borders.SetBorderRadius(back_btn, 30);
 
         }
 
@@ -43,5 +45,13 @@ namespace restaurantSystem
         {
 
         }
+
+        private void bgpanel_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+                    }
     }
 }
