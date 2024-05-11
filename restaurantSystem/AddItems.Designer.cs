@@ -36,6 +36,9 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.i_name = new System.Windows.Forms.TextBox();
             this.i_price = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.bgpanel.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -45,6 +48,9 @@
             // 
             this.bgpanel.BackColor = System.Drawing.Color.Transparent;
             this.bgpanel.BackgroundImage = global::restaurantSystem.Properties.Resources.Rectangle_3831;
+            this.bgpanel.Controls.Add(this.label3);
+            this.bgpanel.Controls.Add(this.label2);
+            this.bgpanel.Controls.Add(this.label1);
             this.bgpanel.Controls.Add(this.additem_btn);
             this.bgpanel.Controls.Add(this.panel1);
             this.bgpanel.Controls.Add(this.back_btn);
@@ -100,9 +106,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(257, 176);
+            this.comboBox1.Items.AddRange(new object[] {
+            "Category"});
+            this.comboBox1.Location = new System.Drawing.Point(224, 189);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(118, 24);
+            this.comboBox1.Size = new System.Drawing.Size(142, 24);
             this.comboBox1.TabIndex = 3;
             // 
             // i_name
@@ -117,12 +125,45 @@
             // 
             // i_price
             // 
-            this.i_price.Location = new System.Drawing.Point(88, 176);
+            this.i_price.Location = new System.Drawing.Point(88, 189);
             this.i_price.Margin = new System.Windows.Forms.Padding(4);
             this.i_price.Multiline = true;
             this.i_price.Name = "i_price";
-            this.i_price.Size = new System.Drawing.Size(145, 24);
+            this.i_price.Size = new System.Drawing.Size(129, 24);
             this.i_price.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(85, 99);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Product Name:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(85, 165);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 20);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Price:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Location = new System.Drawing.Point(221, 168);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 20);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Category:";
             // 
             // AddItems
             // 
@@ -134,7 +175,7 @@
             this.Controls.Add(this.bgpanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddItems";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddItems";
@@ -156,5 +197,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

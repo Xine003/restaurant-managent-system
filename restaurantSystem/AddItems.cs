@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using restaurantSystem.DesignCodes;
 
 namespace restaurantSystem
 {
@@ -18,6 +19,7 @@ namespace restaurantSystem
             InitializeComponent();
             bgpanel.BackgroundImageLayout = ImageLayout.Stretch;
             this.FormBorderStyle = FormBorderStyle.None;
+
         }
 
         private void back_btn_Click(object sender, EventArgs e)
