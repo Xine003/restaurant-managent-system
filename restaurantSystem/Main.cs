@@ -66,9 +66,7 @@ namespace restaurantSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Inventory inventory = new Inventory();
-            inventory.Show();
+            LoadDashboardForm();
         }
 
         private void order_btn_Click(object sender, EventArgs e)
