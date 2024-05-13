@@ -40,9 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.home_btn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.dashboard_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -76,7 +74,6 @@
             // dashboard_panel
             // 
             this.dashboard_panel.BackColor = System.Drawing.Color.Transparent;
-            this.dashboard_panel.Controls.Add(this.button1);
             this.dashboard_panel.Location = new System.Drawing.Point(223, 127);
             this.dashboard_panel.Name = "dashboard_panel";
             this.dashboard_panel.Size = new System.Drawing.Size(1314, 624);
@@ -143,8 +140,9 @@
             this.orderList_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.orderList_btn.Size = new System.Drawing.Size(213, 49);
             this.orderList_btn.TabIndex = 6;
-            this.orderList_btn.Text = "Order List";
+            this.orderList_btn.Text = "Payment";
             this.orderList_btn.UseVisualStyleBackColor = false;
+            this.orderList_btn.Click += new System.EventHandler(this.orderList_btn_Click);
             // 
             // tableReservation_btn
             // 
@@ -201,15 +199,6 @@
             this.home_btn.UseVisualStyleBackColor = false;
             this.home_btn.Click += new System.EventHandler(this.home_btn_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(269, 175);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(317, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Cashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -227,7 +216,6 @@
             this.Load += new System.EventHandler(this.Cashier_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.dashboard_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -249,6 +237,5 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel dashboard_panel;
         private System.Windows.Forms.Label dateTime_label;
-        private System.Windows.Forms.Button button1;
     }
 }

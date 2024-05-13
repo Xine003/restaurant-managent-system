@@ -13,6 +13,7 @@ namespace restaurantSystem
     public partial class Cashier : Form
     {
         private NewOrder newOrderForm;
+        private Receipt newRecieptForm;
 
         public Cashier()
         {
@@ -91,9 +92,26 @@ namespace restaurantSystem
             newOrderForm.Show();
         }
 
+        private void LoadRecieptForm()
+        {
+            // Initialize the dashboard form
+            newRecieptForm = new Receipt();
+            newRecieptForm.TopLevel = false;
+            newRecieptForm.FormBorderStyle = FormBorderStyle.None;
+            newRecieptForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(newRecieptForm);
+            newRecieptForm.Show();
+        }
+
         private void home_btn_Click(object sender, EventArgs e)
         {
+            LoadNewOrderForm();
+        }
 
+        private void orderList_btn_Click(object sender, EventArgs e)
+        {
+            LoadRecieptForm();
         }
     }
 }

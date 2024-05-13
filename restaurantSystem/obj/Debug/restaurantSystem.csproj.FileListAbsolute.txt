@@ -259,3 +259,4 @@ C:\Users\Guest user\source\repos\ClonedRepo\restaurant-managent-system\restauran
 C:\Users\Guest user\source\repos\ClonedRepo\restaurant-managent-system\restaurantSystem\obj\Debug\restaura.26030EA7.Up2Date
 C:\Users\Guest user\source\repos\ClonedRepo\restaurant-managent-system\restaurantSystem\obj\Debug\restaurantSystem.exe
 C:\Users\Guest user\source\repos\ClonedRepo\restaurant-managent-system\restaurantSystem\obj\Debug\restaurantSystem.pdb
+C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.Receipt.resources
