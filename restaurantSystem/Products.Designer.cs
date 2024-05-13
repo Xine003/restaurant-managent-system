@@ -30,10 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.productsPanel = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addProducts_btn = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.productsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -50,6 +52,7 @@
             // 
             this.productsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(19)))), ((int)(((byte)(21)))));
             this.productsPanel.BackgroundImage = global::restaurantSystem.Properties.Resources.Rectangle_373;
+            this.productsPanel.Controls.Add(this.dataGridView1);
             this.productsPanel.Controls.Add(this.addProducts_btn);
             this.productsPanel.Controls.Add(this.label1);
             this.productsPanel.Location = new System.Drawing.Point(24, 12);
@@ -57,6 +60,19 @@
             this.productsPanel.Size = new System.Drawing.Size(1243, 565);
             this.productsPanel.TabIndex = 0;
             this.productsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productsPanel_Paint);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(19)))), ((int)(((byte)(21)))));
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 64);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1217, 489);
+            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // addProducts_btn
             // 
@@ -93,6 +109,7 @@
             this.panel1.ResumeLayout(false);
             this.productsPanel.ResumeLayout(false);
             this.productsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -103,5 +120,7 @@
         private System.Windows.Forms.Panel productsPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel addProducts_btn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+     
     }
 }

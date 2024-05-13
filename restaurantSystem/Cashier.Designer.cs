@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.home_btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -103,6 +104,7 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::restaurantSystem.Properties.Resources.navbar1;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.logOut_btn);
             this.panel2.Controls.Add(this.orderList_btn);
             this.panel2.Controls.Add(this.tableReservation_btn);
@@ -199,6 +201,16 @@
             this.home_btn.UseVisualStyleBackColor = false;
             this.home_btn.Click += new System.EventHandler(this.home_btn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(42, 504);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // Cashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -237,5 +249,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel dashboard_panel;
         private System.Windows.Forms.Label dateTime_label;
+        private System.Windows.Forms.Button button1;
     }
 }

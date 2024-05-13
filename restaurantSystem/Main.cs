@@ -73,6 +73,7 @@ namespace restaurantSystem
         private void order_btn_Click(object sender, EventArgs e)
         {
             LoadCategoryForm();
+            dashboard_Label.Text = "Category";
         }
 
         private void user_btn_Click(object sender, EventArgs e)
@@ -80,6 +81,8 @@ namespace restaurantSystem
             this.Hide();
             Users users = new Users();
             users.Show();
+
+            dashboard_Label.Text = "Employee";
         }
 
         private void payment_btn_Click(object sender, EventArgs e)
@@ -186,11 +189,13 @@ namespace restaurantSystem
         private void products_btn_Click(object sender, EventArgs e)
         {
             LoadProductsForm();
+            dashboard_Label.Text = "Products";
         }
 
         private void loadDashboard(object sender, EventArgs e)
         {
             LoadDashboardForm();
+            dashboard_Label.Text = "Dashboard";
         }
     }
 }

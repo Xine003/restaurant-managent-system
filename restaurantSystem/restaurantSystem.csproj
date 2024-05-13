@@ -140,6 +140,12 @@
     <Compile Include="Cashier.Designer.cs">
       <DependentUpon>Cashier.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlProductCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlProductCard.Designer.cs">
+      <DependentUpon>ControlProductCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,12 @@
     </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="DesignCodes\Borders.cs" />
+    <Compile Include="ProductCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductCard.Designer.cs">
+      <DependentUpon>ProductCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Receipt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +264,9 @@
     <EmbeddedResource Include="Cashier.resx">
       <DependentUpon>Cashier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ControlProductCard.resx">
+      <DependentUpon>ControlProductCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -275,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pos.resx">
       <DependentUpon>Pos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductCard.resx">
+      <DependentUpon>ProductCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
@@ -360,6 +378,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\reciept2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trashbin.bmp" />
+    <Content Include="Resources\trashbin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

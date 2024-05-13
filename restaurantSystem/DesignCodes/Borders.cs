@@ -58,6 +58,15 @@ namespace restaurantSystem.DesignCodes
             panelGraphics.DrawPath(borderPen, path);
         }
 
+        public static void SetBorderRadius(PictureBox pictureBox, int borderRadius)
+        {
+            GraphicsPath path = new GraphicsPath();
+            path.AddArc(0, 0, borderRadius, borderRadius, 180, 90);
+            path.AddArc(pictureBox.Width - borderRadius, 0, borderRadius, borderRadius, 270, 90);
+            path.AddArc(pictureBox.Width - borderRadius, pictureBox.Height - borderRadius, borderRadius, borderRadius, 0, 90);
+            path.AddArc(0, pictureBox.Height - borderRadius, borderRadius, borderRadius, 90, 90);
+            pictureBox.Region = new Region(path);
+        }
 
     }
 }

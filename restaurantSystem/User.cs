@@ -19,8 +19,7 @@ namespace restaurantSystem
     public partial class User : Form
     { 
                 MySqlConnection connection = new MySqlConnection("server=localhost;port=3308;username=root;password=;database=restaurant");
-
-        
+                private DB db = new DB();
 
         public User()
         {

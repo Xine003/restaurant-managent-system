@@ -30,7 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTime_label = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.dashboard_Label = new System.Windows.Forms.Label();
             this.dashboard_panel = new System.Windows.Forms.Panel();
             this.navbar = new System.Windows.Forms.Panel();
             this.logout_btn = new System.Windows.Forms.Button();
@@ -50,7 +50,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(19)))), ((int)(((byte)(21)))));
             this.panel1.Controls.Add(this.dateTime_label);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.dashboard_Label);
             this.panel1.Controls.Add(this.dashboard_panel);
             this.panel1.Controls.Add(this.navbar);
             this.panel1.Controls.Add(this.linepanel);
@@ -72,17 +72,17 @@
             this.dateTime_label.Text = "MM/DD/YYYY 00:00:00 ";
             this.dateTime_label.Click += new System.EventHandler(this.dateTime_label_Click);
             // 
-            // label6
+            // dashboard_Label
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(258, 27);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(202, 42);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Dashboard";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.dashboard_Label.AutoSize = true;
+            this.dashboard_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dashboard_Label.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dashboard_Label.Location = new System.Drawing.Point(258, 27);
+            this.dashboard_Label.Name = "dashboard_Label";
+            this.dashboard_Label.Size = new System.Drawing.Size(202, 42);
+            this.dashboard_Label.TabIndex = 0;
+            this.dashboard_Label.Text = "Dashboard";
+            this.dashboard_Label.Click += new System.EventHandler(this.label6_Click);
             // 
             // dashboard_panel
             // 
@@ -258,7 +258,7 @@
         private System.Windows.Forms.Panel dashboard_panel;
         private System.Windows.Forms.Panel linepanel;
         private System.Windows.Forms.Label dateTime_label;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label dashboard_Label;
         private System.Windows.Forms.Button products_btn;
         private System.Windows.Forms.Button logout_btn;
     }

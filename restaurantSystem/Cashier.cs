@@ -14,6 +14,7 @@ namespace restaurantSystem
     {
         private NewOrder newOrderForm;
         private Receipt newRecieptForm;
+        private ProductCard productCardForm;
 
         public Cashier()
         {
@@ -112,6 +113,12 @@ namespace restaurantSystem
         private void orderList_btn_Click(object sender, EventArgs e)
         {
             LoadRecieptForm();
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+          ProductCard card = new ProductCard();
+            card.Show();
         }
     }
 }

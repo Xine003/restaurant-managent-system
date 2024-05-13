@@ -30,16 +30,16 @@
         {
             this.i_price = new System.Windows.Forms.TextBox();
             this.i_name = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.i_category = new System.Windows.Forms.ComboBox();
             this.back_btn = new System.Windows.Forms.Button();
             this.additem_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureProduct = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // i_price
@@ -61,15 +61,13 @@
             this.i_name.TabIndex = 0;
             this.i_name.TextChanged += new System.EventHandler(this.i_name_TextChanged);
             // 
-            // comboBox1
+            // i_category
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Category"});
-            this.comboBox1.Location = new System.Drawing.Point(180, 184);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(142, 24);
-            this.comboBox1.TabIndex = 3;
+            this.i_category.FormattingEnabled = true;
+            this.i_category.Location = new System.Drawing.Point(180, 184);
+            this.i_category.Name = "i_category";
+            this.i_category.Size = new System.Drawing.Size(142, 24);
+            this.i_category.TabIndex = 3;
             // 
             // back_btn
             // 
@@ -138,16 +136,17 @@
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // pictureBox1
+            // pictureProduct
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::restaurantSystem.Properties.Resources.Group_1643;
-            this.pictureBox1.Location = new System.Drawing.Point(366, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 153);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.pictureProduct.BackColor = System.Drawing.Color.Transparent;
+            this.pictureProduct.Image = global::restaurantSystem.Properties.Resources.Group_1643;
+            this.pictureProduct.Location = new System.Drawing.Point(366, 83);
+            this.pictureProduct.Name = "pictureProduct";
+            this.pictureProduct.Size = new System.Drawing.Size(204, 153);
+            this.pictureProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureProduct.TabIndex = 15;
+            this.pictureProduct.TabStop = false;
+            this.pictureProduct.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chooseImage);
             // 
             // AddItems
             // 
@@ -156,7 +155,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(19)))), ((int)(((byte)(21)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(677, 337);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureProduct);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -164,7 +163,7 @@
             this.Controls.Add(this.back_btn);
             this.Controls.Add(this.i_price);
             this.Controls.Add(this.i_name);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.i_category);
             this.Controls.Add(this.pictureBox2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -173,7 +172,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddItems";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,13 +182,13 @@
 
         private System.Windows.Forms.TextBox i_price;
         private System.Windows.Forms.TextBox i_name;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox i_category;
         private System.Windows.Forms.Button back_btn;
         private System.Windows.Forms.Button additem_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureProduct;
     }
 }
