@@ -3,7 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\receipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:receipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\receipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:receipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:registerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -11,24 +43,20 @@
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\payment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:payment.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\guest user\\source\\repos\\clonedrepo\\restaurant-managent-system\\restaurantsystem\\payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,27 +66,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NewOrder.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs",
-              "RelativeDocumentMoniker": "NewOrder.cs",
-              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs [Design]",
-              "RelativeToolTip": "NewOrder.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T10:14:25.617Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
               "$type": "Bookmark",
@@ -67,30 +79,128 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "NewOrder.cs",
+              "Title": "NewOrder.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs",
               "RelativeDocumentMoniker": "NewOrder.cs",
-              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs",
-              "RelativeToolTip": "NewOrder.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAwBoAAAAAAAAA",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs [Design]",
+              "RelativeToolTip": "NewOrder.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T10:58:19.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-13T05:57:27.456Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Menu.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Menu.cs",
+              "RelativeDocumentMoniker": "Menu.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Menu.cs [Design]",
+              "RelativeToolTip": "Menu.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T05:57:26.104Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Dashboard.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Dashboard.cs",
-              "RelativeDocumentMoniker": "Dashboard.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Dashboard.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Dashboard.cs [Design]",
+              "Title": "RegisterForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\RegisterForm.cs",
+              "RelativeDocumentMoniker": "RegisterForm.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\RegisterForm.cs [Design]",
+              "RelativeToolTip": "RegisterForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-11T10:23:18.843Z"
+              "WhenOpened": "2024-05-13T05:57:17.891Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Table.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Table.cs",
+              "RelativeDocumentMoniker": "Table.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Table.cs [Design]",
+              "RelativeToolTip": "Table.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T05:57:15.471Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Users.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Users.cs",
+              "RelativeDocumentMoniker": "Users.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Users.cs [Design]",
+              "RelativeToolTip": "Users.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T05:57:12.866Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Receipt.cs",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Receipt.cs",
+              "RelativeDocumentMoniker": "Receipt.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Receipt.cs",
+              "RelativeToolTip": "Receipt.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAArwBsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T05:54:00.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Receipt.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Receipt.cs",
+              "RelativeDocumentMoniker": "Receipt.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Receipt.cs [Design]",
+              "RelativeToolTip": "Receipt.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T05:49:40.003Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Payment.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Payment.cs",
+              "RelativeDocumentMoniker": "Payment.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Payment.cs [Design]",
+              "RelativeToolTip": "Payment.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T05:49:15.296Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Payment.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Payment.Designer.cs",
+              "RelativeDocumentMoniker": "Payment.Designer.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Payment.Designer.cs",
+              "RelativeToolTip": "Payment.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-13T05:49:13.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Dashboard.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Dashboard.cs",
+              "RelativeDocumentMoniker": "Dashboard.cs",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Dashboard.cs [Design]",
+              "RelativeToolTip": "Dashboard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T10:23:18.843Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "Cashier.cs",
               "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Cashier.cs",
               "RelativeDocumentMoniker": "Cashier.cs",
@@ -103,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "Cashier.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Cashier.cs",
               "RelativeDocumentMoniker": "Cashier.cs",
@@ -115,7 +225,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "Main.cs",
               "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
@@ -123,7 +233,8 @@
               "RelativeToolTip": "Main.cs",
               "ViewState": "AQIAABMAAAAAAAAAAAAkwCsAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T07:56:49.612Z"
+              "WhenOpened": "2024-05-09T07:56:49.612Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -131,10 +242,11 @@
               "Title": "Main.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs [Design]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs [Design]",
+              "ToolTip": "C:\\Users\\Guest user\\source\\repos\\ClonedRepo\\restaurant-managent-system\\restaurantSystem\\Main.cs [Design]",
+              "RelativeToolTip": "Main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T07:39:18.203Z"
+              "WhenOpened": "2024-05-09T07:39:18.203Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
