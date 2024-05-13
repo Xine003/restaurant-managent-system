@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dashboard_panel = new System.Windows.Forms.Panel();
             this.dateTime_label = new System.Windows.Forms.Label();
+            this.dashboard_panel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.logOut_btn = new System.Windows.Forms.Button();
@@ -40,7 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.home_btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.dashboard_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -60,25 +62,6 @@
             this.panel1.Size = new System.Drawing.Size(1540, 751);
             this.panel1.TabIndex = 39;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(258, 27);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(202, 42);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Dashboard";
-            // 
-            // dashboard_panel
-            // 
-            this.dashboard_panel.BackColor = System.Drawing.Color.Transparent;
-            this.dashboard_panel.Location = new System.Drawing.Point(223, 127);
-            this.dashboard_panel.Name = "dashboard_panel";
-            this.dashboard_panel.Size = new System.Drawing.Size(1314, 624);
-            this.dashboard_panel.TabIndex = 5;
-            // 
             // dateTime_label
             // 
             this.dateTime_label.AutoSize = true;
@@ -89,6 +72,26 @@
             this.dateTime_label.Size = new System.Drawing.Size(252, 26);
             this.dateTime_label.TabIndex = 6;
             this.dateTime_label.Text = "MM/DD/YYYY 00:00:00 ";
+            // 
+            // dashboard_panel
+            // 
+            this.dashboard_panel.BackColor = System.Drawing.Color.Transparent;
+            this.dashboard_panel.Controls.Add(this.button1);
+            this.dashboard_panel.Location = new System.Drawing.Point(223, 127);
+            this.dashboard_panel.Name = "dashboard_panel";
+            this.dashboard_panel.Size = new System.Drawing.Size(1314, 624);
+            this.dashboard_panel.TabIndex = 5;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(258, 27);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(202, 42);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Dashboard";
             // 
             // pictureBox1
             // 
@@ -198,6 +201,15 @@
             this.home_btn.UseVisualStyleBackColor = false;
             this.home_btn.Click += new System.EventHandler(this.home_btn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(269, 175);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(317, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Cashier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -208,13 +220,14 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Cashier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cashier";
             this.Load += new System.EventHandler(this.Cashier_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.dashboard_panel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -236,5 +249,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel dashboard_panel;
         private System.Windows.Forms.Label dateTime_label;
+        private System.Windows.Forms.Button button1;
     }
 }
