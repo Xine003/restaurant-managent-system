@@ -67,7 +67,7 @@
             this.dateTime_label.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dateTime_label.Location = new System.Drawing.Point(256, 96);
             this.dateTime_label.Name = "dateTime_label";
-            this.dateTime_label.Size = new System.Drawing.Size(267, 29);
+            this.dateTime_label.Size = new System.Drawing.Size(252, 26);
             this.dateTime_label.TabIndex = 2;
             this.dateTime_label.Text = "MM/DD/YYYY 00:00:00 ";
             this.dateTime_label.Click += new System.EventHandler(this.dateTime_label_Click);
@@ -137,6 +137,7 @@
             this.products_btn.TabIndex = 23;
             this.products_btn.Text = "Products";
             this.products_btn.UseVisualStyleBackColor = false;
+            this.products_btn.Click += new System.EventHandler(this.products_btn_Click);
             // 
             // employee_btn
             // 
@@ -168,7 +169,7 @@
             this.home_btn.TabIndex = 7;
             this.home_btn.Text = "Home";
             this.home_btn.UseVisualStyleBackColor = false;
-            this.home_btn.Click += new System.EventHandler(this.button4_Click);
+            this.home_btn.Click += new System.EventHandler(this.loadDashboard);
             // 
             // label1
             // 
@@ -188,6 +189,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox2.Location = new System.Drawing.Point(62, 49);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";

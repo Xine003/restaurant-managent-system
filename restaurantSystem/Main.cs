@@ -16,6 +16,7 @@ namespace restaurantSystem
         private Timer timer;
         private Dashboard dashboardForm;
         private Order orderForm;
+        private Products productsForm;
 
         public Main()
         {
@@ -66,9 +67,7 @@ namespace restaurantSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Inventory inventory = new Inventory();
-            inventory.Show();
+            LoadDashboardForm();
         }
 
         private void order_btn_Click(object sender, EventArgs e)
@@ -136,19 +135,33 @@ namespace restaurantSystem
             dashboardForm.TopLevel = false;
             dashboardForm.FormBorderStyle = FormBorderStyle.None;
             dashboardForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
             dashboard_panel.Controls.Add(dashboardForm);
             dashboardForm.Show();
         }
         private void LoadCategoryForm()
         {
-            // Initialize the dashboard form
             orderForm = new Order();
             orderForm.TopLevel = false;
             orderForm.FormBorderStyle = FormBorderStyle.None;
             orderForm.Dock = DockStyle.Fill;
-            orderForm.Controls.Add(dashboardForm);
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(orderForm); 
             orderForm.Show();
         }
+
+        private void LoadProductsForm()
+        {
+            productsForm = new Products();
+            productsForm.TopLevel = false;
+            productsForm.FormBorderStyle = FormBorderStyle.None;
+            productsForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(productsForm); // Add productsForm to the dashboard_panel
+            productsForm.Show();
+        }
+
+
 
 
 
@@ -168,6 +181,16 @@ namespace restaurantSystem
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void products_btn_Click(object sender, EventArgs e)
+        {
+            LoadProductsForm();
+        }
+
+        private void loadDashboard(object sender, EventArgs e)
+        {
+            LoadDashboardForm();
         }
     }
 }

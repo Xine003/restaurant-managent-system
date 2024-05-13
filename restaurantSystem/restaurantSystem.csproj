@@ -167,6 +167,12 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewOrder.Designer.cs">
+      <DependentUpon>NewOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +190,12 @@
     </Compile>
     <Compile Include="Pos.Designer.cs">
       <DependentUpon>Pos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products.Designer.cs">
+      <DependentUpon>Products.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -246,6 +258,9 @@
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewOrder.resx">
+      <DependentUpon>NewOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pos.resx">
       <DependentUpon>Pos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products.resx">
+      <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -300,6 +318,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Line 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 373.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 383.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rectangle 3831.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 164.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1642.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1643.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reciept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reciept1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reciept2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
