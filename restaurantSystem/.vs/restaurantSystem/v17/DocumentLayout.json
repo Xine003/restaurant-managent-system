@@ -1,20 +1,38 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\",
   "Documents": [
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+=======
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\user\\onedrive\\documents\\github\\restaurant\\resto\\restaurant-managent-system\\restaurantsystem\\neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> Stashed changes
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+<<<<<<< Updated upstream
       "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -44,6 +62,9 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+=======
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+>>>>>>> Stashed changes
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:dashboard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -62,20 +83,46 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NewOrder.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs",
+              "RelativeDocumentMoniker": "NewOrder.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs [Design]",
+              "RelativeToolTip": "NewOrder.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T10:14:25.617Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+<<<<<<< Updated upstream
               "DocumentIndex": 0,
               "Title": "Order.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Order.cs",
               "RelativeDocumentMoniker": "Order.cs",
               "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Order.cs [Design]",
               "RelativeToolTip": "Order.cs [Design]",
+=======
+              "DocumentIndex": 1,
+              "Title": "NewOrder.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs",
+              "RelativeDocumentMoniker": "NewOrder.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\NewOrder.cs",
+              "RelativeToolTip": "NewOrder.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwBoAAAAAAAAA",
+>>>>>>> Stashed changes
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-11T08:37:20.708Z",
               "EditorCaption": " [Design]"
@@ -96,6 +143,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+<<<<<<< Updated upstream
               "Title": "AddItems.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\AddItems.cs",
               "RelativeDocumentMoniker": "AddItems.cs",
@@ -129,10 +177,20 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-11T07:00:10.488Z",
               "EditorCaption": " [Design]"
+=======
+              "Title": "Dashboard.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\Dashboard.cs",
+              "RelativeDocumentMoniker": "Dashboard.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Dashboard.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Dashboard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T10:23:18.843Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+<<<<<<< Updated upstream
               "Title": "Dashboard.cs",
               "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Dashboard.cs",
               "RelativeDocumentMoniker": "Dashboard.cs",
@@ -154,19 +212,39 @@
               "ViewState": "AQIAAAsAAAAAAAAAAAAvwCAAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-09T08:00:23.936Z"
+=======
+              "Title": "Cashier.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\Cashier.cs",
+              "RelativeDocumentMoniker": "Cashier.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\Cashier.cs",
+              "RelativeToolTip": "Cashier.cs",
+              "ViewState": "AQIAAEIAAAAAAAAAAAAAABkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T09:13:43.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cashier.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\Cashier.cs",
+              "RelativeDocumentMoniker": "Cashier.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Cashier.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Cashier.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-11T09:13:17.313Z"
+>>>>>>> Stashed changes
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Main.cs",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs",
+              "ToolTip": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\Main.cs",
               "RelativeToolTip": "Main.cs",
               "ViewState": "AQIAAHcAAAAAAAAAAAAkwI8AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-09T07:56:49.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-09T07:56:49.612Z"
             },
             {
               "$type": "Document",
@@ -183,11 +261,12 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Main.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs",
+              "DocumentMoniker": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Restaurant\\RESTO\\restaurant-managent-system\\restaurantSystem\\Main.cs",
               "RelativeDocumentMoniker": "Main.cs",
               "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs [Design]",
-              "RelativeToolTip": "Main.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+<<<<<<< Updated upstream
               "WhenOpened": "2024-05-09T07:39:18.203Z",
               "EditorCaption": " [Design]"
             },
@@ -214,6 +293,9 @@
               "ViewState": "AQIAACQAAAAAAAAAAAAAADIAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-11T07:48:46.3Z"
+=======
+              "WhenOpened": "2024-05-09T07:39:18.203Z"
+>>>>>>> Stashed changes
             }
           ]
         }
