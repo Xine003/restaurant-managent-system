@@ -361,5 +361,65 @@
   <ItemGroup>
     <None Include="Resources\reciept2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\less-than.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\period.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\equal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\number-6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\multiplication-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\division.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 180.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 180 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1801.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 1802.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 180 %281%291.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 180 %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 180 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Group 180 %284%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -58,6 +58,9 @@ namespace restaurantSystem.DesignCodes
             panelGraphics.DrawPath(borderPen, path);
         }
 
-
+        internal static void SetBorderRadiusWithBorder(Panel panel1, int v, object px)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
