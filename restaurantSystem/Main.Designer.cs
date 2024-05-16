@@ -41,6 +41,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.foodcategory_btn = new System.Windows.Forms.Button();
             this.linepanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -95,6 +96,7 @@
             // navbar
             // 
             this.navbar.BackgroundImage = global::restaurantSystem.Properties.Resources.navbar1;
+            this.navbar.Controls.Add(this.button1);
             this.navbar.Controls.Add(this.logout_btn);
             this.navbar.Controls.Add(this.products_btn);
             this.navbar.Controls.Add(this.employee_btn);
@@ -224,6 +226,16 @@
             this.linepanel.TabIndex = 0;
             this.linepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.linepanel_Paint);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(80, 550);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -261,5 +273,6 @@
         private System.Windows.Forms.Label dashboard_Label;
         private System.Windows.Forms.Button products_btn;
         private System.Windows.Forms.Button logout_btn;
+        private System.Windows.Forms.Button button1;
     }
 }

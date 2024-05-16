@@ -17,6 +17,7 @@ namespace restaurantSystem
         private Dashboard dashboardForm;
         private Order orderForm;
         private Products productsForm;
+        private Users usersForm;
 
         public Main()
         {
@@ -78,9 +79,7 @@ namespace restaurantSystem
 
         private void user_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Users users = new Users();
-            users.Show();
+            LoadUsersForm();
 
             dashboard_Label.Text = "Employee";
         }
@@ -163,6 +162,16 @@ namespace restaurantSystem
             dashboard_panel.Controls.Add(productsForm); // Add productsForm to the dashboard_panel
             productsForm.Show();
         }
+        private void LoadUsersForm()
+        {
+            usersForm = new Users();
+            usersForm.TopLevel = false;
+            usersForm.FormBorderStyle = FormBorderStyle.None;
+            usersForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(usersForm); // Add productsForm to the dashboard_panel
+            usersForm.Show();
+        }
 
 
 
@@ -196,6 +205,12 @@ namespace restaurantSystem
         {
             LoadDashboardForm();
             dashboard_Label.Text = "Dashboard";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            addEmployee add = new addEmployee();
+            add.Show();
         }
     }
 }

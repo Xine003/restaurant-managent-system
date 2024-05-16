@@ -139,7 +139,7 @@ namespace restaurantSystem
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            sampleDisplay.Text = sampleDisplay.Text = num1btn.Text;
+            sampleDisplay.Text = sampleDisplay.Text + num1btn.Text;
         }
         private void pictureBox4_Click(object sender, EventArgs e)
         {
@@ -161,12 +161,12 @@ namespace restaurantSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            sampleDisplay.Text = sampleDisplay.Text + clearbtn.Text;
+            sampleDisplay.Text = sampleDisplay.Text + num3btn.Text;
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            sampleDisplay.Text = "";
         }
 
         private void num4btn_Click(object sender, EventArgs e)
@@ -209,6 +209,14 @@ namespace restaurantSystem
         {
             sampleDisplay.Text = sampleDisplay.Text + num0btn.Text;
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (sampleDisplay.Text.Length > 0)
+            {
+                sampleDisplay.Text = sampleDisplay.Text.Substring(0, sampleDisplay.Text.Length - 1);
+            }
         }
     }
     
