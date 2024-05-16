@@ -18,6 +18,7 @@ namespace restaurantSystem
             InitializeComponent();
             DesignCodes.Borders.SetBorderRadius(orderSummary, 30);
             DesignCodes.Borders.SetBorderRadius(receiptProduct, 30);
+            DesignCodes.Borders.SetBorderRadius(paymentPanel, 30);
 
         }
 
@@ -217,6 +218,21 @@ namespace restaurantSystem
             {
                 sampleDisplay.Text = sampleDisplay.Text.Substring(0, sampleDisplay.Text.Length - 1);
             }
+        }
+
+        private void payment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void paymentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_3(object sender, EventArgs e)
+        {
+
         }
     }
     

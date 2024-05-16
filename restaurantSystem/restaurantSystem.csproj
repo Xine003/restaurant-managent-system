@@ -411,6 +411,7 @@
     <None Include="Resources\letter-c.png" />
     <None Include="Resources\Group 180 %282%29.png" />
     <None Include="Resources\Group 180 %284%29.png" />
+    <None Include="Resources\bgFinal.png" />
     <Content Include="Resources\trashbin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
