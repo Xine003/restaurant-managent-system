@@ -51,7 +51,8 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::restaurantSystem.Properties.Resources.BG;
+            this.panel1.BackgroundImage = global::restaurantSystem.Properties.Resources.bgFinal;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.loginContainer);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;

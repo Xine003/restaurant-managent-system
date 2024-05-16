@@ -329,3 +329,6 @@ C:\Users\Admin\source\repos\restaurant-managent-system\restaurantSystem\obj\Debu
 C:\Users\Admin\source\repos\restaurant-managent-system\restaurantSystem\obj\Debug\restaurantSystem.pdb
 C:\Users\Admin\source\repos\restaurant-managent-system\restaurantSystem\obj\Debug\restaurantSystem.Receipt.resources
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.addEmployee.resources
+C:\Users\Guest user\source\repos\ClonedRepo\restaurant-managent-system\restaurantSystem\obj\Debug\restaurantSystem.addEmployee.resources
+C:\Users\Guest user\source\repos\ClonedRepo\restaurant-managent-system\restaurantSystem\obj\Debug\restaurantSystem.ControlProductCard.resources
+C:\Users\Guest user\source\repos\ClonedRepo\restaurant-managent-system\restaurantSystem\obj\Debug\restaurantSystem.ProductCard.resources
