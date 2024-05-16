@@ -33,15 +33,14 @@
             this.dashboard_Label = new System.Windows.Forms.Label();
             this.dashboard_panel = new System.Windows.Forms.Panel();
             this.navbar = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.logout_btn = new System.Windows.Forms.Button();
             this.products_btn = new System.Windows.Forms.Button();
             this.employee_btn = new System.Windows.Forms.Button();
             this.home_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.foodcategory_btn = new System.Windows.Forms.Button();
             this.linepanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -103,11 +102,20 @@
             this.navbar.Controls.Add(this.home_btn);
             this.navbar.Controls.Add(this.label1);
             this.navbar.Controls.Add(this.pictureBox2);
-            this.navbar.Controls.Add(this.foodcategory_btn);
             this.navbar.Location = new System.Drawing.Point(0, 0);
             this.navbar.Name = "navbar";
             this.navbar.Size = new System.Drawing.Size(217, 751);
             this.navbar.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(80, 550);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Test";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // logout_btn
             // 
@@ -132,7 +140,7 @@
             this.products_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.products_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.products_btn.ForeColor = System.Drawing.Color.Transparent;
-            this.products_btn.Location = new System.Drawing.Point(0, 393);
+            this.products_btn.Location = new System.Drawing.Point(0, 333);
             this.products_btn.Margin = new System.Windows.Forms.Padding(4);
             this.products_btn.Name = "products_btn";
             this.products_btn.Size = new System.Drawing.Size(213, 54);
@@ -148,7 +156,7 @@
             this.employee_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employee_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employee_btn.ForeColor = System.Drawing.SystemColors.Control;
-            this.employee_btn.Location = new System.Drawing.Point(0, 448);
+            this.employee_btn.Location = new System.Drawing.Point(0, 387);
             this.employee_btn.Margin = new System.Windows.Forms.Padding(4);
             this.employee_btn.Name = "employee_btn";
             this.employee_btn.Size = new System.Drawing.Size(213, 60);
@@ -200,23 +208,6 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // foodcategory_btn
-            // 
-            this.foodcategory_btn.BackColor = System.Drawing.Color.Transparent;
-            this.foodcategory_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.foodcategory_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.foodcategory_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.foodcategory_btn.ForeColor = System.Drawing.SystemColors.Control;
-            this.foodcategory_btn.Location = new System.Drawing.Point(0, 330);
-            this.foodcategory_btn.Margin = new System.Windows.Forms.Padding(4);
-            this.foodcategory_btn.Name = "foodcategory_btn";
-            this.foodcategory_btn.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.foodcategory_btn.Size = new System.Drawing.Size(213, 62);
-            this.foodcategory_btn.TabIndex = 4;
-            this.foodcategory_btn.Text = "Category";
-            this.foodcategory_btn.UseVisualStyleBackColor = false;
-            this.foodcategory_btn.Click += new System.EventHandler(this.order_btn_Click);
-            // 
             // linepanel
             // 
             this.linepanel.BackgroundImage = global::restaurantSystem.Properties.Resources.Line_1;
@@ -225,16 +216,6 @@
             this.linepanel.Size = new System.Drawing.Size(1328, 10);
             this.linepanel.TabIndex = 0;
             this.linepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.linepanel_Paint);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(80, 550);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Main
             // 
@@ -262,7 +243,6 @@
         #endregion
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button foodcategory_btn;
         private System.Windows.Forms.Button employee_btn;
         private System.Windows.Forms.Button home_btn;
         private System.Windows.Forms.Panel panel1;

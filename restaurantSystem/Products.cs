@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,7 +52,7 @@ namespace restaurantSystem
         {
             AddItems add_item = new AddItems();
             add_item.Show();
-       }
+        }
 
         private void Products_Load(object sender, EventArgs e)
         {
@@ -90,7 +91,6 @@ namespace restaurantSystem
                         adapter.Fill(dataTable);
                     }
 
-                    // Set the new data source
                     dataGridView1.DataSource = dataTable;
 
                     dataGridView1.ForeColor = Color.White;
@@ -118,6 +118,9 @@ namespace restaurantSystem
 
 
 
+
+
+
         private void deleteRow(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -126,56 +129,79 @@ namespace restaurantSystem
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dataGridView1.Columns["DeleteButton"].Index && e.RowIndex >= 0)
-            {
-                int productId = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["id"].Value);
-
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        db.openConnection();
-
-                        string query = "DELETE FROM items WHERE id = @id";
-
-                        using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
-                        {
-                            cmd.Parameters.Add("@id", MySqlDbType.Int32).Value = productId;
-
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                dataGridView1.Rows.RemoveAt(e.RowIndex);
-                                MessageBox.Show("Product deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                // Refresh the DataGridView to reflect changes
-                                LoadDataToDataGridView();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed to delete product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error deleting product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        db.closeConnection();
-                    }
-                }
-            }
+           
         }
 
 
 
-       
+        private void tableclicked(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                // Delete button clicked
+                // Your deletion logic here
+            }
+            else if (e.RowIndex >= 0)
+            {
+                // Display item details
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
+                int userId = Convert.ToInt32(row.Cells["id"].Value);
+                string name = row.Cells["productName"].Value.ToString();
+                string category = row.Cells["productCategory"].Value.ToString();
+                int price = Convert.ToInt32(row.Cells["productPrice"].Value);
 
+                Bitmap imageData = null;
+
+                try
+                {
+                    int productId = Convert.ToInt32(row.Cells["id"].Value);
+
+                    using (MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=restaurant"))
+                    {
+                        connection.Open();
+
+                        string query = "SELECT productImage FROM items WHERE id = @id";
+
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@id", productId);
+
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                if (reader.Read())
+                                {
+                                    // Read the VARBINARY data as byte array
+                                    if (!reader.IsDBNull(reader.GetOrdinal("productImage")))
+                                    {
+                                        byte[] imageBytes = (byte[])reader["productImage"];
+                                        // Convert byte array to Bitmap
+                                        using (MemoryStream ms = new MemoryStream(imageBytes))
+                                        {
+                                            imageData = new Bitmap(ms);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading product image: " + ex.Message);
+                    return;
+                }
+
+                AddItems addItemsForm = new AddItems(userId, name, price, category, imageData);
+                addItemsForm.Show();
+                addItemsForm.DisableButton1();
+            }
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

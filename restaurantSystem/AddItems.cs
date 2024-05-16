@@ -11,12 +11,13 @@ using System.Windows.Forms;
 using restaurantSystem.DesignCodes;
 using System.Drawing.Imaging;
 using System.IO;
+using Sitecore.FakeDb;
 
 namespace restaurantSystem
 {
     public partial class AddItems : Form
     {
-        private DB DB = new DB();
+        private DB db = new DB();
         public AddItems()
         {
             InitializeComponent();
@@ -31,19 +32,75 @@ namespace restaurantSystem
 
 
         private Products productsForm;
+
         public AddItems(Products productsForm)
         {
             InitializeComponent();
             this.productsForm = productsForm; 
         }
 
+        public void DisableButton1()
+        {
+            additem_btn.Enabled = false;
+        }
+
+        public AddItems(int userId, string name, int price, string category, Bitmap imageData)
+        {
+            InitializeComponent();
+
+            labelUserID.Text = userId.ToString();
+            i_name.Text = name;
+            i_price.Text = price.ToString();
+
+            LoadCategories();
+
+            SetSelectedCategory(category);
+
+            if (imageData != null)
+            {
+                pictureProduct.Image = imageData;
+            }
+        }
+
+        private void LoadCategories()
+        {
+            try
+            {
+
+                i_category.Items.Clear();
+
+                i_category.Items.Add("Choose Category");
+                i_category.Items.Add("Main Course");
+                i_category.Items.Add("Appetizer");
+                i_category.Items.Add("Desserts");
+                i_category.Items.Add("Beverages");
+                i_category.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading categories: " + ex.Message);
+            }
+        }
+
+        private void SetSelectedCategory(string category)
+        {
+            int index = i_category.FindStringExact(category);
+
+        
+            if (index != -1)
+            {
+                i_category.SelectedIndex = index;
+            }
+        }
+
+
 
 
         private void back_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Inventory inventory = new Inventory();
-            inventory.Show();
+            UpdateProduct();
+
+
         }
 
         private void additem_btn_Click(object sender, EventArgs e)
@@ -51,30 +108,29 @@ namespace restaurantSystem
 
             try
             {
-                // Get the image data from the PictureBox
+              
                 byte[] imageData = ImageToByteArray(pictureProduct.Image);
 
-                // Open the database connection
+                
                 using (MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=restaurant"))
                 {
                     connection.Open();
 
-                    // Define the INSERT statement with parameters to prevent SQL injection
                     string query = "INSERT INTO items (name, price, category, productImage) VALUES (@name, @price, @category, @image)";
 
-                    // Create a MySqlCommand object with the INSERT statement and connection
+                   
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        // Add parameters to the command
+                       
                         command.Parameters.AddWithValue("@name", i_name.Text);
                         command.Parameters.AddWithValue("@price", i_price.Text);
                         command.Parameters.AddWithValue("@category", i_category.SelectedItem.ToString());
                         command.Parameters.AddWithValue("@image", imageData);
 
-                        // Execute the command
+                     
                         command.ExecuteNonQuery();
 
-                        // Inform the user that the item has been added successfully
+                      
                         MessageBox.Show("Item added successfully!");
 
                         pictureProduct.Image = null;
@@ -86,7 +142,7 @@ namespace restaurantSystem
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that occur during database operations
+                
                 MessageBox.Show("Error adding item: " + ex.Message);
             }
 
@@ -118,77 +174,152 @@ namespace restaurantSystem
         }
 
 
-        private void LoadCategories()
+      
+
+
+        private void chooseImage(object sender, MouseEventArgs e)
+
         {
+          
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+         
+            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
+
+          
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                 
+                    string imagePath = openFileDialog.FileName;
+
+                  
+                    pictureProduct.Image = Image.FromFile(imagePath);
+                }
+                catch (Exception ex)
+                {
+                   
+                    MessageBox.Show("Error loading image: " + ex.Message);
+                }
+            }
+
+        }
+
+        private void i_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void UpdateProduct()
+        {
+           
+            if (string.IsNullOrWhiteSpace(i_name.Text) || string.IsNullOrWhiteSpace(i_price.Text) || i_category.SelectedIndex == 0)
+            {
+                MessageBox.Show("Please fill in all fields.", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                // Open a connection to the database
+              
+                int productId = Convert.ToInt32(labelUserID.Text);
+
+             
                 using (MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=restaurant"))
                 {
                     connection.Open();
 
-                    // Define the query to select categories from the database
-                    string query = "SELECT category FROM category";
+                    string query = "UPDATE items SET name = @name, price = @price, category = @category WHERE id = @id";
 
-                    // Create a command object with the query and connection
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        // Execute the query and read the results
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            // Clear existing items in the ComboBox
-                            i_category.Items.Clear();
+                        command.Parameters.AddWithValue("@name", i_name.Text);
+                        command.Parameters.AddWithValue("@price", i_price.Text);
+                        command.Parameters.AddWithValue("@category", i_category.SelectedItem.ToString());
+                        command.Parameters.AddWithValue("@id", productId);
 
-                            // Loop through the results and add each category to the ComboBox
-                            while (reader.Read())
-                            {
-                                i_category.Items.Add(reader["category"].ToString());
-                            }
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Product updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that occur during database operations
-                MessageBox.Show("Error loading categories: " + ex.Message);
+                MessageBox.Show("Error updating product: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void chooseImage(object sender, MouseEventArgs e)
-
+        private void UpdateImage()
         {
-            // Create an instance of OpenFileDialog
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            // Set the initial directory and filter for image files
-            openFileDialog.InitialDirectory = "c:\\";
-            openFileDialog.Filter = "Image Files(*.jpg; *.jpeg; *.png; *.bmp)|*.jpg; *.jpeg; *.png; *.bmp";
-
-            // Show the dialog and check if the user clicked OK
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                try
-                {
-                    // Get the selected file name
-                    string imagePath = openFileDialog.FileName;
+                // Get the ID of the product
+                int productId = Convert.ToInt32(labelUserID.Text);
 
-                    // Load the selected image into the PictureBox
-                    pictureProduct.Image = Image.FromFile(imagePath);
-                }
-                catch (Exception ex)
+                // Convert the new image to byte array
+                byte[] newImageData = null;
+                if (pictureProduct.Image != null)
                 {
-                    // Handle any exceptions that occur while loading the image
-                    MessageBox.Show("Error loading image: " + ex.Message);
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        pictureProduct.Image.Save(ms, pictureProduct.Image.RawFormat);
+                        newImageData = ms.ToArray();
+                    }
+                }
+
+                // Update only the image column in the database
+                if (newImageData != null)
+                {
+                    using (MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=restaurant"))
+                    {
+                        connection.Open();
+
+                        string query = "UPDATE items SET productImage = @image WHERE id = @id";
+
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@image", newImageData);
+                            command.Parameters.AddWithValue("@id", productId);
+
+                            int rowsAffected = command.ExecuteNonQuery();
+
+                            if (rowsAffected > 0)
+                            {
+                                MessageBox.Show("Product image updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to update product image.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No new image selected.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-
-           
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error updating product image: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

@@ -28,13 +28,13 @@ namespace restaurantSystem
             this.FormBorderStyle = FormBorderStyle.None;
 
             home_btn.FlatAppearance.BorderSize = 0;
-            foodcategory_btn.FlatAppearance.BorderSize = 0;
+           
             products_btn.FlatAppearance.BorderSize = 0;
             employee_btn.FlatAppearance.BorderSize = 0;
             logout_btn.FlatAppearance.BorderSize = 0;
 
             DesignCodes.Borders.SetBorderRadius(home_btn, 20);
-            DesignCodes.Borders.SetBorderRadius(foodcategory_btn, 20);
+        
             DesignCodes.Borders.SetBorderRadius(products_btn, 20);
             DesignCodes.Borders.SetBorderRadius(employee_btn, 20);
             DesignCodes.Borders.SetBorderRadius(logout_btn, 20);
@@ -73,8 +73,6 @@ namespace restaurantSystem
 
         private void order_btn_Click(object sender, EventArgs e)
         {
-            LoadCategoryForm();
-            dashboard_Label.Text = "Category";
         }
 
         private void user_btn_Click(object sender, EventArgs e)
@@ -141,16 +139,7 @@ namespace restaurantSystem
             dashboard_panel.Controls.Add(dashboardForm);
             dashboardForm.Show();
         }
-        private void LoadCategoryForm()
-        {
-            orderForm = new Order();
-            orderForm.TopLevel = false;
-            orderForm.FormBorderStyle = FormBorderStyle.None;
-            orderForm.Dock = DockStyle.Fill;
-            dashboard_panel.Controls.Clear();
-            dashboard_panel.Controls.Add(orderForm); 
-            orderForm.Show();
-        }
+     
 
         private void LoadProductsForm()
         {

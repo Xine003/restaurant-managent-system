@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureProduct = new System.Windows.Forms.PictureBox();
+            this.labelUserID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProduct)).BeginInit();
             this.SuspendLayout();
@@ -68,28 +69,35 @@
             this.i_category.Name = "i_category";
             this.i_category.Size = new System.Drawing.Size(142, 24);
             this.i_category.TabIndex = 3;
+            this.i_category.SelectedIndexChanged += new System.EventHandler(this.i_category_SelectedIndexChanged);
             // 
             // back_btn
             // 
+            this.back_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(135)))), ((int)(((byte)(183)))));
+            this.back_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.back_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.back_btn.Location = new System.Drawing.Point(470, 243);
             this.back_btn.Margin = new System.Windows.Forms.Padding(4);
             this.back_btn.Name = "back_btn";
             this.back_btn.Size = new System.Drawing.Size(100, 40);
             this.back_btn.TabIndex = 10;
-            this.back_btn.Text = "Back";
-            this.back_btn.UseVisualStyleBackColor = true;
+            this.back_btn.Text = "Update";
+            this.back_btn.UseVisualStyleBackColor = false;
             this.back_btn.Click += new System.EventHandler(this.back_btn_Click);
             // 
             // additem_btn
             // 
+            this.additem_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(107)))), ((int)(((byte)(57)))));
+            this.additem_btn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.additem_btn.Font = new System.Drawing.Font("Book Antiqua", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.additem_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.additem_btn.Location = new System.Drawing.Point(366, 243);
             this.additem_btn.Margin = new System.Windows.Forms.Padding(4);
             this.additem_btn.Name = "additem_btn";
             this.additem_btn.Size = new System.Drawing.Size(100, 40);
             this.additem_btn.TabIndex = 9;
             this.additem_btn.Text = "Add Item";
-            this.additem_btn.UseVisualStyleBackColor = true;
+            this.additem_btn.UseVisualStyleBackColor = false;
             this.additem_btn.Click += new System.EventHandler(this.additem_btn_Click);
             // 
             // label1
@@ -148,6 +156,17 @@
             this.pictureProduct.TabStop = false;
             this.pictureProduct.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chooseImage);
             // 
+            // labelUserID
+            // 
+            this.labelUserID.AutoSize = true;
+            this.labelUserID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelUserID.Location = new System.Drawing.Point(41, 69);
+            this.labelUserID.Name = "labelUserID";
+            this.labelUserID.Size = new System.Drawing.Size(44, 16);
+            this.labelUserID.TabIndex = 16;
+            this.labelUserID.Text = "label4";
+            this.labelUserID.Visible = false;
+            // 
             // AddItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -155,6 +174,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(19)))), ((int)(((byte)(21)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(677, 337);
+            this.Controls.Add(this.labelUserID);
             this.Controls.Add(this.pictureProduct);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -190,5 +210,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureProduct;
+        private System.Windows.Forms.Label labelUserID;
     }
 }

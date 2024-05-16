@@ -14,13 +14,34 @@ namespace restaurantSystem
     public partial class ControlProductCard : UserControl
     {
 
+        public event EventHandler Clicked;
         private DB db = new DB();
-
+      
         public ControlProductCard()
         {
             InitializeComponent();
-            
+            pictureBox.Click -= productCard; 
+            pictureBox.Click += productCard;
+
         }
+
+
+
+
+
+
+
+        public string ProductName
+        {
+            get { return productNameLabel.Text; }
+        }
+
+
+
+
+
+
+
 
         public void LoadDataFromDatabase(string productName, string productPrice)
         {
@@ -32,5 +53,17 @@ namespace restaurantSystem
         {
             pictureBox.Image = image;
         }
+
+        private void productCard(object sender, EventArgs e)
+        {
+            string productName = productNameLabel.Text;
+            Console.WriteLine("PictureBox clicked! Product Name: " + productName);
+            
+        }
+
+        
+
+
+
     }
 }

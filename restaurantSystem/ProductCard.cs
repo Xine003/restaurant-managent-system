@@ -15,7 +15,7 @@ namespace restaurantSystem
 {
     public partial class ProductCard : Form
     {
-     
+        public event EventHandler<string> ItemClicked;
         private DB db = new DB();
 
         public ProductCard()
@@ -33,7 +33,7 @@ namespace restaurantSystem
                 db.openConnection();
 
                 // Define your query to select data from the "items" table
-                string query = "SELECT name, price_per_quantity, productImage FROM items";
+                string query = "SELECT name, price, productImage FROM items";
 
                 // Create a MySqlCommand object to execute the query
                 using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
@@ -46,7 +46,7 @@ namespace restaurantSystem
                         {
                             // Load data into labels
                             productNameLabel.Text = reader["name"].ToString();
-                            productPriceLabel.Text = reader["price_per_quantity"].ToString();
+                            productPriceLabel.Text = reader["price"].ToString();
 
                             // Check if the productImage column is not null
                             if (!reader.IsDBNull(reader.GetOrdinal("productImage")))
@@ -84,6 +84,11 @@ namespace restaurantSystem
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void pictureBoxClicked(object sender, EventArgs e)
+        {
+            ItemClicked?.Invoke(this, productNameLabel.Text);
         }
     }
 }

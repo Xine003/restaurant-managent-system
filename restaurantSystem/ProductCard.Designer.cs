@@ -31,13 +31,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.productPriceLabel = new System.Windows.Forms.Label();
             this.productNameLabel = new System.Windows.Forms.Label();
-            this.imageHolder = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.imageHolder = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageHolder)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageHolder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,16 +75,6 @@
             this.productNameLabel.TabIndex = 1;
             this.productNameLabel.Text = "productNameLabel";
             // 
-            // imageHolder
-            // 
-            this.imageHolder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageHolder.Location = new System.Drawing.Point(0, 0);
-            this.imageHolder.Name = "imageHolder";
-            this.imageHolder.Size = new System.Drawing.Size(182, 186);
-            this.imageHolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imageHolder.TabIndex = 0;
-            this.imageHolder.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -103,6 +93,17 @@
             this.panel3.Size = new System.Drawing.Size(184, 188);
             this.panel3.TabIndex = 4;
             // 
+            // imageHolder
+            // 
+            this.imageHolder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageHolder.Location = new System.Drawing.Point(0, 0);
+            this.imageHolder.Name = "imageHolder";
+            this.imageHolder.Size = new System.Drawing.Size(182, 186);
+            this.imageHolder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageHolder.TabIndex = 0;
+            this.imageHolder.TabStop = false;
+            this.imageHolder.Click += new System.EventHandler(this.pictureBoxClicked);
+            // 
             // ProductCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -114,9 +115,9 @@
             this.Text = "ProductCard";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imageHolder)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imageHolder)).EndInit();
             this.ResumeLayout(false);
 
         }

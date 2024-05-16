@@ -11,14 +11,16 @@ namespace restaurantSystem
         {
             InitializeComponent();
             employee_Table.BackgroundColor = System.Drawing.Color.FromArgb(17, 19, 21);
+
+           
+
+
         }
 
         private void back_btn_Click(object sender, EventArgs e)
         {
 
-            this.Hide();
-            Main main = new Main();
-            main.Show();
+          
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -29,6 +31,12 @@ namespace restaurantSystem
         private void Users_Load(object sender, EventArgs e)
         {
            employee_Table.DataSource = userlist();
+
+            foreach (DataGridViewColumn column in employee_Table.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
         }
 
         private DataTable userlist() {
@@ -106,6 +114,46 @@ namespace restaurantSystem
         private void employeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void employee_Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+
+
+        private void addProducts_btn_Paint(object sender, PaintEventArgs e)
+        {
+           
+
+        }
+
+        private void addUser(object sender, MouseEventArgs e)
+        {
+            addEmployee newEmployee = new addEmployee();
+            newEmployee.Show();
+        }
+
+        private void employee_Table_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = employee_Table.Rows[e.RowIndex];
+
+               
+                int userId = Convert.ToInt32(row.Cells["id"].Value); // Assuming the ID column name is "id"
+                string firstName = row.Cells["firstname"].Value.ToString();
+                string lastName = row.Cells["lastname"].Value.ToString();
+                string emailAddress = row.Cells["emailaddress"].Value.ToString();
+                string userName = row.Cells["username"].Value.ToString();
+                string passWord = row.Cells["password"].Value.ToString();
+
+         
+                addEmployee addEmployeeForm = new addEmployee(userId, firstName, lastName, emailAddress, userName, passWord);
+                addEmployeeForm.Show();
+                addEmployeeForm.DisableButton1();
+            }
         }
     }
 }

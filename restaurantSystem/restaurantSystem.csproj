@@ -160,6 +160,12 @@
     </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="DesignCodes\Borders.cs" />
+    <Compile Include="ordersCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ordersCard.Designer.cs">
+      <DependentUpon>ordersCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductCard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ordersCard.resx">
+      <DependentUpon>ordersCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
