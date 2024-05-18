@@ -146,12 +146,6 @@
     <Compile Include="Cashier.Designer.cs">
       <DependentUpon>Cashier.cs</DependentUpon>
     </Compile>
-    <Compile Include="ControlProductCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ControlProductCard.Designer.cs">
-      <DependentUpon>ControlProductCard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,18 +154,6 @@
     </Compile>
     <Compile Include="DB.cs" />
     <Compile Include="DesignCodes\Borders.cs" />
-    <Compile Include="ordersCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ordersCard.Designer.cs">
-      <DependentUpon>ordersCard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ProductCard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProductCard.Designer.cs">
-      <DependentUpon>ProductCard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Inventory.cs">
       <SubType>Form</SubType>
@@ -279,9 +261,6 @@
     <EmbeddedResource Include="Cashier.resx">
       <DependentUpon>Cashier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlProductCard.resx">
-      <DependentUpon>ControlProductCard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,17 +279,11 @@
     <EmbeddedResource Include="Order.resx">
       <DependentUpon>Order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ordersCard.resx">
-      <DependentUpon>ordersCard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pos.resx">
       <DependentUpon>Pos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProductCard.resx">
-      <DependentUpon>ProductCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.cs</DependentUpon>
@@ -422,6 +395,7 @@
     <None Include="Resources\Group 180 %284%29.png" />
     <None Include="Resources\bgFinal.png" />
     <None Include="Resources\round-table.png" />
+    <None Include="Resources\logo.png" />
     <Content Include="Resources\trashbin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

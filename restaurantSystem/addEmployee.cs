@@ -220,5 +220,10 @@ namespace restaurantSystem
                 MessageBox.Show("Invalid user ID.");
             }
         }
+
+        private void addEmployee_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

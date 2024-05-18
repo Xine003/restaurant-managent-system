@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.panel1 = new System.Windows.Forms.Panel();
             this.dateTime_label = new System.Windows.Forms.Label();
             this.dashboard_Label = new System.Windows.Forms.Label();
             this.dashboard_panel = new System.Windows.Forms.Panel();
             this.navbar = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.logout_btn = new System.Windows.Forms.Button();
             this.products_btn = new System.Windows.Forms.Button();
             this.employee_btn = new System.Windows.Forms.Button();
@@ -95,7 +95,6 @@
             // navbar
             // 
             this.navbar.BackgroundImage = global::restaurantSystem.Properties.Resources.navbar1;
-            this.navbar.Controls.Add(this.button1);
             this.navbar.Controls.Add(this.logout_btn);
             this.navbar.Controls.Add(this.products_btn);
             this.navbar.Controls.Add(this.employee_btn);
@@ -106,16 +105,6 @@
             this.navbar.Name = "navbar";
             this.navbar.Size = new System.Drawing.Size(217, 751);
             this.navbar.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(80, 550);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // logout_btn
             // 
@@ -184,7 +173,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(47, 167);
@@ -197,13 +186,14 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(62, 49);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(24, 37);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(95, 100);
+            this.pictureBox2.Size = new System.Drawing.Size(167, 112);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -253,6 +243,5 @@
         private System.Windows.Forms.Label dashboard_Label;
         private System.Windows.Forms.Button products_btn;
         private System.Windows.Forms.Button logout_btn;
-        private System.Windows.Forms.Button button1;
     }
 }

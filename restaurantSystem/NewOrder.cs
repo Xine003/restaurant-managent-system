@@ -5,30 +5,40 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using restaurantSystem.DesignCodes;
+using System.Data.SqlClient;
 
 namespace restaurantSystem
 {
-    public partial class NewOrder : Form
+    public partial class comboBox1 : Form
     {
         private DB db = new DB();
-        ordersCard orderCard;
-        public NewOrder()
+   
+        private DataRow currentRow;
+
+        public comboBox1()
         {
             InitializeComponent();
             PopulateFlowLayout();
             flowLayoutPanel.AutoScroll = true;
-
+            DesignCodes.Borders.SetBorderRadius(confirmBtn, 20);
+            DesignCodes.Borders.SetBorderRadius(cancelBtn, 20);
           
+            confirmBtn.FlatAppearance.BorderSize = 0;
+      
+            cancelBtn.FlatAppearance.BorderSize = 0;
+            UpdateComboBoxFromOrderTable();
 
 
 
         }
 
-       
+
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -45,87 +55,28 @@ namespace restaurantSystem
 
         }
 
-        private void PopulateFlowLayout(string category = null)
-        {
-            flowLayoutPanel.Controls.Clear();
-
-            try
-            {
-                db.openConnection();
-
-                string query = "SELECT name, price, productImage FROM items";
-                if (!string.IsNullOrEmpty(category))
-                {
-                    query += " WHERE category = @category";
-                }
-
-                using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
-                {
-                    if (!string.IsNullOrEmpty(category))
-                    {
-                        cmd.Parameters.AddWithValue("@category", category);
-                    }
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            ControlProductCard controlProductCard = new ControlProductCard();
-                            controlProductCard.Margin = new Padding(10);
-
-                            controlProductCard.LoadDataFromDatabase(reader["name"].ToString(), reader["price"].ToString());
-
-                            if (!reader.IsDBNull(reader.GetOrdinal("productImage")))
-                            {
-                                byte[] imageData = (byte[])reader["productImage"];
-
-                                using (var ms = new System.IO.MemoryStream(imageData))
-                                {
-                                    controlProductCard.LoadImageFromDatabase(Image.FromStream(ms));
-                                }
-                            }
-
-                            flowLayoutPanel.Controls.Add(controlProductCard);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error fetching data: " + ex.Message);
-            }
-            finally
-            {
-              
-                db.closeConnection();
-            }
-        }
-
-
-
-
 
         private void mainCourse_Click(object sender, EventArgs e)
         {
-            PopulateFlowLayout("Main Course");
+           
         }
 
       
         private void appetizer_Click(object sender, EventArgs e)
         {
-            PopulateFlowLayout("Appetizer");
+            
         }
 
      
         private void dessert_Click(object sender, EventArgs e)
         {
-            PopulateFlowLayout("Desserts");
+            
         }
 
        
         private void beverages_Click(object sender, EventArgs e)
         {
-            PopulateFlowLayout("Beverages");
+           
         }
 
         private void flowLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -133,33 +84,948 @@ namespace restaurantSystem
 
         }
 
+        decimal totalAmount = 0;
 
-        private void addUserControl(ControlProductCard controlProductCard) { 
-            flowLayoutPanel.Controls.Add(controlProductCard);
+        private void PopulateFlowLayout()
+        {
           
-        
+            DataTable itemsTable = GetItemsFromDatabase();
+            
+            foreach (DataRow row in itemsTable.Rows)
+            {
+               
+                Panel itemPanel = new Panel
+                {
+                    Width = 189,
+                    Height = 250,
+                    Margin = new Padding(5),
+                    BackColor = Color.White
+                };
+                DesignCodes.Borders.SetBorderRadius(itemPanel, 20);
+
+                PictureBox pictureBox = new PictureBox
+                {
+                    Width = 172,
+                    Height = 140,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Image = ByteArrayToImage((byte[])row["productImage"]),
+                    Tag = row["Name"].ToString(),
+                    Location = new Point(8, 5)
+                };
+                DesignCodes.Borders.SetBorderRadius(pictureBox, 20);
+                pictureBox.Click += Item_Click;
+
+                Label nameLabel = new Label
+                {
+                    Text = row["Name"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 150),
+                    Font = new Font("Helvetica", 11, FontStyle.Bold)
+                };
+
+                Label priceLabel = new Label
+                {
+                    Text = row["Price"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 175),
+                    Font = new Font("Helvetica", 9, FontStyle.Italic)
+                };
+
+                Label quantityTextLabel = new Label
+                {
+                    Text = "Qty:",
+                    AutoSize = true,
+                    Location = new Point(5, 213)
+                };
+
+
+               TextBox quantityTextBox = new TextBox
+                {
+                    Width = 90,
+                    Location = new Point(40, 210)
+                };
+
+             
+
+                Button addButton = new Button
+                {
+                    Text = "Add",
+                    Width = 48,
+                    Location = new Point(quantityTextBox.Right + 5, 209),
+                    BackColor = Color.Green,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = row
+                };
+                DesignCodes.Borders.SetBorderRadius(addButton, 20);
+
+               
+                addButton.Click += addButton_Click;
+
+                itemPanel.Controls.Add(addButton);
+
+                addButton.Click += (sender, e) =>
+                {
+                    string itemName = currentRow["Name"].ToString();
+                    string quantity = quantityTextBox.Text;
+                    string price = currentRow["Price"].ToString();
+
+                    if (int.TryParse(quantity, out int parsedQuantity) && parsedQuantity > 0)
+                    {
+                        Console.WriteLine($"{itemName} {price} {quantity}");
+
+                        decimal totalPrice = Convert.ToDecimal(price) * parsedQuantity;
+                        totalAmount += totalPrice;
+                        totalAmountLabel.Text = totalAmount.ToString();
+
+                        Label itemNameLabel = new Label
+                        {
+                            Text = $"{itemName}",
+                            AutoSize = true,
+                            ForeColor = Color.White,
+                            TextAlign = ContentAlignment.MiddleLeft,
+                            AutoEllipsis = true
+                        };
+
+                        Label perPriceLabel = new Label
+                        {
+                            Text = $"{price}",
+                            AutoSize = true,
+                            ForeColor = Color.White,
+                            TextAlign = ContentAlignment.MiddleLeft
+                        };
+
+                        Label quantityLabel = new Label
+                        {
+                            Text = $"{parsedQuantity}",
+                            AutoSize = true,
+                            ForeColor = Color.White,
+                            TextAlign = ContentAlignment.MiddleLeft
+                        };
+
+                        tableLayoutPanel1.Controls.Add(itemNameLabel, 0, tableLayoutPanel1.RowCount - 1);
+                        tableLayoutPanel1.Controls.Add(perPriceLabel, 1, tableLayoutPanel1.RowCount - 1);
+                        tableLayoutPanel1.Controls.Add(quantityLabel, 2, tableLayoutPanel1.RowCount - 1);
+
+                        tableLayoutPanel1.RowCount++;
+                        quantityTextBox.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid positive integer quantity.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                };
+
+
+
+                itemPanel.Controls.Add(pictureBox);
+                itemPanel.Controls.Add(nameLabel);
+                itemPanel.Controls.Add(priceLabel);
+                itemPanel.Controls.Add(quantityTextLabel);
+                itemPanel.Controls.Add(quantityTextBox);
+                itemPanel.Controls.Add(addButton);
+
+                itemPanel.Padding = new Padding(5, 0, 0, 0);
+                flowLayoutPanel.Controls.Add(itemPanel);
+            }
         }
+
+
+
+        private DataTable GetItemsFromDatabase()
+        {
+            string query = "SELECT Name,Category,  Price, productImage FROM items";
+            DataTable itemsTable = new DataTable();
+
+            db.openConnection();
+
+            using (MySqlCommand command = new MySqlCommand(query, db.getConnection()))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    adapter.Fill(itemsTable);
+                }
+            }
+
+            db.closeConnection();
+
+            return itemsTable;
+        }
+
+        private Image ByteArrayToImage(byte[] byteArray)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+        private void Item_Click(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = sender as PictureBox;
+            string itemName = clickedPictureBox.Tag.ToString();
+            Console.WriteLine(itemName);
+        }
+
 
 
        
 
-        private void ControlProductCard_Clicked(object sender, EventArgs e)
+
+
+        private void addButton_Click(object sender, EventArgs e)
         {
-            // Cast the sender object to ControlProductCard to access its properties
-            ControlProductCard controlProductCard = (ControlProductCard)sender;
+            Button clickedButton = sender as Button;
+            DataRow row = clickedButton.Tag as DataRow;
 
-            // Get the product name from the clicked control
-            string productName = controlProductCard.ProductName;
+            if (row != null)
+            {
+                currentRow = row;
 
-            // Add the product name to the DataGridView
-            dataGridView1.Rows.Add(productName);
+                Panel itemPanel = clickedButton.Parent as Panel;
 
-            // Refresh the DataGridView to reflect the changes
-            dataGridView1.Refresh();
+                TextBox quantityTextBox = itemPanel.Controls.OfType<TextBox>().FirstOrDefault();
+
+                if (quantityTextBox != null)
+                {
+                    string itemName = currentRow["Name"].ToString();
+                    string quantity = quantityTextBox.Text;
+                   
+                  
+                 
+                    clickedButton.Click -= addButton_Click;
+
+                  
+                }
+            }
+        }
+
+        private void mainCourse(object sender, EventArgs e)
+        {
+            flowLayoutPanel.Controls.Clear(); // Clear existing controls
+            FilterMainCourse();
+
+
+        }
+
+        private void appetizer(object sender, EventArgs e)
+        {
+            flowLayoutPanel.Controls.Clear();
+            FilterAppetizer();
+
+
+        }
+
+        private void dessert(object sender, EventArgs e)
+        {
+            flowLayoutPanel.Controls.Clear();
+            FilterDesserts();
+        }
+
+        private void beverages(object sender, EventArgs e)
+        {
+            flowLayoutPanel.Controls.Clear();
+            FilterBeverages();
+
+
+        }
+
+     
+
+        private void confirmBtn_Click(object sender, EventArgs e)
+        {
+            if (tableLayoutPanel1.Controls.Count == 0)
+            {
+                MessageBox.Show("Please input orders.", "Empty Orders", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+            OR.Text = "OR No:" + randomNumber.ToString();
+
+            string connectionString = "server=localhost;port=3306;username=root;password=;database=restaurant";
+
+            string query = "INSERT INTO orderTable (ORNumber, orderName, perPrice, orderQuantity, tableNumber, totalAmount) VALUES (@ORNumber, @OrderName, @PerPrice, @OrderQuantity, @tableNumber, @totalAmount)";
+
+            if (comboBox2.SelectedItem == null)
+            {
+                MessageBox.Show("Select Table Number");
+                return; 
+            }
+
+            foreach (Control control in tableLayoutPanel1.Controls)
+            {
+                if (control is Label label && label.Parent != null && label.Parent.Name == "tableLayoutPanel1")
+                {
+                    string itemName = tableLayoutPanel1.GetControlFromPosition(0, label.TabIndex)?.Text;
+                    string perPrice = tableLayoutPanel1.GetControlFromPosition(1, label.TabIndex)?.Text;
+                    string orderQuantity = tableLayoutPanel1.GetControlFromPosition(2, label.TabIndex)?.Text;
+                    int tableNo = (int)comboBox2.SelectedItem;
+                    string totalAmount = totalAmountLabel.Text;
+
+                    if (!string.IsNullOrEmpty(itemName) && !string.IsNullOrEmpty(perPrice) && !string.IsNullOrEmpty(orderQuantity))
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        {
+                            connection.Open();
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.Parameters.AddWithValue("@ORNumber", randomNumber);
+                                command.Parameters.AddWithValue("@OrderName", itemName);
+                                command.Parameters.AddWithValue("@PerPrice", perPrice);
+                                command.Parameters.AddWithValue("@OrderQuantity", orderQuantity);
+                                command.Parameters.AddWithValue("@tableNumber", tableNo);
+                                command.Parameters.AddWithValue("@totalAmount", totalAmount);
+
+                                command.ExecuteNonQuery();
+                                
+                            }
+                        }
+                        
+                    }
+                }
+            }
+
+            MessageBox.Show("Order Confirmed");
+            tableLayoutPanel1.Controls.Clear();
+            totalAmountLabel.Text = "0.00";
+            OR.Text = "New Order";
+            comboBox2.SelectedIndex = -1;
+
+
+        }
+
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void totalAmountLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelBtn_Click(object sender, EventArgs e)
+        {
+            tableLayoutPanel1.Controls.Clear();
+            totalAmountLabel.Text = "0.00";
+            OR.Text = "Official Reciept";
         }
 
 
 
 
+
+        //for main course only
+
+        private DataTable GetItemsFromDatabase(string category)
+        {
+            string query = $"SELECT Name, Category, Price, productImage FROM items WHERE Category = '{category}'";
+            DataTable itemsTable = new DataTable();
+
+            db.openConnection();
+
+            using (MySqlCommand command = new MySqlCommand(query, db.getConnection()))
+            {
+                using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                {
+                    adapter.Fill(itemsTable);
+                }
+            }
+
+            db.closeConnection();
+
+            return itemsTable;
+        }
+
+        private DataTable GetAppetizerItemsFromDatabase()
+        {
+            return GetItemsFromDatabase("Appetizer");
+        }
+
+        private DataTable GetBeveragesItemsFromDatabase()
+        {
+            return GetItemsFromDatabase("Beverages");
+        }
+
+        private DataTable GetDessertsItemsFromDatabase()
+        {
+            return GetItemsFromDatabase("Desserts");
+        }
+        private DataTable GetMainCourseItemsFromDatabase()
+        {
+            return GetItemsFromDatabase("Main Course");
+        }
+
+
+
+        private void FilterMainCourse()
+        {
+            DataTable mainCourseItemsTable = GetMainCourseItemsFromDatabase(); // Assuming you have a method to get main course items from the database
+
+            foreach (DataRow row in mainCourseItemsTable.Rows)
+            {
+                Panel itemPanel = new Panel
+                {
+                    Width = 189,
+                    Height = 250,
+                    Margin = new Padding(5),
+                    BackColor = Color.White
+                };
+                DesignCodes.Borders.SetBorderRadius(itemPanel, 20);
+
+                PictureBox pictureBox = new PictureBox
+                {
+                    Width = 172,
+                    Height = 140,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Image = ByteArrayToImage((byte[])row["productImage"]),
+                    Tag = row["Name"].ToString(),
+                    Location = new Point(8, 5)
+                };
+                DesignCodes.Borders.SetBorderRadius(pictureBox, 20);
+                pictureBox.Click += Item_Click;
+
+                Label nameLabel = new Label
+                {
+                    Text = row["Name"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 150),
+                    Font = new Font("Helvetica", 11, FontStyle.Bold)
+                };
+
+                Label priceLabel = new Label
+                {
+                    Text = row["Price"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 175),
+                    Font = new Font("Helvetica", 9, FontStyle.Italic)
+                };
+
+                Label quantityTextLabel = new Label
+                {
+                    Text = "Qty:",
+                    AutoSize = true,
+                    Location = new Point(5, 213)
+                };
+
+                TextBox quantityTextBox = new TextBox
+                {
+                    Width = 90,
+                    Location = new Point(40, 210)
+                };
+
+                Button addButton = new Button
+                {
+                    Text = "Add",
+                    Width = 48,
+                    Location = new Point(quantityTextBox.Right + 5, 209),
+                    BackColor = Color.Green,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = row
+                };
+                DesignCodes.Borders.SetBorderRadius(addButton, 20);
+
+                addButton.Click += (s, ev) =>
+                {
+                    DataRow currentRow = (DataRow)((Button)s).Tag;
+                    string itemName = currentRow["Name"].ToString();
+                    string quantity = quantityTextBox.Text;
+                    string price = currentRow["Price"].ToString();
+                    Console.WriteLine($"{itemName} {price} {quantity}");
+
+                    decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
+                    totalAmount += totalPrice;
+                    totalAmountLabel.Text = totalAmount.ToString();
+
+
+                    Label itemNameLabel = new Label
+                    {
+                        Text = $"{itemName}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        AutoEllipsis = true
+                    };
+
+                    Label perPriceLabel = new Label
+                    {
+                        Text = $"{price}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    Label quantityLabel = new Label
+                    {
+                        Text = $"{quantity}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    tableLayoutPanel1.Controls.Add(itemNameLabel, 0, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(perPriceLabel, 1, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(quantityLabel, 2, tableLayoutPanel1.RowCount - 1);
+
+
+                    tableLayoutPanel1.RowCount++;
+
+
+                    quantityTextBox.Text = "";
+                };
+
+                itemPanel.Controls.Add(pictureBox);
+                itemPanel.Controls.Add(nameLabel);
+                itemPanel.Controls.Add(priceLabel);
+                itemPanel.Controls.Add(quantityTextLabel);
+                itemPanel.Controls.Add(quantityTextBox);
+                itemPanel.Controls.Add(addButton);
+
+                itemPanel.Padding = new Padding(5, 0, 0, 0);
+                flowLayoutPanel.Controls.Add(itemPanel);
+            }
+        }
+
+        private void FilterAppetizer()
+        {
+            DataTable mainCourseItemsTable = GetAppetizerItemsFromDatabase(); // Assuming you have a method to get main course items from the database
+
+            foreach (DataRow row in mainCourseItemsTable.Rows)
+            {
+                Panel itemPanel = new Panel
+                {
+                    Width = 189,
+                    Height = 250,
+                    Margin = new Padding(5),
+                    BackColor = Color.White
+                };
+                DesignCodes.Borders.SetBorderRadius(itemPanel, 20);
+
+                PictureBox pictureBox = new PictureBox
+                {
+                    Width = 172,
+                    Height = 140,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Image = ByteArrayToImage((byte[])row["productImage"]),
+                    Tag = row["Name"].ToString(),
+                    Location = new Point(8, 5)
+                };
+                DesignCodes.Borders.SetBorderRadius(pictureBox, 20);
+                pictureBox.Click += Item_Click;
+
+                Label nameLabel = new Label
+                {
+                    Text = row["Name"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 150),
+                    Font = new Font("Helvetica", 11, FontStyle.Bold)
+                };
+
+                Label priceLabel = new Label
+                {
+                    Text = row["Price"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 175),
+                    Font = new Font("Helvetica", 9, FontStyle.Italic)
+                };
+
+                Label quantityTextLabel = new Label
+                {
+                    Text = "Qty:",
+                    AutoSize = true,
+                    Location = new Point(5, 213)
+                };
+
+                TextBox quantityTextBox = new TextBox
+                {
+                    Width = 90,
+                    Location = new Point(40, 210)
+                };
+
+                Button addButton = new Button
+                {
+                    Text = "Add",
+                    Width = 48,
+                    Location = new Point(quantityTextBox.Right + 5, 209),
+                    BackColor = Color.Green,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = row
+                };
+                DesignCodes.Borders.SetBorderRadius(addButton, 20);
+
+                addButton.Click += (s, ev) =>
+                {
+                    DataRow currentRow = (DataRow)((Button)s).Tag;
+                    string itemName = currentRow["Name"].ToString();
+                    string quantity = quantityTextBox.Text;
+                    string price = currentRow["Price"].ToString();
+                    Console.WriteLine($"{itemName} {price} {quantity}");
+
+                    decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
+                    totalAmount += totalPrice;
+                    totalAmountLabel.Text = totalAmount.ToString();
+
+
+                    Label itemNameLabel = new Label
+                    {
+                        Text = $"{itemName}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        AutoEllipsis = true
+                    };
+
+                    Label perPriceLabel = new Label
+                    {
+                        Text = $"{price}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    Label quantityLabel = new Label
+                    {
+                        Text = $"{quantity}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    tableLayoutPanel1.Controls.Add(itemNameLabel, 0, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(perPriceLabel, 1, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(quantityLabel, 2, tableLayoutPanel1.RowCount - 1);
+
+
+                    tableLayoutPanel1.RowCount++;
+
+
+                    quantityTextBox.Text = "";
+                };
+
+                itemPanel.Controls.Add(pictureBox);
+                itemPanel.Controls.Add(nameLabel);
+                itemPanel.Controls.Add(priceLabel);
+                itemPanel.Controls.Add(quantityTextLabel);
+                itemPanel.Controls.Add(quantityTextBox);
+                itemPanel.Controls.Add(addButton);
+
+                itemPanel.Padding = new Padding(5, 0, 0, 0);
+                flowLayoutPanel.Controls.Add(itemPanel);
+            }
+        }
+
+        private void FilterDesserts()
+        {
+            DataTable mainCourseItemsTable = GetDessertsItemsFromDatabase(); 
+
+            foreach (DataRow row in mainCourseItemsTable.Rows)
+            {
+                Panel itemPanel = new Panel
+                {
+                    Width = 189,
+                    Height = 250,
+                    Margin = new Padding(5),
+                    BackColor = Color.White
+                };
+                DesignCodes.Borders.SetBorderRadius(itemPanel, 20);
+
+                PictureBox pictureBox = new PictureBox
+                {
+                    Width = 172,
+                    Height = 140,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Image = ByteArrayToImage((byte[])row["productImage"]),
+                    Tag = row["Name"].ToString(),
+                    Location = new Point(8, 5)
+                };
+                DesignCodes.Borders.SetBorderRadius(pictureBox, 20);
+                pictureBox.Click += Item_Click;
+
+                Label nameLabel = new Label
+                {
+                    Text = row["Name"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 150),
+                    Font = new Font("Helvetica", 11, FontStyle.Bold)
+                };
+
+                Label priceLabel = new Label
+                {
+                    Text = row["Price"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 175),
+                    Font = new Font("Helvetica", 9, FontStyle.Italic)
+                };
+
+                Label quantityTextLabel = new Label
+                {
+                    Text = "Qty:",
+                    AutoSize = true,
+                    Location = new Point(5, 213)
+                };
+
+                TextBox quantityTextBox = new TextBox
+                {
+                    Width = 90,
+                    Location = new Point(40, 210)
+                };
+
+                Button addButton = new Button
+                {
+                    Text = "Add",
+                    Width = 48,
+                    Location = new Point(quantityTextBox.Right + 5, 209),
+                    BackColor = Color.Green,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = row
+                };
+                DesignCodes.Borders.SetBorderRadius(addButton, 20);
+
+                addButton.Click += (s, ev) =>
+                {
+                    DataRow currentRow = (DataRow)((Button)s).Tag;
+                    string itemName = currentRow["Name"].ToString();
+                    string quantity = quantityTextBox.Text;
+                    string price = currentRow["Price"].ToString();
+                    Console.WriteLine($"{itemName} {price} {quantity}");
+
+                    decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
+                    totalAmount += totalPrice;
+                    totalAmountLabel.Text = totalAmount.ToString();
+
+
+                    Label itemNameLabel = new Label
+                    {
+                        Text = $"{itemName}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        AutoEllipsis = true
+                    };
+
+                    Label perPriceLabel = new Label
+                    {
+                        Text = $"{price}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    Label quantityLabel = new Label
+                    {
+                        Text = $"{quantity}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    tableLayoutPanel1.Controls.Add(itemNameLabel, 0, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(perPriceLabel, 1, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(quantityLabel, 2, tableLayoutPanel1.RowCount - 1);
+
+
+                    tableLayoutPanel1.RowCount++;
+
+
+                    quantityTextBox.Text = "";
+                };
+
+                itemPanel.Controls.Add(pictureBox);
+                itemPanel.Controls.Add(nameLabel);
+                itemPanel.Controls.Add(priceLabel);
+                itemPanel.Controls.Add(quantityTextLabel);
+                itemPanel.Controls.Add(quantityTextBox);
+                itemPanel.Controls.Add(addButton);
+
+                itemPanel.Padding = new Padding(5, 0, 0, 0);
+                flowLayoutPanel.Controls.Add(itemPanel);
+            }
+        }
+
+        private void FilterBeverages()
+        {
+            DataTable mainCourseItemsTable = GetBeveragesItemsFromDatabase(); // Assuming you have a method to get main course items from the database
+
+            foreach (DataRow row in mainCourseItemsTable.Rows)
+            {
+                Panel itemPanel = new Panel
+                {
+                    Width = 189,
+                    Height = 250,
+                    Margin = new Padding(5),
+                    BackColor = Color.White
+                };
+                DesignCodes.Borders.SetBorderRadius(itemPanel, 20);
+
+                PictureBox pictureBox = new PictureBox
+                {
+                    Width = 172,
+                    Height = 140,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    Image = ByteArrayToImage((byte[])row["productImage"]),
+                    Tag = row["Name"].ToString(),
+                    Location = new Point(8, 5)
+                };
+                DesignCodes.Borders.SetBorderRadius(pictureBox, 20);
+                pictureBox.Click += Item_Click;
+
+                Label nameLabel = new Label
+                {
+                    Text = row["Name"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 150),
+                    Font = new Font("Helvetica", 11, FontStyle.Bold)
+                };
+
+                Label priceLabel = new Label
+                {
+                    Text = row["Price"].ToString(),
+                    AutoSize = true,
+                    Location = new Point(5, 175),
+                    Font = new Font("Helvetica", 9, FontStyle.Italic)
+                };
+
+                Label quantityTextLabel = new Label
+                {
+                    Text = "Qty:",
+                    AutoSize = true,
+                    Location = new Point(5, 213)
+                };
+
+                TextBox quantityTextBox = new TextBox
+                {
+                    Width = 90,
+                    Location = new Point(40, 210)
+                };
+
+                Button addButton = new Button
+                {
+                    Text = "Add",
+                    Width = 48,
+                    Location = new Point(quantityTextBox.Right + 5, 209),
+                    BackColor = Color.Green,
+                    ForeColor = Color.White,
+                    FlatStyle = FlatStyle.Flat,
+                    Tag = row
+                };
+                DesignCodes.Borders.SetBorderRadius(addButton, 20);
+
+                addButton.Click += (s, ev) =>
+                {
+                    DataRow currentRow = (DataRow)((Button)s).Tag;
+                    string itemName = currentRow["Name"].ToString();
+                    string quantity = quantityTextBox.Text;
+                    string price = currentRow["Price"].ToString();
+                    Console.WriteLine($"{itemName} {price} {quantity}");
+
+                    decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
+                    totalAmount += totalPrice;
+                    totalAmountLabel.Text = totalAmount.ToString();
+
+
+                    Label itemNameLabel = new Label
+                    {
+                        Text = $"{itemName}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft,
+                        AutoEllipsis = true
+                    };
+
+                    Label perPriceLabel = new Label
+                    {
+                        Text = $"{price}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    Label quantityLabel = new Label
+                    {
+                        Text = $"{quantity}",
+                        AutoSize = true,
+                        ForeColor = Color.White,
+                        TextAlign = ContentAlignment.MiddleLeft
+                    };
+
+                    tableLayoutPanel1.Controls.Add(itemNameLabel, 0, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(perPriceLabel, 1, tableLayoutPanel1.RowCount - 1);
+                    tableLayoutPanel1.Controls.Add(quantityLabel, 2, tableLayoutPanel1.RowCount - 1);
+
+
+                    tableLayoutPanel1.RowCount++;
+
+
+                    quantityTextBox.Text = "";
+                };
+
+                itemPanel.Controls.Add(pictureBox);
+                itemPanel.Controls.Add(nameLabel);
+                itemPanel.Controls.Add(priceLabel);
+                itemPanel.Controls.Add(quantityTextLabel);
+                itemPanel.Controls.Add(quantityTextBox);
+                itemPanel.Controls.Add(addButton);
+
+                itemPanel.Padding = new Padding(5, 0, 0, 0);
+                flowLayoutPanel.Controls.Add(itemPanel);
+            }
+        }
+
+        private void UpdateComboBoxFromOrderTable()
+        {
+            // Populate the combo box with numbers 1 to 12
+           comboBox2.Items.Clear();
+            for (int i = 1; i <= 12; i++)
+            {
+                comboBox2.Items.Add(i);
+            }
+
+            // Retrieve the numbers already present in the tableNumber column
+            List<int> usedNumbers = new List<int>();
+            string connectionString = "server=localhost;port=3306;username=root;password=;database=restaurant";
+            string query = "SELECT DISTINCT tableNumber FROM orderTable";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int tableNumber;
+                            if (int.TryParse(reader["tableNumber"].ToString(), out tableNumber))
+                            {
+                                usedNumbers.Add(tableNumber);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (int number in usedNumbers)
+            {
+                if (comboBox2.Items.Contains(number))
+                {
+                    comboBox2.Items.Remove(number);
+                }
+            }
+        }
+
+        private void kryptonDropButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

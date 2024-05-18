@@ -11,10 +11,12 @@ using System.Windows.Forms;
 namespace restaurantSystem
 {
     public partial class Cashier : Form
+
     {
-        private NewOrder newOrderForm;
+        private Timer timer;
+        private comboBox1 newOrderForm;
         private Receipt newRecieptForm;
-        private ProductCard productCardForm;
+        private Table newtableForm;
 
         public Cashier()
         {
@@ -25,6 +27,16 @@ namespace restaurantSystem
             orderList_btn.FlatAppearance.BorderSize = 0;
             logOut_btn.FlatAppearance.BorderSize = 0;
             LoadNewOrderForm();
+
+            timer = new Timer();
+            timer.Interval = 1000; // Update every second
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+            DateTimeLabel();
+
+            this.FormBorderStyle = FormBorderStyle.None;
+
         }
 
         private void menu_btn_Click(object sender, EventArgs e)
@@ -84,7 +96,7 @@ namespace restaurantSystem
         private void LoadNewOrderForm()
         {
             // Initialize the dashboard form
-            newOrderForm = new NewOrder();
+            newOrderForm = new comboBox1();
             newOrderForm.TopLevel = false;
             newOrderForm.FormBorderStyle = FormBorderStyle.None;
             newOrderForm.Dock = DockStyle.Fill;
@@ -94,6 +106,7 @@ namespace restaurantSystem
         }
 
         private void LoadRecieptForm()
+        
         {
             // Initialize the dashboard form
             newRecieptForm = new Receipt();
@@ -104,28 +117,91 @@ namespace restaurantSystem
             dashboard_panel.Controls.Add(newRecieptForm);
             newRecieptForm.Show();
         }
+        
+        private void LoadTableForm()
+        {
+            // Initialize the dashboard form
+            newtableForm = new Table();
+            newtableForm.TopLevel = false;
+            newtableForm.FormBorderStyle = FormBorderStyle.None;
+            newtableForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(newtableForm);
+            newtableForm.Show();
+        }
 
-       
+
 
         private void home_btn_Click(object sender, EventArgs e)
         {
             LoadNewOrderForm();
+            label6.Text = "New Order";
         }
 
         private void orderList_btn_Click(object sender, EventArgs e)
         {
             LoadRecieptForm();
+            label6.Text = "Payment";
         }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-          ProductCard card = new ProductCard();
-            card.Show();
+         
         }
 
         private void tableReservation_btn_Click(object sender, EventArgs e)
         {
-          
+
+        }
+
+        private void tableReservation_btn_Click_1(object sender, EventArgs e)
+        {
+            LoadTableForm();
+            label6.Text = "Table Reservation";
+
+        }
+
+
+        // functions 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            DateTimeLabel();
+        }
+
+        private void DateTimeLabel()
+        {
+            DateTime currentDateTime = DateTime.Now;
+            dateTime_label.Text = $"{currentDateTime.ToString("dddd, MMMM dd, yyyy - hh:mm:ss tt")}";
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void home_btn_MouseHover(object sender, EventArgs e)
+        {
+            ForeColor = Color.Black;
+        }
+
+        private void tableReservation_btn_MouseHover(object sender, EventArgs e)
+        {
+            ForeColor = Color.Black;
+        }
+
+        private void orderList_btn_MouseHover(object sender, EventArgs e)
+        {
+            ForeColor = Color.Black;
+        }
+
+        private void logOut_btn_MouseHover(object sender, EventArgs e)
+        {
+            ForeColor = Color.Black;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
