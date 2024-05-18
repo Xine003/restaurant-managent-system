@@ -17,6 +17,9 @@ namespace restaurantSystem
             InitializeComponent();
         }
 
-       
+        private void Table_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
