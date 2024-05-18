@@ -105,6 +105,8 @@ namespace restaurantSystem
             newRecieptForm.Show();
         }
 
+       
+
         private void home_btn_Click(object sender, EventArgs e)
         {
             LoadNewOrderForm();
@@ -119,6 +121,11 @@ namespace restaurantSystem
         {
           ProductCard card = new ProductCard();
             card.Show();
+        }
+
+        private void tableReservation_btn_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
