@@ -116,6 +116,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCoupon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCoupon.Designer.cs">
+      <DependentUpon>AddCoupon.cs</DependentUpon>
+    </Compile>
     <Compile Include="addEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,12 @@
     </Compile>
     <Compile Include="Cashier.Designer.cs">
       <DependentUpon>Cashier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Coupons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Coupons.Designer.cs">
+      <DependentUpon>Coupons.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -246,6 +258,9 @@
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddCoupon.resx">
+      <DependentUpon>AddCoupon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="addEmployee.resx">
       <DependentUpon>addEmployee.cs</DependentUpon>
     </EmbeddedResource>
@@ -260,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Cashier.resx">
       <DependentUpon>Cashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Coupons.resx">
+      <DependentUpon>Coupons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -396,6 +414,11 @@
     <None Include="Resources\bgFinal.png" />
     <None Include="Resources\round-table.png" />
     <None Include="Resources\logo.png" />
+    <None Include="Resources\coupon.png" />
+    <None Include="Resources\Group 195sdsdsadsadad.png" />
+    <None Include="Resources\coupons.png" />
+    <None Include="Resources\coups.png" />
+    <None Include="Resources\logo1.png" />
     <Content Include="Resources\trashbin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

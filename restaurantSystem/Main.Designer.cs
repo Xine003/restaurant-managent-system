@@ -34,6 +34,7 @@
             this.dashboard_Label = new System.Windows.Forms.Label();
             this.dashboard_panel = new System.Windows.Forms.Panel();
             this.navbar = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.logout_btn = new System.Windows.Forms.Button();
             this.products_btn = new System.Windows.Forms.Button();
             this.employee_btn = new System.Windows.Forms.Button();
@@ -95,6 +96,7 @@
             // navbar
             // 
             this.navbar.BackgroundImage = global::restaurantSystem.Properties.Resources.navbar1;
+            this.navbar.Controls.Add(this.button1);
             this.navbar.Controls.Add(this.logout_btn);
             this.navbar.Controls.Add(this.products_btn);
             this.navbar.Controls.Add(this.employee_btn);
@@ -105,6 +107,22 @@
             this.navbar.Name = "navbar";
             this.navbar.Size = new System.Drawing.Size(217, 751);
             this.navbar.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(1, 447);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(213, 60);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Coupons";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // logout_btn
             // 
@@ -243,5 +261,6 @@
         private System.Windows.Forms.Label dashboard_Label;
         private System.Windows.Forms.Button products_btn;
         private System.Windows.Forms.Button logout_btn;
+        private System.Windows.Forms.Button button1;
     }
 }

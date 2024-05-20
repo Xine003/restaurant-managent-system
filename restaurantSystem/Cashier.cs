@@ -95,7 +95,7 @@ namespace restaurantSystem
         //functions
         private void LoadNewOrderForm()
         {
-            // Initialize the dashboard form
+            
             newOrderForm = new comboBox1();
             newOrderForm.TopLevel = false;
             newOrderForm.FormBorderStyle = FormBorderStyle.None;
@@ -105,10 +105,11 @@ namespace restaurantSystem
             newOrderForm.Show();
         }
 
+
         private void LoadRecieptForm()
         
         {
-            // Initialize the dashboard form
+           
             newRecieptForm = new Receipt();
             newRecieptForm.TopLevel = false;
             newRecieptForm.FormBorderStyle = FormBorderStyle.None;
@@ -120,7 +121,7 @@ namespace restaurantSystem
         
         private void LoadTableForm()
         {
-            // Initialize the dashboard form
+            
             newtableForm = new Table();
             newtableForm.TopLevel = false;
             newtableForm.FormBorderStyle = FormBorderStyle.None;

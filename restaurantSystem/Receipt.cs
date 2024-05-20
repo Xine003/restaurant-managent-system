@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Asn1.X509;
 using Renci.SshNet.Common;
 using restaurantSystem.DesignCodes;
+using System.Drawing.Printing;
+using System.IO;
 
 namespace restaurantSystem
 {
@@ -438,7 +441,9 @@ namespace restaurantSystem
                                     OrderID = Convert.ToInt32(reader["orderID"]),
                                     OrderName = reader["orderName"].ToString(),
                                     PerPrice = Convert.ToDouble(reader["perPrice"]),
-                                    OrderQuantity = Convert.ToInt32(reader["orderQuantity"])
+                                    OrderQuantity = Convert.ToInt32(reader["orderQuantity"]),
+                                    Disc = Convert.ToInt32(reader["discount"]),
+                                    subTotal = Convert.ToDouble(reader["subtotal"])
                                 };
                                 orders.Add(order);
                             }
@@ -449,32 +454,34 @@ namespace restaurantSystem
                 return orders;
             }
 
-            public void InsertHistoryTransaction(OrderData order, double cashTendered, double changeAmount)
+            public void InsertHistoryTransaction(string orNumber, string orderName, double perPrice, int orderQuantity, string tableNumber, double totalAmount, DateTime date, DateTime time, double cashTendered, double changeAmount, double Disc, double subTotal)
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
-                    string sql = "INSERT INTO historyTransaction (orderID, ORNumber, orderName, perPrice, orderQuantity, tableNumber, totalAmount, date, time, cashTendered, changeAmount) " +
-                                 "VALUES (@OrderID, @ORNumber, @OrderName, @PerPrice, @OrderQuantity, @TableNumber, @TotalAmount, @Date, @Time, @CashTendered, @ChangeAmount)";
+                    string sql = "INSERT INTO historyTransaction (ORNumber, OrderName, PerPrice, OrderQuantity, TableNumber, TotalAmount, Date, Time, CashTendered, ChangeAmount, discount, subTotal) " +
+                                 "VALUES (@ORNumber, @OrderName, @PerPrice, @OrderQuantity, @TableNumber, @TotalAmount, @Date, @Time, @CashTendered, @ChangeAmount, @Discount, @Subtotal)";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
-                        cmd.Parameters.AddWithValue("@OrderID", order.OrderID);
-                        cmd.Parameters.AddWithValue("@ORNumber", order.ORNumber);
-                        cmd.Parameters.AddWithValue("@OrderName", order.OrderName);
-                        cmd.Parameters.AddWithValue("@PerPrice", order.PerPrice);
-                        cmd.Parameters.AddWithValue("@OrderQuantity", order.OrderQuantity);
-                        cmd.Parameters.AddWithValue("@TableNumber", order.TableNumber);
-                        cmd.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
-                        cmd.Parameters.AddWithValue("@Date", order.Date);
-                        cmd.Parameters.AddWithValue("@Time", order.Time);
+                        cmd.Parameters.AddWithValue("@ORNumber", orNumber);
+                        cmd.Parameters.AddWithValue("@OrderName", orderName);
+                        cmd.Parameters.AddWithValue("@PerPrice", perPrice);
+                        cmd.Parameters.AddWithValue("@OrderQuantity", orderQuantity);
+                        cmd.Parameters.AddWithValue("@TableNumber", tableNumber);
+                        cmd.Parameters.AddWithValue("@TotalAmount", totalAmount);
+                        cmd.Parameters.AddWithValue("@Date", date);
+                        cmd.Parameters.AddWithValue("@Time", time);
                         cmd.Parameters.AddWithValue("@CashTendered", cashTendered);
                         cmd.Parameters.AddWithValue("@ChangeAmount", changeAmount);
+                        cmd.Parameters.AddWithValue("@Discount", Disc);
+                        cmd.Parameters.AddWithValue("@Subtotal", subTotal);
 
                         cmd.ExecuteNonQuery();
                     }
                 }
             }
+
             public void DeleteHistoryTransactionByORNumber(string orNumber)
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
@@ -491,6 +498,67 @@ namespace restaurantSystem
             }
 
 
+            public List<HistoryTransactionData> GetHistoryTransactionsByORNumber(string orNumber)
+            {
+                List<HistoryTransactionData> transactions = new List<HistoryTransactionData>();
+
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM historyTransaction WHERE ORNumber = @ORNumber";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ORNumber", orNumber);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                HistoryTransactionData transaction = new HistoryTransactionData()
+                                {
+                                    ORNumber = reader["ORNumber"].ToString(),
+                                    OrderName = reader["orderName"].ToString(),
+                                    PerPrice = Convert.ToDouble(reader["perPrice"]),
+                                    OrderQuantity = Convert.ToInt32(reader["orderQuantity"]),
+                                    TableNumber = reader["tableNumber"].ToString(),
+                                    TotalAmount = Convert.ToDouble(reader["totalAmount"]),
+                                    Date = Convert.ToDateTime(reader["date"]),
+                                    Time = TimeSpan.Parse(reader["time"].ToString()), // Parse as TimeSpan
+                                    CashTendered = Convert.ToDouble(reader["cashTendered"]),
+                                    ChangeAmount = Convert.ToDouble(reader["changeAmount"]),
+                                    Discount = reader["discount"].ToString(),
+                                    subTotal = Convert.ToDouble(reader["subTotal"])
+
+                                };
+                                transactions.Add(transaction);
+                            }
+                        }
+                    }
+                }
+
+                return transactions;
+            }
+
+
+
+
+        }
+
+        public class HistoryTransactionData
+        {
+            public string ORNumber { get; set; }
+            public string OrderName { get; set; }
+            public double PerPrice { get; set; }
+            public int OrderQuantity { get; set; }
+            public string TableNumber { get; set; }
+            public double TotalAmount { get; set; }
+            public DateTime Date { get; set; }
+            public TimeSpan Time { get; set; } // Change the type to TimeSpan
+            public double CashTendered { get; set; }
+            public double ChangeAmount { get; set; }
+            public string Discount { get; set; }
+            public double subTotal { get; set; }
         }
 
 
@@ -508,7 +576,10 @@ namespace restaurantSystem
             public DateTime Date { get; set; }
             public DateTime Time { get; set; }
             public double TotalAmount { get; set; }
+            public double Disc { get; set; }
+            public double subTotal { get; set; }
         }
+
 
 
 
@@ -531,59 +602,82 @@ namespace restaurantSystem
             }
 
             double totalAmount;
-            if (double.TryParse(paymentTb.Text, out totalAmount))
+            if (!double.TryParse(paymentTb.Text, out totalAmount))
             {
-                double cashTendered;
-                if (double.TryParse(sampleDisplay.Text, out cashTendered))
+                MessageBox.Show("Invalid total amount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            double cashTendered;
+            if (!double.TryParse(sampleDisplay.Text, out cashTendered))
+            {
+                MessageBox.Show("Invalid cash tendered amount", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (cashTendered < totalAmount)
+            {
+                insufficientCash.Text = "Insufficient Cash";
+                insufficientCash.ForeColor = Color.Red;
+                return; // Stop further processing
+            }
+
+            double change = cashTendered - totalAmount;
+            if (change < 0)
+            {
+                MessageBox.Show("Change cannot be negative", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Stop further processing
+            }
+
+            string message = $"Pay this bill? Total Amount: ₱{totalAmount.ToString("0.00")}";
+            DialogResult result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                // Payment successful, proceed with payment process
+                double changes = change;
+                changeTb.Text = changes.ToString("0.00");
+                insufficientCash.Text = "Payment Successful";
+                insufficientCash.ForeColor = Color.Green;
+
+             
+                DatabaseHelper dbHelper = new DatabaseHelper();
+                string orNumber = ORNo.Text;
+                List<OrderData> orders = dbHelper.GetOrderDataByORNumber(orNumber);
+
+                foreach (var order in orders)
                 {
-                    if (cashTendered < totalAmount)
-                    {
-                        insufficientCash.Text = "Insufficient Cash";
-                        insufficientCash.ForeColor = Color.Red;
-                    }
-                    else
-                    {
-                        double change = cashTendered - totalAmount;
-                        string message = $"Pay this bill? Total Amount: ₱{totalAmount.ToString("0.00")}";
-                        DialogResult result = MessageBox.Show(message, "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            double changes = change;
-                            changeTb.Text = changes.ToString("0.00");
-                            insufficientCash.Text = "Payment Successful";
-                            insufficientCash.ForeColor = Color.Green;
+                    dbHelper.InsertHistoryTransaction(
+                        order.ORNumber,         // Use ORNumber from OrderData
+                        order.OrderName,       // Use OrderName from OrderData
+                        order.PerPrice,        // Use PerPrice from OrderData
+                        order.OrderQuantity,   // Use OrderQuantity from OrderData
+                        order.TableNumber,     // Use TableNumber from OrderData
+                        order.TotalAmount,     // Use TotalAmount from OrderData
+                        order.Date,            // Use Date from OrderData
+                        order.Time,            // Use Time from OrderData
+                        cashTendered,          // Use cashTendered parameter
+                        change,
+                        order.Disc,
+                        order.subTotal
 
-                            DatabaseHelper dbHelper = new DatabaseHelper();
-                            string orNumber = ORNo.Text;
-                            List<OrderData> orders = dbHelper.GetOrderDataByORNumber(orNumber);
-
-                            foreach (var order in orders)
-                            {
-                                dbHelper.InsertHistoryTransaction(order, cashTendered, change);
-                            }
-                            dbHelper.DeleteHistoryTransactionByORNumber(orNumber);
-                            DisplayOrders(orderSummary);
-
-                            // Clear textboxes
-                            paymentTb.Text = "";
-                            sampleDisplay.Text = "";
-                            changeTb.Text = "";
-                        }
-                        else
-                        {
-                            Console.WriteLine("Failed to pay.");
-                        }
-                    }
+                    );
                 }
-                else
-                {
-                    insufficientCash.Text = "Payment Failed! Insufficient Cash";
-                    insufficientCash.ForeColor = Color.Red;
-                }
+
+                dbHelper.DeleteHistoryTransactionByORNumber(orNumber);
+                DisplayOrders(orderSummary);
+
+                // Clear textboxes
+                paymentTb.Text = "";
+                sampleDisplay.Text = "";
+                changeTb.Text = "";
+
+                string ORNum = ORNo.Text;
+                string receiptContent = GenerateReceiptContent(ORNum);
+                ShowPrintPreview(receiptContent);
             }
             else
             {
-                Console.WriteLine("Invalid total amount.");
+                Console.WriteLine("Failed to pay.");
             }
 
         }
@@ -601,6 +695,155 @@ namespace restaurantSystem
         private void insufficientCash_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void sampleDisplay_TextChanged(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(sampleDisplay.Text, out decimal enteredAmount))
+            {
+                
+                if (decimal.TryParse(paymentTb.Text, out decimal paymentAmount))
+                {
+           
+                    decimal change = enteredAmount - paymentAmount;
+
+                    changeTb.Text = change.ToString();
+                }
+                else
+                {
+                    
+                    changeTb.Text = "Invalid payment amount";
+                }
+            }
+            else
+            {
+           
+                
+            }
+        }
+
+
+
+        // reciept --------------------------------------
+
+        private void ShowPrintPreview(string receiptContent)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            printDocument.PrintPage += (sender, e) =>
+            {
+                float yPos = 10;
+                int count = 0;
+                float leftMargin = 20;
+                float topMargin = 40;
+                float top = 20;
+                string line = null;
+                Font printFont = new Font("Arial", 11);
+                SolidBrush myBrush = new SolidBrush(Color.Black);
+                StringReader stringReader = new StringReader(receiptContent);
+
+                float linesPerPage = e.MarginBounds.Height / printFont.GetHeight(e.Graphics);
+
+                // Calculate the width and height of the logo
+                Image logo = Properties.Resources.logo1; // Assuming "logo" is the name of your resource
+                float logoWidth = 200; // Adjust the width of the logo as needed
+                float logoHeight = logo.Height * (logoWidth / logo.Width);
+
+                float logoX = (e.MarginBounds.Left + e.MarginBounds.Right - logoWidth) / 2;
+
+
+                e.Graphics.DrawImage(logo, logoX, top, logoWidth, logoHeight);
+
+
+                topMargin += logoHeight + 10;
+
+                while (count < linesPerPage && ((line = stringReader.ReadLine()) != null))
+                {
+                    yPos = topMargin + (count * printFont.GetHeight(e.Graphics));
+                    e.Graphics.DrawString(line, printFont, myBrush, leftMargin, yPos, new StringFormat());
+                    count++;
+                }
+
+                if (line != null)
+                    e.HasMorePages = true;
+                else
+                    e.HasMorePages = false;
+
+                myBrush.Dispose();
+            };
+
+            PaperSize customPaperSize = new PaperSize("Custom", 300, 1000);
+            printDocument.DefaultPageSettings.PaperSize = customPaperSize;
+
+            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog
+            {
+                Document = printDocument,
+                Width = 800,
+                Height = 600
+            };
+
+            try
+            {
+                printPreviewDialog.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while trying to show the print preview: " + ex.Message);
+            }
+        }
+
+
+
+        private string GenerateReceiptContent(string ORNumber)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            // Fetch data from the database based on ORNumber
+            DatabaseHelper dbHelper = new DatabaseHelper();
+            List<HistoryTransactionData> transactions = dbHelper.GetHistoryTransactionsByORNumber(ORNumber);
+
+           
+                var firstTransaction = transactions[0];
+                sb.AppendLine($"             OR Number: {firstTransaction.ORNumber}");
+                    sb.AppendLine($"                    Table No: {firstTransaction.TableNumber}");
+          
+            sb.AppendLine($"             {firstTransaction.Date.ToString("yyyy-MM-dd")} , {firstTransaction.Time.Hours:D2}:{firstTransaction.Time.Minutes:D2}:{firstTransaction.Time.Seconds:D2}");
+            sb.AppendLine("----------------------------------------------------");
+            sb.AppendLine("                OFFICIAL RECEIPT");
+            sb.AppendLine("----------------------------------------------------");
+
+
+            foreach (var transaction in transactions)
+                     {
+                
+                          sb.AppendLine($"{transaction.OrderName}");
+                           sb.AppendLine($"{transaction.PerPrice} X {transaction.OrderQuantity}                           {transaction.PerPrice}");
+                         }
+
+
+                sb.AppendLine("----------------------------------------------------");
+                sb.AppendLine($"Sub Total:                        ₱{firstTransaction.subTotal}");
+                sb.AppendLine($"Cash Tendered:             ₱{firstTransaction.CashTendered}");
+                sb.AppendLine($"Change:                          ₱{firstTransaction.ChangeAmount}");
+                sb.AppendLine($"Discount:                        ₱{firstTransaction.Discount}");
+                sb.AppendLine($"Total Amount:                 ₱{firstTransaction.TotalAmount}");
+                sb.AppendLine("----------------------------------------------------");
+
+
+            // Loop through product names
+
+
+            sb.AppendLine("     Thank you for dining with us!");
+
+            return sb.ToString();
+        }
+
+
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 

@@ -20,6 +20,8 @@ namespace restaurantSystem
         private DB db = new DB();
    
         private DataRow currentRow;
+      
+
 
         public comboBox1()
         {
@@ -34,8 +36,11 @@ namespace restaurantSystem
             cancelBtn.FlatAppearance.BorderSize = 0;
             UpdateComboBoxFromOrderTable();
 
+            Font inter = new Font("Inter", 10);
+            label1.Font = inter;
+            label4.Font = inter;
 
-
+            textBox1.KeyPress += new KeyPressEventHandler(textBox1_KeyPress);
         }
 
 
@@ -177,6 +182,7 @@ namespace restaurantSystem
                         decimal totalPrice = Convert.ToDecimal(price) * parsedQuantity;
                         totalAmount += totalPrice;
                         totalAmountLabel.Text = totalAmount.ToString();
+                        total_Amount.Text = totalAmount.ToString();
 
                         Label itemNameLabel = new Label
                         {
@@ -343,10 +349,11 @@ namespace restaurantSystem
             Random random = new Random();
             int randomNumber = random.Next(100000, 999999);
             OR.Text = "OR No:" + randomNumber.ToString();
+           string st =  totalAmountLabel.Text;
 
             string connectionString = "server=localhost;port=3306;username=root;password=;database=restaurant";
 
-            string query = "INSERT INTO orderTable (ORNumber, orderName, perPrice, orderQuantity, tableNumber, totalAmount) VALUES (@ORNumber, @OrderName, @PerPrice, @OrderQuantity, @tableNumber, @totalAmount)";
+            string query = "INSERT INTO orderTable (ORNumber, orderName, perPrice, orderQuantity, tableNumber, totalAmount, discount, subTotal) VALUES (@ORNumber, @OrderName, @PerPrice, @OrderQuantity, @tableNumber, @totalAmount, @Discount, @Subtotal)";
 
             if (comboBox2.SelectedItem == null)
             {
@@ -362,7 +369,8 @@ namespace restaurantSystem
                     string perPrice = tableLayoutPanel1.GetControlFromPosition(1, label.TabIndex)?.Text;
                     string orderQuantity = tableLayoutPanel1.GetControlFromPosition(2, label.TabIndex)?.Text;
                     int tableNo = (int)comboBox2.SelectedItem;
-                    string totalAmount = totalAmountLabel.Text;
+                    string total = total_Amount.Text;
+                    string discValue = label6.Text;
 
                     if (!string.IsNullOrEmpty(itemName) && !string.IsNullOrEmpty(perPrice) && !string.IsNullOrEmpty(orderQuantity))
                     {
@@ -376,23 +384,41 @@ namespace restaurantSystem
                                 command.Parameters.AddWithValue("@PerPrice", perPrice);
                                 command.Parameters.AddWithValue("@OrderQuantity", orderQuantity);
                                 command.Parameters.AddWithValue("@tableNumber", tableNo);
-                                command.Parameters.AddWithValue("@totalAmount", totalAmount);
-
+                                command.Parameters.AddWithValue("@totalAmount", total);
+                                command.Parameters.AddWithValue("@Discount", discValue);
+                                command.Parameters.AddWithValue("@Subtotal", st);
                                 command.ExecuteNonQuery();
                                 
                             }
                         }
-                        
+
+                      
+
                     }
                 }
             }
+
+            string updateQuery = "UPDATE discount SET `limit` = `limit` - 1 WHERE disc_code = @DiscountCode";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@DiscountCode", textBox1.Text);
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+
 
             MessageBox.Show("Order Confirmed");
             tableLayoutPanel1.Controls.Clear();
             totalAmountLabel.Text = "0.00";
             OR.Text = "New Order";
             comboBox2.SelectedIndex = -1;
-
+            label6.Text = "";
+            textBox1.Text = "";
+            total_Amount.Text = "";
+            UpdateComboBoxFromOrderTable();
 
         }
 
@@ -412,6 +438,9 @@ namespace restaurantSystem
             tableLayoutPanel1.Controls.Clear();
             totalAmountLabel.Text = "0.00";
             OR.Text = "Official Reciept";
+            total_Amount.Text = "0.00";
+            textBox1.Text = "";
+            comboBox2.SelectedIndex = -1;
         }
 
 
@@ -540,7 +569,7 @@ namespace restaurantSystem
                     decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
                     totalAmount += totalPrice;
                     totalAmountLabel.Text = totalAmount.ToString();
-
+                    total_Amount.Text = totalAmount.ToString();
 
                     Label itemNameLabel = new Label
                     {
@@ -669,7 +698,7 @@ namespace restaurantSystem
                     decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
                     totalAmount += totalPrice;
                     totalAmountLabel.Text = totalAmount.ToString();
-
+                    total_Amount.Text = totalAmount.ToString();
 
                     Label itemNameLabel = new Label
                     {
@@ -798,7 +827,7 @@ namespace restaurantSystem
                     decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
                     totalAmount += totalPrice;
                     totalAmountLabel.Text = totalAmount.ToString();
-
+                    total_Amount.Text = totalAmount.ToString();
 
                     Label itemNameLabel = new Label
                     {
@@ -927,7 +956,7 @@ namespace restaurantSystem
                     decimal totalPrice = Convert.ToDecimal(price) * Convert.ToDecimal(quantity);
                     totalAmount += totalPrice;
                     totalAmountLabel.Text = totalAmount.ToString();
-
+                    total_Amount.Text = totalAmount.ToString();
 
                     Label itemNameLabel = new Label
                     {
@@ -1024,6 +1053,82 @@ namespace restaurantSystem
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                string inputCode = textBox1.Text;
+                CheckDiscountCode(inputCode);
+            
+                e.Handled = true;
+            }
+
+        }
+
+        public void CheckDiscountCode(string code)
+        {
+            string subTotal = totalAmountLabel.Text;
+            string query = "SELECT disc_value, `limit` FROM discount WHERE disc_code = @DiscCode";
+
+            using (MySqlConnection connection = db.getConnection())
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@DiscCode", code);
+
+                try
+                {
+                    db.openConnection();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            decimal subtotal = Convert.ToDecimal(subTotal);
+                            decimal discValue = reader.GetDecimal(0); // Get disc_value from the query result
+                            int limit = reader.GetInt32(1); // Get the limit from the query result
+
+                            if (limit <= 0)
+                            {
+                                MessageBox.Show("Number of limits exceeded for this discount code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return; // Stop further processing
+                            }
+
+                            decimal dividedValue = discValue / 100;
+                            decimal ttlamnt = subtotal * dividedValue;
+                            decimal totalCost = subtotal - ttlamnt;
+                            total_Amount.Text = totalCost.ToString();
+                            label6.Text = ttlamnt.ToString("F2");
+
+                         
+                        }
+                        else
+                        {
+                            MessageBox.Show("No matching discount code found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    label6.Text = "An error occurred. Please try again later.";
+                    // Log the exception details
+                    Console.WriteLine("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    db.closeConnection();
+                }
+            }
+        }
+
+        private void total_Amount_Click(object sender, EventArgs e)
         {
 
         }

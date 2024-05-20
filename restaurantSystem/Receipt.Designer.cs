@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             this.receiptProduct = new System.Windows.Forms.Panel();
+            this.insufficientCash = new System.Windows.Forms.Label();
             this.sampleDisplay = new System.Windows.Forms.TextBox();
             this.paymentPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ORNo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.changeTb = new System.Windows.Forms.TextBox();
             this.paymentTb = new System.Windows.Forms.TextBox();
             this.change = new System.Windows.Forms.Label();
@@ -51,10 +55,6 @@
             this.num2btn = new System.Windows.Forms.Button();
             this.num1btn = new System.Windows.Forms.Button();
             this.num1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ORNo = new System.Windows.Forms.Label();
-            this.insufficientCash = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.receiptProduct.SuspendLayout();
             this.paymentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num1)).BeginInit();
@@ -87,6 +87,18 @@
             this.receiptProduct.TabIndex = 1;
             this.receiptProduct.Paint += new System.Windows.Forms.PaintEventHandler(this.receiptProduct_Paint);
             // 
+            // insufficientCash
+            // 
+            this.insufficientCash.AutoSize = true;
+            this.insufficientCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insufficientCash.ForeColor = System.Drawing.Color.Transparent;
+            this.insufficientCash.Location = new System.Drawing.Point(113, 10);
+            this.insufficientCash.Name = "insufficientCash";
+            this.insufficientCash.Size = new System.Drawing.Size(130, 22);
+            this.insufficientCash.TabIndex = 7;
+            this.insufficientCash.Text = "........................";
+            this.insufficientCash.Click += new System.EventHandler(this.insufficientCash_Click);
+            // 
             // sampleDisplay
             // 
             this.sampleDisplay.BackColor = System.Drawing.Color.DarkGray;
@@ -99,6 +111,7 @@
             this.sampleDisplay.Name = "sampleDisplay";
             this.sampleDisplay.Size = new System.Drawing.Size(312, 49);
             this.sampleDisplay.TabIndex = 0;
+            this.sampleDisplay.TextChanged += new System.EventHandler(this.sampleDisplay_TextChanged);
             // 
             // paymentPanel
             // 
@@ -116,6 +129,41 @@
             this.paymentPanel.Size = new System.Drawing.Size(368, 133);
             this.paymentPanel.TabIndex = 1;
             this.paymentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentPanel_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(14, 68);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 38);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "₱";
+            // 
+            // ORNo
+            // 
+            this.ORNo.AutoSize = true;
+            this.ORNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ORNo.ForeColor = System.Drawing.Color.Transparent;
+            this.ORNo.Location = new System.Drawing.Point(173, 18);
+            this.ORNo.Name = "ORNo";
+            this.ORNo.Size = new System.Drawing.Size(70, 22);
+            this.ORNo.TabIndex = 6;
+            this.ORNo.Text = "000000";
+            this.ORNo.Click += new System.EventHandler(this.ORNo_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(104, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 22);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "OR No:";
             // 
             // changeTb
             // 
@@ -419,53 +467,6 @@
             this.num1.Size = new System.Drawing.Size(0, 0);
             this.num1.TabIndex = 0;
             this.num1.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(104, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 22);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "OR No:";
-            // 
-            // ORNo
-            // 
-            this.ORNo.AutoSize = true;
-            this.ORNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ORNo.ForeColor = System.Drawing.Color.Transparent;
-            this.ORNo.Location = new System.Drawing.Point(173, 18);
-            this.ORNo.Name = "ORNo";
-            this.ORNo.Size = new System.Drawing.Size(70, 22);
-            this.ORNo.TabIndex = 6;
-            this.ORNo.Text = "000000";
-            this.ORNo.Click += new System.EventHandler(this.ORNo_Click);
-            // 
-            // insufficientCash
-            // 
-            this.insufficientCash.AutoSize = true;
-            this.insufficientCash.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insufficientCash.ForeColor = System.Drawing.Color.Transparent;
-            this.insufficientCash.Location = new System.Drawing.Point(105, 10);
-            this.insufficientCash.Name = "insufficientCash";
-            this.insufficientCash.Size = new System.Drawing.Size(130, 22);
-            this.insufficientCash.TabIndex = 7;
-            this.insufficientCash.Text = "........................";
-            this.insufficientCash.Click += new System.EventHandler(this.insufficientCash_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(14, 68);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 39);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "₱";
             // 
             // Receipt
             // 

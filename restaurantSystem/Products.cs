@@ -12,11 +12,14 @@ using MySql.Data.MySqlClient;
 using restaurantSystem.DesignCodes;
 using Sitecore.FakeDb;
 
+
 namespace restaurantSystem
 {
     public partial class Products : Form
     {
+        private Products productsForm;
         private DB db = new DB();
+        private Panel dashboardPanel;
         public Products()
         {
             InitializeComponent();
@@ -33,6 +36,7 @@ namespace restaurantSystem
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent;
         }
 
+     
         private void productsPanel_Paint(object sender, PaintEventArgs e)
         {
 
@@ -56,15 +60,12 @@ namespace restaurantSystem
 
         private void Products_Load(object sender, EventArgs e)
         {
-
             DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
             deleteButtonColumn.Name = "DeleteButton";
             deleteButtonColumn.HeaderText = "Delete";
             deleteButtonColumn.Text = "Delete";
             deleteButtonColumn.DefaultCellStyle.ForeColor = Color.Red;
             deleteButtonColumn.UseColumnTextForButtonValue = true;
-
-
 
             dataGridView1.Columns.Add(deleteButtonColumn);
 
@@ -120,7 +121,6 @@ namespace restaurantSystem
 
 
 
-
         private void deleteRow(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -136,11 +136,10 @@ namespace restaurantSystem
 
         private void tableclicked(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 // Delete button clicked
-                // Your deletion logic here
+                DeleteRecord(e.RowIndex);
             }
             else if (e.RowIndex >= 0)
             {
@@ -203,5 +202,51 @@ namespace restaurantSystem
         {
 
         }
+
+
+        private void DeleteRecord(int rowIndex)
+        {
+           DataGridViewRow row = dataGridView1.Rows[rowIndex];
+
+    int idToDelete = Convert.ToInt32(row.Cells["id"].Value);
+
+    if (MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+    {
+        // Perform deletion from the database
+        try
+        {
+            db.openConnection();
+
+            string query = "DELETE FROM items WHERE id = @ID";
+
+            using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
+            {
+                cmd.Parameters.AddWithValue("@ID", idToDelete);
+                cmd.ExecuteNonQuery();
+            }
+
+            MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Remove the deleted row from the DataGridView
+            dataGridView1.Rows.RemoveAt(rowIndex);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error deleting record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        finally
+        {
+            db.closeConnection();
+        }
+    }
+        }
+
+
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
     }
 }

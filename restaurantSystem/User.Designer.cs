@@ -34,7 +34,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.loginContainer = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.labelGoToSignUp = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -77,7 +76,6 @@
             // 
             this.loginContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(22)))), ((int)(((byte)(56)))));
             this.loginContainer.Controls.Add(this.pictureBox1);
-            this.loginContainer.Controls.Add(this.label3);
             this.loginContainer.Controls.Add(this.btnLogin);
             this.loginContainer.Controls.Add(this.labelGoToSignUp);
             this.loginContainer.Controls.Add(this.label1);
@@ -101,17 +99,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(197, 496);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 16);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Sign Up";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btnLogin
             // 
@@ -212,7 +199,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel loginContainer;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel2;
     }

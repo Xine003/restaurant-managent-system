@@ -15,7 +15,7 @@ namespace restaurantSystem
     {
         private Timer timer;
         private Dashboard dashboardForm;
-        private Order orderForm;
+        private Coupons couponForm;
         private Products productsForm;
         private Users usersForm;
 
@@ -162,7 +162,17 @@ namespace restaurantSystem
             usersForm.Show();
         }
 
+        private void LoadCouponForm() {
 
+            couponForm = new Coupons();
+            couponForm.TopLevel = false;
+            couponForm.FormBorderStyle = FormBorderStyle.None;
+            couponForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(couponForm); // Add productsForm to the dashboard_panel
+            couponForm.Show();
+
+        }
 
 
 
@@ -199,6 +209,11 @@ namespace restaurantSystem
         private void button1_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            LoadCouponForm();
         }
     }
 }
