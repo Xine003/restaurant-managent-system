@@ -16,6 +16,8 @@ namespace restaurantSystem
 {
     public partial class Receipt : Form
     {
+        private string connectionString;
+
         public Receipt()
         {
             InitializeComponent();
@@ -374,6 +376,7 @@ namespace restaurantSystem
         private class DatabaseHelper
         {
             private string connectionString = "server=localhost;port=3306;username=root;password=;database=restaurant";
+            private object ispaid;
 
             public List<OrderData> GetOrderData()
             {
@@ -400,7 +403,8 @@ namespace restaurantSystem
                                     OrderID = Convert.ToInt32(reader["orderID"]),
                                     OrderName = reader["orderName"].ToString(),
                                     PerPrice = Convert.ToDouble(reader["perPrice"]),
-                                    OrderQuantity = Convert.ToInt32(reader["orderQuantity"])
+                                    OrderQuantity = Convert.ToInt32(reader["orderQuantity"]),
+                                   
                                 };
                                 orders.Add(order);
                             }
@@ -438,7 +442,8 @@ namespace restaurantSystem
                                     OrderID = Convert.ToInt32(reader["orderID"]),
                                     OrderName = reader["orderName"].ToString(),
                                     PerPrice = Convert.ToDouble(reader["perPrice"]),
-                                    OrderQuantity = Convert.ToInt32(reader["orderQuantity"])
+                                    OrderQuantity = Convert.ToInt32(reader["orderQuantity"]),
+                                  
                                 };
                                 orders.Add(order);
                             }
@@ -470,6 +475,7 @@ namespace restaurantSystem
                         cmd.Parameters.AddWithValue("@Time", order.Time);
                         cmd.Parameters.AddWithValue("@CashTendered", cashTendered);
                         cmd.Parameters.AddWithValue("@ChangeAmount", changeAmount);
+                      
 
                         cmd.ExecuteNonQuery();
                     }
@@ -497,7 +503,7 @@ namespace restaurantSystem
 
 
 
-        private class OrderData
+        public class OrderData
         {
             public int OrderID { get; set; }
             public string ORNumber { get; set; }
@@ -508,7 +514,9 @@ namespace restaurantSystem
             public DateTime Date { get; set; }
             public DateTime Time { get; set; }
             public double TotalAmount { get; set; }
+            public bool IsPaid { get; set; } // Add this property
         }
+
 
 
 
@@ -586,6 +594,19 @@ namespace restaurantSystem
                 Console.WriteLine("Invalid total amount.");
             }
 
+        }
+
+        public bool HasPendingOrders()
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = "SELECT COUNT(*) FROM ordertable WHERE isPaid = 0";
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                {
+                    return Convert.ToInt32(cmd.ExecuteScalar()) > 0;
+                }
+            }
         }
 
         private void DisplayOrders(Panel orderSummary)

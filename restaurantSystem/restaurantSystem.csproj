@@ -152,6 +152,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseHelper.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="DesignCodes\Borders.cs" />
     <Compile Include="Global.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Inventory.Designer.cs">
       <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginForm.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +187,7 @@
     <Compile Include="Order.Designer.cs">
       <DependentUpon>Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderData.cs" />
     <Compile Include="Payment.cs">
       <SubType>Form</SubType>
     </Compile>
