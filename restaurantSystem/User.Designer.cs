@@ -56,15 +56,18 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.loginContainer);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1540, 751);
             this.panel1.TabIndex = 16;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel2
             // 
             this.panel2.BackgroundImage = global::restaurantSystem.Properties.Resources.x2;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Location = new System.Drawing.Point(1492, 17);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
@@ -121,7 +124,7 @@
             this.labelGoToSignUp.Location = new System.Drawing.Point(196, 494);
             this.labelGoToSignUp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelGoToSignUp.Name = "labelGoToSignUp";
-            this.labelGoToSignUp.Size = new System.Drawing.Size(55, 16);
+            this.labelGoToSignUp.Size = new System.Drawing.Size(68, 20);
             this.labelGoToSignUp.TabIndex = 11;
             this.labelGoToSignUp.TabStop = true;
             this.labelGoToSignUp.Text = "Sign Up";
@@ -133,11 +136,12 @@
             this.label1.Location = new System.Drawing.Point(84, 92);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 6;
             // 
             // txtUsername
             // 
+            this.txtUsername.Font = new System.Drawing.Font("Leelawadee", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.Location = new System.Drawing.Point(87, 262);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
             this.txtUsername.Multiline = true;
@@ -147,13 +151,15 @@
             // 
             // txtPassword
             // 
+            this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPassword.Font = new System.Drawing.Font("Leelawadee", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(87, 319);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(283, 32);
+            this.txtPassword.PasswordChar = '♚';
+            this.txtPassword.Size = new System.Drawing.Size(283, 40);
             this.txtPassword.TabIndex = 10;
-            this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // label2
@@ -162,7 +168,7 @@
             this.label2.Location = new System.Drawing.Point(67, 215);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 16);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 9;
             // 
             // User

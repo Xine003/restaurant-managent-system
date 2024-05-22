@@ -34,6 +34,8 @@ namespace restaurantSystem
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.FlatAppearance.BorderSize = 0;
             panel2.BackColor = Color.Transparent;
+
+          
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -129,6 +131,11 @@ namespace restaurantSystem
         private void panel2_MouseClick(object sender, MouseEventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -23,7 +23,15 @@ namespace restaurantSystem
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             AddCoupon addDiscountsForm = new AddCoupon();
+            addDiscountsForm.CouponAdded += AddDiscountsForm_CouponAdded;
+
             addDiscountsForm.Show();
+        }
+
+        private void AddDiscountsForm_CouponAdded()
+        {
+            // Refresh the displayed discounts
+            DisplayDiscounts(couponPanel);
         }
 
 

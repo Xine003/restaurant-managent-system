@@ -31,15 +31,6 @@
             this.receiptProduct = new System.Windows.Forms.Panel();
             this.insufficientCash = new System.Windows.Forms.Label();
             this.sampleDisplay = new System.Windows.Forms.TextBox();
-            this.paymentPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ORNo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.changeTb = new System.Windows.Forms.TextBox();
-            this.paymentTb = new System.Windows.Forms.TextBox();
-            this.change = new System.Windows.Forms.Label();
-            this.payment = new System.Windows.Forms.Label();
-            this.orderSummary = new System.Windows.Forms.FlowLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.num0btn = new System.Windows.Forms.Button();
             this.decimalbtn = new System.Windows.Forms.Button();
@@ -55,9 +46,18 @@
             this.num2btn = new System.Windows.Forms.Button();
             this.num1btn = new System.Windows.Forms.Button();
             this.num1 = new System.Windows.Forms.PictureBox();
+            this.paymentPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ORNo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.changeTb = new System.Windows.Forms.TextBox();
+            this.paymentTb = new System.Windows.Forms.TextBox();
+            this.change = new System.Windows.Forms.Label();
+            this.payment = new System.Windows.Forms.Label();
+            this.orderSummary = new System.Windows.Forms.FlowLayoutPanel();
             this.receiptProduct.SuspendLayout();
-            this.paymentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num1)).BeginInit();
+            this.paymentPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // receiptProduct
@@ -112,115 +112,6 @@
             this.sampleDisplay.Size = new System.Drawing.Size(312, 49);
             this.sampleDisplay.TabIndex = 0;
             this.sampleDisplay.TextChanged += new System.EventHandler(this.sampleDisplay_TextChanged);
-            // 
-            // paymentPanel
-            // 
-            this.paymentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
-            this.paymentPanel.Controls.Add(this.label1);
-            this.paymentPanel.Controls.Add(this.ORNo);
-            this.paymentPanel.Controls.Add(this.label2);
-            this.paymentPanel.Controls.Add(this.changeTb);
-            this.paymentPanel.Controls.Add(this.paymentTb);
-            this.paymentPanel.Controls.Add(this.change);
-            this.paymentPanel.Controls.Add(this.payment);
-            this.paymentPanel.Location = new System.Drawing.Point(884, 26);
-            this.paymentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.paymentPanel.Name = "paymentPanel";
-            this.paymentPanel.Size = new System.Drawing.Size(368, 133);
-            this.paymentPanel.TabIndex = 1;
-            this.paymentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentPanel_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(14, 68);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 38);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "₱";
-            // 
-            // ORNo
-            // 
-            this.ORNo.AutoSize = true;
-            this.ORNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ORNo.ForeColor = System.Drawing.Color.Transparent;
-            this.ORNo.Location = new System.Drawing.Point(173, 18);
-            this.ORNo.Name = "ORNo";
-            this.ORNo.Size = new System.Drawing.Size(70, 22);
-            this.ORNo.TabIndex = 6;
-            this.ORNo.Text = "000000";
-            this.ORNo.Click += new System.EventHandler(this.ORNo_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(104, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 22);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "OR No:";
-            // 
-            // changeTb
-            // 
-            this.changeTb.BackColor = System.Drawing.Color.Gray;
-            this.changeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.changeTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeTb.ForeColor = System.Drawing.SystemColors.Window;
-            this.changeTb.Location = new System.Drawing.Point(215, 67);
-            this.changeTb.Multiline = true;
-            this.changeTb.Name = "changeTb";
-            this.changeTb.Size = new System.Drawing.Size(134, 40);
-            this.changeTb.TabIndex = 3;
-            // 
-            // paymentTb
-            // 
-            this.paymentTb.BackColor = System.Drawing.Color.Gray;
-            this.paymentTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.paymentTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.paymentTb.ForeColor = System.Drawing.SystemColors.Window;
-            this.paymentTb.Location = new System.Drawing.Point(58, 68);
-            this.paymentTb.Multiline = true;
-            this.paymentTb.Name = "paymentTb";
-            this.paymentTb.Size = new System.Drawing.Size(137, 40);
-            this.paymentTb.TabIndex = 2;
-            // 
-            // change
-            // 
-            this.change.AutoSize = true;
-            this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.change.ForeColor = System.Drawing.Color.Transparent;
-            this.change.Location = new System.Drawing.Point(210, 42);
-            this.change.Name = "change";
-            this.change.Size = new System.Drawing.Size(73, 22);
-            this.change.TabIndex = 1;
-            this.change.Text = "Change";
-            this.change.Click += new System.EventHandler(this.label1_Click_3);
-            // 
-            // payment
-            // 
-            this.payment.AutoSize = true;
-            this.payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payment.ForeColor = System.Drawing.Color.Transparent;
-            this.payment.Location = new System.Drawing.Point(45, 43);
-            this.payment.Name = "payment";
-            this.payment.Size = new System.Drawing.Size(117, 22);
-            this.payment.TabIndex = 0;
-            this.payment.Text = "Total Amount";
-            this.payment.Click += new System.EventHandler(this.payment_Click);
-            // 
-            // orderSummary
-            // 
-            this.orderSummary.AutoScroll = true;
-            this.orderSummary.BackColor = System.Drawing.Color.Transparent;
-            this.orderSummary.Location = new System.Drawing.Point(30, 26);
-            this.orderSummary.Name = "orderSummary";
-            this.orderSummary.Size = new System.Drawing.Size(815, 563);
-            this.orderSummary.TabIndex = 2;
             // 
             // button3
             // 
@@ -468,6 +359,115 @@
             this.num1.TabIndex = 0;
             this.num1.TabStop = false;
             // 
+            // paymentPanel
+            // 
+            this.paymentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(87)))), ((int)(((byte)(87)))));
+            this.paymentPanel.Controls.Add(this.label1);
+            this.paymentPanel.Controls.Add(this.ORNo);
+            this.paymentPanel.Controls.Add(this.label2);
+            this.paymentPanel.Controls.Add(this.changeTb);
+            this.paymentPanel.Controls.Add(this.paymentTb);
+            this.paymentPanel.Controls.Add(this.change);
+            this.paymentPanel.Controls.Add(this.payment);
+            this.paymentPanel.Location = new System.Drawing.Point(884, 26);
+            this.paymentPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.paymentPanel.Name = "paymentPanel";
+            this.paymentPanel.Size = new System.Drawing.Size(368, 133);
+            this.paymentPanel.TabIndex = 1;
+            this.paymentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.paymentPanel_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(14, 68);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 38);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "₱";
+            // 
+            // ORNo
+            // 
+            this.ORNo.AutoSize = true;
+            this.ORNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ORNo.ForeColor = System.Drawing.Color.Transparent;
+            this.ORNo.Location = new System.Drawing.Point(173, 18);
+            this.ORNo.Name = "ORNo";
+            this.ORNo.Size = new System.Drawing.Size(70, 22);
+            this.ORNo.TabIndex = 6;
+            this.ORNo.Text = "000000";
+            this.ORNo.Click += new System.EventHandler(this.ORNo_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(104, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 22);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "OR No:";
+            // 
+            // changeTb
+            // 
+            this.changeTb.BackColor = System.Drawing.Color.Gray;
+            this.changeTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.changeTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeTb.ForeColor = System.Drawing.SystemColors.Window;
+            this.changeTb.Location = new System.Drawing.Point(215, 67);
+            this.changeTb.Multiline = true;
+            this.changeTb.Name = "changeTb";
+            this.changeTb.Size = new System.Drawing.Size(134, 40);
+            this.changeTb.TabIndex = 3;
+            // 
+            // paymentTb
+            // 
+            this.paymentTb.BackColor = System.Drawing.Color.Gray;
+            this.paymentTb.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.paymentTb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentTb.ForeColor = System.Drawing.SystemColors.Window;
+            this.paymentTb.Location = new System.Drawing.Point(58, 68);
+            this.paymentTb.Multiline = true;
+            this.paymentTb.Name = "paymentTb";
+            this.paymentTb.Size = new System.Drawing.Size(137, 40);
+            this.paymentTb.TabIndex = 2;
+            // 
+            // change
+            // 
+            this.change.AutoSize = true;
+            this.change.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.change.ForeColor = System.Drawing.Color.Transparent;
+            this.change.Location = new System.Drawing.Point(210, 42);
+            this.change.Name = "change";
+            this.change.Size = new System.Drawing.Size(73, 22);
+            this.change.TabIndex = 1;
+            this.change.Text = "Change";
+            this.change.Click += new System.EventHandler(this.label1_Click_3);
+            // 
+            // payment
+            // 
+            this.payment.AutoSize = true;
+            this.payment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payment.ForeColor = System.Drawing.Color.Transparent;
+            this.payment.Location = new System.Drawing.Point(45, 43);
+            this.payment.Name = "payment";
+            this.payment.Size = new System.Drawing.Size(117, 22);
+            this.payment.TabIndex = 0;
+            this.payment.Text = "Total Amount";
+            this.payment.Click += new System.EventHandler(this.payment_Click);
+            // 
+            // orderSummary
+            // 
+            this.orderSummary.AutoScroll = true;
+            this.orderSummary.BackColor = System.Drawing.Color.Transparent;
+            this.orderSummary.Location = new System.Drawing.Point(30, 26);
+            this.orderSummary.Name = "orderSummary";
+            this.orderSummary.Size = new System.Drawing.Size(823, 563);
+            this.orderSummary.TabIndex = 2;
+            // 
             // Receipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -483,9 +483,9 @@
             this.Load += new System.EventHandler(this.Receipt_Load);
             this.receiptProduct.ResumeLayout(false);
             this.receiptProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.num1)).EndInit();
             this.paymentPanel.ResumeLayout(false);
             this.paymentPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num1)).EndInit();
             this.ResumeLayout(false);
 
         }

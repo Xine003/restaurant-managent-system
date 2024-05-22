@@ -28,7 +28,12 @@ namespace restaurantSystem
 
             LoadCategories();
 
+            this.FormBorderStyle= FormBorderStyle.None;
         }
+
+
+
+
 
 
         private Products productsForm;
@@ -99,6 +104,8 @@ namespace restaurantSystem
         private void back_btn_Click(object sender, EventArgs e)
         {
             UpdateProduct();
+           
+            this.Close();
 
 
         }
@@ -132,7 +139,7 @@ namespace restaurantSystem
 
                       
                         MessageBox.Show("Item added successfully!");
-
+                       
                         pictureProduct.Image = null;
                         i_category.Text = "";
                         i_price.Text = "";
@@ -145,7 +152,7 @@ namespace restaurantSystem
                 
                 MessageBox.Show("Error adding item: " + ex.Message);
             }
-
+            this.Close();
 
         }
 
@@ -320,6 +327,54 @@ namespace restaurantSystem
         private void button1_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ensure that labelUserID contains a valid integer ID
+                if (int.TryParse(labelUserID.Text, out int userId))
+                {
+                    db.openConnection();
+
+                    string query = "DELETE FROM items WHERE id = @ID";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
+                    {
+                        cmd.Parameters.AddWithValue("@ID", userId);
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                      
+                        }
+                        else
+                        {
+                            MessageBox.Show("No record found with the specified ID.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Invalid User ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error deleting record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                db.closeConnection();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

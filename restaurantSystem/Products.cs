@@ -34,9 +34,18 @@ namespace restaurantSystem
             dataGridView1.ReadOnly = true;
 
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            dataGridView1.ScrollBars = ScrollBars.Both;
         }
 
-     
+        private void addProducts(object sender, MouseEventArgs e)
+        {
+            AddItems add_item = new AddItems();
+            add_item.Show();
+        }
+
+
+
+
         private void productsPanel_Paint(object sender, PaintEventArgs e)
         {
 
@@ -52,26 +61,12 @@ namespace restaurantSystem
 
         }
 
-        private void addProducts(object sender, MouseEventArgs e)
-        {
-            AddItems add_item = new AddItems();
-            add_item.Show();
-        }
+       
 
         private void Products_Load(object sender, EventArgs e)
         {
-            DataGridViewButtonColumn deleteButtonColumn = new DataGridViewButtonColumn();
-            deleteButtonColumn.Name = "DeleteButton";
-            deleteButtonColumn.HeaderText = "Delete";
-            deleteButtonColumn.Text = "Delete";
-            deleteButtonColumn.DefaultCellStyle.ForeColor = Color.Red;
-            deleteButtonColumn.UseColumnTextForButtonValue = true;
-
-            dataGridView1.Columns.Add(deleteButtonColumn);
-
+          
         }
-
-
 
         private void LoadDataToDataGridView()
         {
@@ -93,13 +88,7 @@ namespace restaurantSystem
                     }
 
                     dataGridView1.DataSource = dataTable;
-
                     dataGridView1.ForeColor = Color.White;
-
-                    dataGridView1.RowPrePaint += (sender, e) =>
-                    {
-                        dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Transparent;
-                    };
 
                     foreach (DataGridViewColumn column in dataGridView1.Columns)
                     {
@@ -117,33 +106,14 @@ namespace restaurantSystem
             }
         }
 
-
-
-
-
-        private void deleteRow(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-
-
         private void tableclicked(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                // Delete button clicked
-                DeleteRecord(e.RowIndex);
+               
             }
             else if (e.RowIndex >= 0)
             {
-                // Display item details
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
                 int userId = Convert.ToInt32(row.Cells["id"].Value);
@@ -169,17 +139,12 @@ namespace restaurantSystem
 
                             using (MySqlDataReader reader = command.ExecuteReader())
                             {
-                                if (reader.Read())
+                                if (reader.Read() && !reader.IsDBNull(reader.GetOrdinal("productImage")))
                                 {
-                                    // Read the VARBINARY data as byte array
-                                    if (!reader.IsDBNull(reader.GetOrdinal("productImage")))
+                                    byte[] imageBytes = (byte[])reader["productImage"];
+                                    using (MemoryStream ms = new MemoryStream(imageBytes))
                                     {
-                                        byte[] imageBytes = (byte[])reader["productImage"];
-                                        // Convert byte array to Bitmap
-                                        using (MemoryStream ms = new MemoryStream(imageBytes))
-                                        {
-                                            imageData = new Bitmap(ms);
-                                        }
+                                        imageData = new Bitmap(ms);
                                     }
                                 }
                             }
@@ -198,54 +163,94 @@ namespace restaurantSystem
             }
         }
 
+
+
+
+        private void deleteRow(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+
+
+       
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
 
-        private void DeleteRecord(int rowIndex)
-        {
-           DataGridViewRow row = dataGridView1.Rows[rowIndex];
-
-    int idToDelete = Convert.ToInt32(row.Cells["id"].Value);
-
-    if (MessageBox.Show("Are you sure you want to delete this record?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-    {
-        // Perform deletion from the database
-        try
-        {
-            db.openConnection();
-
-            string query = "DELETE FROM items WHERE id = @ID";
-
-            using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
-            {
-                cmd.Parameters.AddWithValue("@ID", idToDelete);
-                cmd.ExecuteNonQuery();
-            }
-
-            MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Remove the deleted row from the DataGridView
-            dataGridView1.Rows.RemoveAt(rowIndex);
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show("Error deleting record: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-        finally
-        {
-            db.closeConnection();
-        }
-    }
-        }
-
+       
 
 
         private void label2_Click(object sender, EventArgs e)
+
         {
-           
+
+            ClearDataGridView();
+            LoadDataToDataGridView();
+
+        }
+
+        private void ClearDataGridView()
+        {
+            // Clear the data source
+            dataGridView1.DataSource = null;
+
+            // Clear any existing rows and columns
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            // Clear any data bindings
+            dataGridView1.DataBindings.Clear();
+
+            // Force a visual refresh
+            dataGridView1.Refresh();
+        }
+
+        private void LoadDataToDataGridViewRefresh()
+        {
+            
+
+            try
+            {
+
+                db.openConnection();
+
+                string query = "SELECT id, name AS productName, category AS productCategory, price AS productPrice FROM items";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
+                {
+                    DataTable dataTable = new DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+
+                    dataGridView1.DataSource = dataTable;
+                    dataGridView1.ForeColor = Color.White;
+
+                    foreach (DataGridViewColumn column in dataGridView1.Columns)
+                    {
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+            finally
+            {
+                db.closeConnection();
+            }
         }
 
     }

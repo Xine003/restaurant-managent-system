@@ -82,9 +82,15 @@ namespace restaurantSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.Show();
-            this.Hide();
+
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                User user = new User();
+                user.Show();
+                this.Hide();
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -181,28 +187,52 @@ namespace restaurantSystem
         }
 
         private void home_btn_MouseHover(object sender, EventArgs e)
+
         {
-            ForeColor = Color.Black;
+            home_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
+
+           tableReservation_btn.BackColor = Color.Transparent;
+
+
+            orderList_btn.BackColor = Color.Transparent;
+
+
+         
         }
 
         private void tableReservation_btn_MouseHover(object sender, EventArgs e)
         {
-            ForeColor = Color.Black;
+            home_btn.BackColor = Color.Transparent;
+
+            tableReservation_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
+
+
+            orderList_btn.BackColor = Color.Transparent;
         }
 
         private void orderList_btn_MouseHover(object sender, EventArgs e)
         {
-            ForeColor = Color.Black;
+            home_btn.BackColor = Color.Transparent;
+
+            tableReservation_btn.BackColor = Color.Transparent;
+
+
+            orderList_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
         }
 
         private void logOut_btn_MouseHover(object sender, EventArgs e)
         {
-            ForeColor = Color.Black;
+           logOut_btn.BackColor = Color.Transparent;
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

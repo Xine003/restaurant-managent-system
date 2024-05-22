@@ -27,17 +27,10 @@ namespace restaurantSystem
             linepanel.BackgroundImageLayout = ImageLayout.Stretch;
             this.FormBorderStyle = FormBorderStyle.None;
 
-            home_btn.FlatAppearance.BorderSize = 0;
+            home_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
            
-            products_btn.FlatAppearance.BorderSize = 0;
-            employee_btn.FlatAppearance.BorderSize = 0;
-            logout_btn.FlatAppearance.BorderSize = 0;
 
-            DesignCodes.Borders.SetBorderRadius(home_btn, 20);
-        
-            DesignCodes.Borders.SetBorderRadius(products_btn, 20);
-            DesignCodes.Borders.SetBorderRadius(employee_btn, 20);
-            DesignCodes.Borders.SetBorderRadius(logout_btn, 20);
+
 
             LoadDashboardForm();
 
@@ -49,6 +42,7 @@ namespace restaurantSystem
 
             DateTimeLabel();
 
+       
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -184,9 +178,17 @@ namespace restaurantSystem
 
         private void logout_btn_Click_1(object sender, EventArgs e)
         {
-            this.Hide();
-            User user = new User();
-            user.Show();
+
+
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Log Out Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+             
+                this.Hide();
+                User user = new User();
+                user.Show();
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -214,6 +216,74 @@ namespace restaurantSystem
         private void button1_Click_1(object sender, EventArgs e)
         {
             LoadCouponForm();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            this.Close();        }
+
+        private void home_btn_MouseHover(object sender, EventArgs e)
+        {
+            home_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
+          
+
+            products_btn.BackColor = Color.Transparent;
+            
+
+            employee_btn.BackColor = Color.Transparent;
+
+
+            button1.BackColor = Color.Transparent;
+
+        }
+
+        private void products_btn_MouseHover(object sender, EventArgs e)
+        {
+            products_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
+           
+
+            home_btn.BackColor = Color.Transparent;
+
+
+            employee_btn.BackColor = Color.Transparent;
+
+
+            button1.BackColor = Color.Transparent;
+        }
+
+        private void employee_btn_MouseHover(object sender, EventArgs e)
+        {
+            employee_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
+
+            products_btn.BackColor = Color.Transparent;
+
+
+            home_btn.BackColor = Color.Transparent;
+
+
+            button1.BackColor = Color.Transparent;
+
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+           button1.BackColor = ColorTranslator.FromHtml("#E1D7A6");
+
+            products_btn.BackColor = Color.Transparent;
+
+
+            employee_btn.BackColor = Color.Transparent;
+
+
+           home_btn.BackColor = Color.Transparent;
+
+
+        }
+
+        private void logout_btn_MouseHover(object sender, EventArgs e)
+        {
+            logout_btn.BackColor = Color.Transparent;
+
         }
     }
 }

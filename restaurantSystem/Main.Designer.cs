@@ -42,14 +42,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.linepanel = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.navbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(19)))), ((int)(((byte)(21)))));
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.dateTime_label);
             this.panel1.Controls.Add(this.dashboard_Label);
             this.panel1.Controls.Add(this.dashboard_panel);
@@ -96,6 +99,7 @@
             // navbar
             // 
             this.navbar.BackgroundImage = global::restaurantSystem.Properties.Resources.navbar1;
+            this.navbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.navbar.Controls.Add(this.button1);
             this.navbar.Controls.Add(this.logout_btn);
             this.navbar.Controls.Add(this.products_btn);
@@ -112,6 +116,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.Control;
@@ -123,11 +128,13 @@
             this.button1.Text = "Coupons";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // logout_btn
             // 
             this.logout_btn.BackColor = System.Drawing.Color.Transparent;
             this.logout_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logout_btn.FlatAppearance.BorderSize = 0;
             this.logout_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logout_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logout_btn.ForeColor = System.Drawing.SystemColors.Control;
@@ -139,11 +146,13 @@
             this.logout_btn.Text = "Logout";
             this.logout_btn.UseVisualStyleBackColor = false;
             this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click_1);
+            this.logout_btn.MouseHover += new System.EventHandler(this.logout_btn_MouseHover);
             // 
             // products_btn
             // 
             this.products_btn.BackColor = System.Drawing.Color.Transparent;
             this.products_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.products_btn.FlatAppearance.BorderSize = 0;
             this.products_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.products_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.products_btn.ForeColor = System.Drawing.Color.Transparent;
@@ -155,11 +164,13 @@
             this.products_btn.Text = "Products";
             this.products_btn.UseVisualStyleBackColor = false;
             this.products_btn.Click += new System.EventHandler(this.products_btn_Click);
+            this.products_btn.MouseHover += new System.EventHandler(this.products_btn_MouseHover);
             // 
             // employee_btn
             // 
             this.employee_btn.BackColor = System.Drawing.Color.Transparent;
             this.employee_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.employee_btn.FlatAppearance.BorderSize = 0;
             this.employee_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employee_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employee_btn.ForeColor = System.Drawing.SystemColors.Control;
@@ -171,11 +182,13 @@
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
             this.employee_btn.Click += new System.EventHandler(this.user_btn_Click);
+            this.employee_btn.MouseHover += new System.EventHandler(this.employee_btn_MouseHover);
             // 
             // home_btn
             // 
             this.home_btn.BackColor = System.Drawing.Color.Transparent;
             this.home_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.home_btn.FlatAppearance.BorderSize = 0;
             this.home_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.home_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.home_btn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -187,6 +200,7 @@
             this.home_btn.Text = "Home";
             this.home_btn.UseVisualStyleBackColor = false;
             this.home_btn.Click += new System.EventHandler(this.loadDashboard);
+            this.home_btn.MouseHover += new System.EventHandler(this.home_btn_MouseHover);
             // 
             // label1
             // 
@@ -219,11 +233,23 @@
             // linepanel
             // 
             this.linepanel.BackgroundImage = global::restaurantSystem.Properties.Resources.Line_1;
+            this.linepanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.linepanel.Location = new System.Drawing.Point(214, 83);
             this.linepanel.Name = "linepanel";
             this.linepanel.Size = new System.Drawing.Size(1328, 10);
             this.linepanel.TabIndex = 0;
             this.linepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.linepanel_Paint);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::restaurantSystem.Properties.Resources.x;
+            this.pictureBox3.Location = new System.Drawing.Point(1483, 26);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(33, 28);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // Main
             // 
@@ -244,6 +270,7 @@
             this.navbar.ResumeLayout(false);
             this.navbar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,5 +289,6 @@
         private System.Windows.Forms.Button products_btn;
         private System.Windows.Forms.Button logout_btn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

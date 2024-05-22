@@ -41,15 +41,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.home_btn = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.dateTime_label);
             this.panel1.Controls.Add(this.dashboard_panel);
             this.panel1.Controls.Add(this.label6);
@@ -89,18 +92,19 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(259, 27);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(202, 42);
+            this.label6.Size = new System.Drawing.Size(198, 42);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Dashboard";
+            this.label6.Text = "New Order";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::restaurantSystem.Properties.Resources.Line_1;
-            this.pictureBox1.Location = new System.Drawing.Point(213, 82);
+            this.pictureBox1.Location = new System.Drawing.Point(223, 82);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1328, 10);
+            this.pictureBox1.Size = new System.Drawing.Size(1318, 12);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -108,6 +112,7 @@
             // panel2
             // 
             this.panel2.BackgroundImage = global::restaurantSystem.Properties.Resources.navbar1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.logOut_btn);
             this.panel2.Controls.Add(this.orderList_btn);
             this.panel2.Controls.Add(this.tableReservation_btn);
@@ -123,6 +128,7 @@
             // logOut_btn
             // 
             this.logOut_btn.BackColor = System.Drawing.Color.Transparent;
+            this.logOut_btn.FlatAppearance.BorderSize = 0;
             this.logOut_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logOut_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logOut_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -140,6 +146,7 @@
             // orderList_btn
             // 
             this.orderList_btn.BackColor = System.Drawing.Color.Transparent;
+            this.orderList_btn.FlatAppearance.BorderSize = 0;
             this.orderList_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.orderList_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orderList_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -157,6 +164,7 @@
             // tableReservation_btn
             // 
             this.tableReservation_btn.BackColor = System.Drawing.Color.Transparent;
+            this.tableReservation_btn.FlatAppearance.BorderSize = 0;
             this.tableReservation_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tableReservation_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableReservation_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -201,6 +209,7 @@
             // home_btn
             // 
             this.home_btn.BackColor = System.Drawing.Color.Transparent;
+            this.home_btn.FlatAppearance.BorderSize = 0;
             this.home_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.home_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.home_btn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -214,6 +223,17 @@
             this.home_btn.UseVisualStyleBackColor = false;
             this.home_btn.Click += new System.EventHandler(this.home_btn_Click);
             this.home_btn.MouseHover += new System.EventHandler(this.home_btn_MouseHover);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::restaurantSystem.Properties.Resources.x;
+            this.pictureBox3.Location = new System.Drawing.Point(1483, 23);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // Cashier
             // 
@@ -236,6 +256,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,5 +274,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel dashboard_panel;
         private System.Windows.Forms.Label dateTime_label;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

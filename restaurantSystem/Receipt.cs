@@ -254,7 +254,7 @@ namespace restaurantSystem
             {
                 Panel orderPanel = new Panel
                 {
-                    Width = 285,
+                    Width = 295,
                     Height = 200, 
                     BorderStyle = BorderStyle.FixedSingle,
                     Margin = new Padding(5),
@@ -821,7 +821,7 @@ namespace restaurantSystem
 
 
                 sb.AppendLine("----------------------------------------------------");
-                sb.AppendLine($"Sub Total:                        ₱{firstTransaction.subTotal}");
+                sb.AppendLine($"Sub Total:                       ₱{firstTransaction.subTotal}");
                 sb.AppendLine($"Cash Tendered:             ₱{firstTransaction.CashTendered}");
                 sb.AppendLine($"Change:                          ₱{firstTransaction.ChangeAmount}");
                 sb.AppendLine($"Discount:                        ₱{firstTransaction.Discount}");

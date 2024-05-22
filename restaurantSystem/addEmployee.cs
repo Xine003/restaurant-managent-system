@@ -17,15 +17,17 @@ namespace restaurantSystem
         private DB db = new DB();
         string uType = "Staff";
 
-        public addEmployee()
+        private Users parentForm;
+
+        public addEmployee(Users parentForm)
         {
             InitializeComponent();
+            this.parentForm = parentForm;
+            this.FormClosed += AddEmployee_FormClosed;
             this.FormBorderStyle = FormBorderStyle.None;
             panel1.BackgroundImageLayout = ImageLayout.Stretch;
             label6.Text = "  ";
             label6.Visible = false;
-            
-
         }
 
         public void DisableButton1()
@@ -33,7 +35,7 @@ namespace restaurantSystem
             button1.Enabled = false;
         }
 
-        public addEmployee(int userID, string firstName, string lastName, string emailAddress, string userName, string passWord)
+        public addEmployee(int userID, string firstName, string lastName, string emailAddress, string userName, string passWord, Users parentForm)
         {
             InitializeComponent();
             id.Text = userID.ToString();
@@ -42,37 +44,37 @@ namespace restaurantSystem
             emailAdd.Text = emailAddress;
             uname.Text = userName;
             pword.Text = passWord;
+            this.parentForm = parentForm;
+            this.FormClosed += AddEmployee_FormClosed;
         }
-
-
 
         private void additem_btn_Click(object sender, EventArgs e)
         {
-
+            // Handle add item button click event
         }
 
         private void i_price_TextChanged(object sender, EventArgs e)
         {
-
+            // Handle price text changed event
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            // Handle label1 click event
         }
 
         private void pictureProduct_Click(object sender, EventArgs e)
         {
-
+            // Handle picture product click event
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             addUsersToDatabase(fname.Text, lname.Text, emailAdd.Text, uname.Text, pword.Text, uType);
+            this.Close();
         }
 
-
-        //function to add user
+        // Function to add user
         private void addUsersToDatabase(string firstName, string lastName, string emailAddress, string userName, string passWord, string userType)
         {
             string query = "INSERT INTO users (firstname, lastname, emailaddress, username, password, userType) VALUES (@FirstName, @LastName, @EmailAddress, @UserName, @Password, @UserType)";
@@ -94,7 +96,6 @@ namespace restaurantSystem
                         int rowsAffected = command.ExecuteNonQuery();
                         if (rowsAffected > 0)
                         {
-
                             label6.Text = "User added successfully.";
                             label6.ForeColor = Color.Green;
                         }
@@ -112,10 +113,10 @@ namespace restaurantSystem
             }
         }
 
-        //updating
+        // Updating user information
         private void updateUserInfoInDatabase(int id, string firstName, string lastName, string emailAddress, string userName, string passWord)
         {
-            string query = "UPDATE users SET firstname = @FirstName, lastname = @LastName, emailaddress = @EmailAddress,username =@Username, password = @Password WHERE id = @Id";
+            string query = "UPDATE users SET firstname = @FirstName, lastname = @LastName, emailaddress = @EmailAddress, username = @Username, password = @Password WHERE id = @Id";
 
             using (MySqlConnection connection = db.getConnection())
             {
@@ -160,7 +161,7 @@ namespace restaurantSystem
             {
                 using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", id); 
+                    command.Parameters.AddWithValue("@Id", id);
 
                     try
                     {
@@ -186,10 +187,9 @@ namespace restaurantSystem
             }
         }
 
-
         private void label6_Click(object sender, EventArgs e)
         {
-
+            // Handle label6 click event
         }
 
         private void back_btn_Click(object sender, EventArgs e)
@@ -197,15 +197,17 @@ namespace restaurantSystem
             int userId;
             if (int.TryParse(id.Text, out userId))
             {
-               
                 updateUserInfoInDatabase(userId, fname.Text, lname.Text, emailAdd.Text, uname.Text, pword.Text);
+                if (parentForm != null)
+                {
+                    parentForm.RefreshUserData(); // Refresh the user data in Users form
+                }
+                this.Close(); // Close the addEmployee form
             }
             else
             {
-               
                 MessageBox.Show("Invalid user ID.");
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -214,6 +216,11 @@ namespace restaurantSystem
             if (int.TryParse(id.Text, out userId))
             {
                 removeUserFromDatabase(userId);
+                if (parentForm != null)
+                {
+                    parentForm.RefreshUserData(); // Refresh the user data in Users form
+                }
+                this.Close(); // Close the addEmployee form
             }
             else
             {
@@ -222,6 +229,16 @@ namespace restaurantSystem
         }
 
         private void addEmployee_Load(object sender, EventArgs e)
+        {
+            // Handle form load event
+        }
+
+        private void AddEmployee_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            parentForm.RefreshUserData();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
         {
 
         }

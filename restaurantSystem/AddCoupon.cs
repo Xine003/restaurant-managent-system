@@ -14,7 +14,7 @@ namespace restaurantSystem
 {
     public partial class AddCoupon : Form
     {
-
+        public event Action CouponAdded;
 
         private DB db = new DB();
 
@@ -87,7 +87,8 @@ namespace restaurantSystem
                 discText.Text = "";
                 lim.Text = "";
                 percent.Text = "";
-
+                CouponAdded?.Invoke();
+                this.Close();
             }
             catch (FormatException ex)
             {
