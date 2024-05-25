@@ -619,14 +619,14 @@ namespace restaurantSystem
             {
                 insufficientCash.Text = "Insufficient Cash";
                 insufficientCash.ForeColor = Color.Red;
-                return; // Stop further processing
+                return; 
             }
 
             double change = cashTendered - totalAmount;
             if (change < 0)
             {
                 MessageBox.Show("Change cannot be negative", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Stop further processing
+                return; 
             }
 
             string message = $"Pay this bill? Total Amount: ₱{totalAmount.ToString("0.00")}";
@@ -636,10 +636,11 @@ namespace restaurantSystem
                 // Payment successful, proceed with payment process
                 double changes = change;
                 changeTb.Text = changes.ToString("0.00");
-                insufficientCash.Text = "Payment Successful";
-                insufficientCash.ForeColor = Color.Green;
+                insufficientCash.Text = "Payment Successful!";
+                insufficientCash.ForeColor = ColorTranslator.FromHtml("#95d5b2");
 
-             
+
+
                 DatabaseHelper dbHelper = new DatabaseHelper();
                 string orNumber = ORNo.Text;
                 List<OrderData> orders = dbHelper.GetOrderDataByORNumber(orNumber);
@@ -647,15 +648,15 @@ namespace restaurantSystem
                 foreach (var order in orders)
                 {
                     dbHelper.InsertHistoryTransaction(
-                        order.ORNumber,         // Use ORNumber from OrderData
-                        order.OrderName,       // Use OrderName from OrderData
-                        order.PerPrice,        // Use PerPrice from OrderData
-                        order.OrderQuantity,   // Use OrderQuantity from OrderData
-                        order.TableNumber,     // Use TableNumber from OrderData
-                        order.TotalAmount,     // Use TotalAmount from OrderData
-                        order.Date,            // Use Date from OrderData
-                        order.Time,            // Use Time from OrderData
-                        cashTendered,          // Use cashTendered parameter
+                        order.ORNumber,        
+                        order.OrderName,       
+                        order.PerPrice,        
+                        order.OrderQuantity,   
+                        order.TableNumber,     
+                        order.TotalAmount,    
+                        order.Date,          
+                        order.Time,            
+                        cashTendered,         
                         change,
                         order.Disc,
                         order.subTotal

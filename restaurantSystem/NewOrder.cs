@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using restaurantSystem.DesignCodes;
 using System.Data.SqlClient;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace restaurantSystem
 {
@@ -336,29 +337,31 @@ namespace restaurantSystem
 
         }
 
-     
+
+        int ORNum;
 
         private void confirmBtn_Click(object sender, EventArgs e)
         {
+
+
+
             if (tableLayoutPanel1.Controls.Count == 0)
             {
                 MessageBox.Show("Please input orders.", "Empty Orders", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            Random random = new Random();
-            int randomNumber = random.Next(100000, 999999);
-            OR.Text = "OR No:" + randomNumber.ToString();
-           string st =  totalAmountLabel.Text;
+            string st = totalAmountLabel.Text;
 
             string connectionString = "server=localhost;port=3306;username=root;password=;database=restaurant";
 
-            string query = "INSERT INTO orderTable (ORNumber, orderName, perPrice, orderQuantity, tableNumber, totalAmount, discount, subTotal) VALUES (@ORNumber, @OrderName, @PerPrice, @OrderQuantity, @tableNumber, @totalAmount, @Discount, @Subtotal)";
+            string orderTableQuery = "INSERT INTO orderTable (ORNumber, orderName, perPrice, orderQuantity, tableNumber, totalAmount, discount, subTotal) VALUES (@ORNumber, @OrderName, @PerPrice, @OrderQuantity, @tableNumber, @totalAmount, @Discount, @Subtotal)";
+            string ongoingOrdersQuery = "INSERT INTO ongoingorders (ORNumber, orderName, orderQuantity, tableNumber) VALUES (@ORNumber, @OrderName, @OrderQuantity, @tableNumber)";
 
             if (comboBox2.SelectedItem == null)
             {
                 MessageBox.Show("Select Table Number");
-                return; 
+                return;
             }
 
             foreach (Control control in tableLayoutPanel1.Controls)
@@ -377,9 +380,9 @@ namespace restaurantSystem
                         using (MySqlConnection connection = new MySqlConnection(connectionString))
                         {
                             connection.Open();
-                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            using (MySqlCommand command = new MySqlCommand(orderTableQuery, connection))
                             {
-                                command.Parameters.AddWithValue("@ORNumber", randomNumber);
+                                command.Parameters.AddWithValue("@ORNumber", ORNum);
                                 command.Parameters.AddWithValue("@OrderName", itemName);
                                 command.Parameters.AddWithValue("@PerPrice", perPrice);
                                 command.Parameters.AddWithValue("@OrderQuantity", orderQuantity);
@@ -388,15 +391,26 @@ namespace restaurantSystem
                                 command.Parameters.AddWithValue("@Discount", discValue);
                                 command.Parameters.AddWithValue("@Subtotal", st);
                                 command.ExecuteNonQuery();
-                                
+
+                                // Clear the parameters before reusing the command for the second query
+                                command.Parameters.Clear();
+
+                                // Set the command text to the second query
+                                command.CommandText = ongoingOrdersQuery;
+                                command.Parameters.AddWithValue("@ORNumber", ORNum);
+                                command.Parameters.AddWithValue("@OrderName", itemName);
+                                command.Parameters.AddWithValue("@OrderQuantity", orderQuantity);
+                                command.Parameters.AddWithValue("@tableNumber", tableNo);
+                                command.ExecuteNonQuery();
                             }
                         }
-
-                      
-
                     }
                 }
             }
+
+
+
+
 
             string updateQuery = "UPDATE discount SET `limit` = `limit` - 1 WHERE disc_code = @DiscountCode";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -410,10 +424,13 @@ namespace restaurantSystem
             }
 
 
+
+
+
             MessageBox.Show("Order Confirmed");
             tableLayoutPanel1.Controls.Clear();
             totalAmountLabel.Text = "0.00";
-            OR.Text = "New Order";
+       
             comboBox2.SelectedIndex = -1;
             label6.Text = "";
             textBox1.Text = "";
@@ -421,6 +438,16 @@ namespace restaurantSystem
             UpdateComboBoxFromOrderTable();
 
         }
+
+
+        
+
+          
+
+
+        
+                
+
 
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -1008,7 +1035,7 @@ namespace restaurantSystem
 
         private void UpdateComboBoxFromOrderTable()
         {
-            // Populate the combo box with numbers 1 to 12
+           
            comboBox2.Items.Clear();
             for (int i = 1; i <= 12; i++)
             {
@@ -1066,10 +1093,22 @@ namespace restaurantSystem
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                string inputCode = textBox1.Text;
-                CheckDiscountCode(inputCode);
-            
+                if (e.Handled)
+                {
+                    return;
+                }
+
                 e.Handled = true;
+
+                string inputCode = textBox1.Text;
+                if (string.IsNullOrWhiteSpace(inputCode))
+                {
+                    MessageBox.Show("Enter discount code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    CheckDiscountCode(inputCode);
+                }
             }
 
         }
@@ -1077,7 +1116,7 @@ namespace restaurantSystem
         public void CheckDiscountCode(string code)
         {
             string subTotal = totalAmountLabel.Text;
-            string query = "SELECT disc_value, `limit` FROM discount WHERE disc_code = @DiscCode";
+            string query = "SELECT disc_value, `limit`, date_valid FROM discount WHERE disc_code = @DiscCode";
 
             using (MySqlConnection connection = db.getConnection())
             using (MySqlCommand command = new MySqlCommand(query, connection))
@@ -1092,13 +1131,20 @@ namespace restaurantSystem
                         if (reader.Read())
                         {
                             decimal subtotal = Convert.ToDecimal(subTotal);
-                            decimal discValue = reader.GetDecimal(0); // Get disc_value from the query result
-                            int limit = reader.GetInt32(1); // Get the limit from the query result
+                            decimal discValue = reader.GetDecimal(0);
+                            int limit = reader.GetInt32(1);
+                            DateTime validDate = reader.GetDateTime(2);
 
                             if (limit <= 0)
                             {
                                 MessageBox.Show("Number of limits exceeded for this discount code.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return; // Stop further processing
+                                return;
+                            }
+
+                            if (validDate < DateTime.Now)
+                            {
+                                MessageBox.Show("Discount code has expired.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
                             }
 
                             decimal dividedValue = discValue / 100;
@@ -1107,7 +1153,6 @@ namespace restaurantSystem
                             total_Amount.Text = totalCost.ToString();
                             label6.Text = ttlamnt.ToString("F2");
 
-                         
                         }
                         else
                         {
@@ -1128,9 +1173,17 @@ namespace restaurantSystem
             }
         }
 
+
         private void total_Amount_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(100000, 999999);
+            ORNum = randomNumber;
         }
     }
 }

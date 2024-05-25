@@ -17,6 +17,7 @@ namespace restaurantSystem
 {
     public partial class Products : Form
     {
+       
         private Products productsForm;
         private DB db = new DB();
         private Panel dashboardPanel;
@@ -31,15 +32,20 @@ namespace restaurantSystem
             LoadDataToDataGridView();
 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.ReadOnly = true;
+           
 
             dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent;
-            dataGridView1.ScrollBars = ScrollBars.Both;
+            dataGridView1.ScrollBars = ScrollBars.None;
+
+            panel2.AutoScroll = true;
+            panel2.Controls.Add(dataGridView1);
         }
 
         private void addProducts(object sender, MouseEventArgs e)
         {
             AddItems add_item = new AddItems();
+            add_item.ItemAdded += OnItemAdded;
+           
             add_item.Show();
         }
 
@@ -76,7 +82,7 @@ namespace restaurantSystem
 
                 db.openConnection();
 
-                string query = "SELECT id, name AS productName, category AS productCategory, price AS productPrice FROM items";
+                string query = "SELECT id, name AS productName, category AS productCategory, price AS productPrice, imagePath FROM items";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
                 {
@@ -120,7 +126,7 @@ namespace restaurantSystem
                 string name = row.Cells["productName"].Value.ToString();
                 string category = row.Cells["productCategory"].Value.ToString();
                 int price = Convert.ToInt32(row.Cells["productPrice"].Value);
-
+                string filePath = row.Cells["imagePath"].Value.ToString();
                 Bitmap imageData = null;
 
                 try
@@ -157,9 +163,14 @@ namespace restaurantSystem
                     return;
                 }
 
-                AddItems addItemsForm = new AddItems(userId, name, price, category, imageData);
+                AddItems addItemsForm = new AddItems(userId, name, price, category, imageData, filePath);
+                addItemsForm.ItemAdded += OnItemAdded;
+                addItemsForm.FormBorderStyle = FormBorderStyle.None;
                 addItemsForm.Show();
                 addItemsForm.DisableButton1();
+
+               
+               
             }
         }
 
@@ -193,65 +204,38 @@ namespace restaurantSystem
 
         {
 
+            RefreshTable();
+
+        }
+
+
+        public void RefreshTable() {
+
             ClearDataGridView();
             LoadDataToDataGridView();
 
         }
 
+        private void OnItemAdded()
+        {
+            RefreshTable(); 
+        }
+
         private void ClearDataGridView()
         {
-            // Clear the data source
+       
             dataGridView1.DataSource = null;
 
-            // Clear any existing rows and columns
+           
             dataGridView1.Rows.Clear();
             dataGridView1.Columns.Clear();
-
-            // Clear any data bindings
             dataGridView1.DataBindings.Clear();
-
-            // Force a visual refresh
             dataGridView1.Refresh();
         }
 
-        private void LoadDataToDataGridViewRefresh()
+        private void label2_Click_1(object sender, EventArgs e)
         {
-            
-
-            try
-            {
-
-                db.openConnection();
-
-                string query = "SELECT id, name AS productName, category AS productCategory, price AS productPrice FROM items";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
-                {
-                    DataTable dataTable = new DataTable();
-
-                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
-                    {
-                        adapter.Fill(dataTable);
-                    }
-
-                    dataGridView1.DataSource = dataTable;
-                    dataGridView1.ForeColor = Color.White;
-
-                    foreach (DataGridViewColumn column in dataGridView1.Columns)
-                    {
-                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading data: " + ex.Message);
-            }
-            finally
-            {
-                db.closeConnection();
-            }
+            RefreshTable();
         }
-
     }
 }

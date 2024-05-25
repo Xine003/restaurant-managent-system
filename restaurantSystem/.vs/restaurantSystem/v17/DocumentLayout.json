@@ -3,22 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\additems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:additems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\additems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:additems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\addemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:addemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -27,8 +11,8 @@
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:addemployee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\products.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:products.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,8 +23,40 @@
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:kitchen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:cashier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\receipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:receipt.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:neworder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|c:\\users\\xine\\documents\\github pro\\restaurant-managent-system-main\\restaurantsystem\\coupons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5983EB85-2BAB-4E45-95D1-5F39106597A1}|restaurantSystem.csproj|solutionrelative:coupons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,21 +66,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Products.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.cs",
-              "RelativeDocumentMoniker": "Products.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.cs [Design]",
-              "RelativeToolTip": "Products.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T06:35:55.026Z",
-              "IsPinned": true,
-              "EditorCaption": " [Design]"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -87,115 +90,175 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "User.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\User.cs",
+              "RelativeDocumentMoniker": "User.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\User.cs [Design]",
+              "RelativeToolTip": "User.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T13:54:00.124Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "addEmployee.cs",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\addEmployee.cs",
+              "RelativeDocumentMoniker": "addEmployee.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\addEmployee.cs",
+              "RelativeToolTip": "addEmployee.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAawCsAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T13:38:33.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "addEmployee.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\addEmployee.cs",
               "RelativeDocumentMoniker": "addEmployee.cs",
               "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\addEmployee.cs [Design]",
               "RelativeToolTip": "addEmployee.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:42:44.125Z",
+              "WhenOpened": "2024-05-25T13:38:24.515Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Users.cs",
+              "RelativeDocumentMoniker": "Users.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Users.cs",
+              "RelativeToolTip": "Users.cs",
+              "ViewState": "AQIAAHMAAAAAAAAAAAAawI4AAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T13:06:35.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Users.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Users.cs",
               "RelativeDocumentMoniker": "Users.cs",
               "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Users.cs [Design]",
               "RelativeToolTip": "Users.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:42:40.34Z",
+              "WhenOpened": "2024-05-25T13:03:44.37Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Main.cs",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs",
+              "RelativeDocumentMoniker": "Main.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Main.cs",
+              "RelativeToolTip": "Main.cs",
+              "ViewState": "AQIAAMUAAAAAAAAAAAAawNgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T12:19:07.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Kitchen.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Kitchen.cs",
+              "RelativeDocumentMoniker": "Kitchen.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Kitchen.cs [Design]",
+              "RelativeToolTip": "Kitchen.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T09:52:36.071Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "addEmployee.cs",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\addEmployee.cs",
-              "RelativeDocumentMoniker": "addEmployee.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\addEmployee.cs",
-              "RelativeToolTip": "addEmployee.cs",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAAALoAAAANAAAA",
+              "Title": "Kitchen.cs",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Kitchen.cs",
+              "RelativeDocumentMoniker": "Kitchen.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Kitchen.cs",
+              "RelativeToolTip": "Kitchen.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAqwI8AAAAuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:16:48.791Z",
+              "WhenOpened": "2024-05-25T12:00:26.154Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddItems.cs",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\AddItems.cs",
-              "RelativeDocumentMoniker": "AddItems.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\AddItems.cs",
-              "RelativeToolTip": "AddItems.cs",
-              "ViewState": "AQIAAGEBAAAAAAAAAAAnwHgBAAAZAAAA",
+              "DocumentIndex": 8,
+              "Title": "Products.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.cs",
+              "RelativeDocumentMoniker": "Products.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.cs [Design]",
+              "RelativeToolTip": "Products.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:16:16.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-25T13:05:00.006Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "Products.cs",
               "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.cs",
               "RelativeDocumentMoniker": "Products.cs",
               "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.cs",
               "RelativeToolTip": "Products.cs",
-              "ViewState": "AQIAALMAAAAAAAAAAAAnwNEAAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T06:35:58.285Z",
+              "WhenOpened": "2024-05-25T13:05:54.496Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddItems.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\AddItems.cs",
-              "RelativeDocumentMoniker": "AddItems.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\AddItems.cs [Design]",
-              "RelativeToolTip": "AddItems.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:16:10.276Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Products.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.Designer.cs",
-              "RelativeDocumentMoniker": "Products.Designer.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Products.Designer.cs",
-              "RelativeToolTip": "Products.Designer.cs",
-              "ViewState": "AQIAAH4AAAAAAAAAAAAlwJAAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T12:16:42.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Users.cs",
-              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Users.cs",
-              "RelativeDocumentMoniker": "Users.cs",
-              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Users.cs",
-              "RelativeToolTip": "Users.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:44:34.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "Receipt.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Receipt.cs",
               "RelativeDocumentMoniker": "Receipt.cs",
               "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Receipt.cs [Design]",
               "RelativeToolTip": "Receipt.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-22T11:06:36.206Z",
+              "WhenOpened": "2024-05-25T12:10:51.165Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Coupons.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Coupons.cs",
+              "RelativeDocumentMoniker": "Coupons.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Coupons.cs [Design]",
+              "RelativeToolTip": "Coupons.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T09:57:26.289Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "NewOrder.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\NewOrder.cs",
+              "RelativeDocumentMoniker": "NewOrder.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\NewOrder.cs [Design]",
+              "RelativeToolTip": "NewOrder.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T09:56:16.732Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Cashier.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Cashier.cs",
+              "RelativeDocumentMoniker": "Cashier.cs",
+              "ToolTip": "C:\\Users\\Xine\\Documents\\Github Pro\\restaurant-managent-system-main\\restaurantSystem\\Cashier.cs [Design]",
+              "RelativeToolTip": "Cashier.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T09:51:00.771Z",
               "EditorCaption": " [Design]"
             }
           ]

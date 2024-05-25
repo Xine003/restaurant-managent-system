@@ -35,7 +35,6 @@
             this.loginContainer = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.labelGoToSignUp = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -80,7 +79,6 @@
             this.loginContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(22)))), ((int)(((byte)(56)))));
             this.loginContainer.Controls.Add(this.pictureBox1);
             this.loginContainer.Controls.Add(this.btnLogin);
-            this.loginContainer.Controls.Add(this.labelGoToSignUp);
             this.loginContainer.Controls.Add(this.label1);
             this.loginContainer.Controls.Add(this.txtUsername);
             this.loginContainer.Controls.Add(this.txtPassword);
@@ -117,19 +115,6 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // labelGoToSignUp
-            // 
-            this.labelGoToSignUp.AutoSize = true;
-            this.labelGoToSignUp.LinkColor = System.Drawing.Color.Black;
-            this.labelGoToSignUp.Location = new System.Drawing.Point(196, 494);
-            this.labelGoToSignUp.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.labelGoToSignUp.Name = "labelGoToSignUp";
-            this.labelGoToSignUp.Size = new System.Drawing.Size(68, 20);
-            this.labelGoToSignUp.TabIndex = 11;
-            this.labelGoToSignUp.TabStop = true;
-            this.labelGoToSignUp.Text = "Sign Up";
-            this.labelGoToSignUp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelGoToSignUp_LinkClicked);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -157,7 +142,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '♚';
+            this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(283, 40);
             this.txtPassword.TabIndex = 10;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
@@ -195,8 +180,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.LinkLabel labelGoToSignUp;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsername;

@@ -17,7 +17,7 @@ namespace restaurantSystem
         private comboBox1 newOrderForm;
         private Receipt newRecieptForm;
         private Table newtableForm;
-
+        private Kitchen newKitchenForm;
         public Cashier()
         {
             InitializeComponent();
@@ -137,6 +137,18 @@ namespace restaurantSystem
             newtableForm.Show();
         }
 
+        private void LoadKitchenForm()
+        {
+
+            newKitchenForm = new Kitchen();
+            newKitchenForm.TopLevel = false;
+            newKitchenForm.FormBorderStyle = FormBorderStyle.None;
+            newKitchenForm.Dock = DockStyle.Fill;
+            dashboard_panel.Controls.Clear();
+            dashboard_panel.Controls.Add(newKitchenForm);
+            newKitchenForm.Show();
+        }
+
 
 
         private void home_btn_Click(object sender, EventArgs e)
@@ -195,7 +207,7 @@ namespace restaurantSystem
 
 
             orderList_btn.BackColor = Color.Transparent;
-
+            button1.BackColor = Color.Transparent;
 
          
         }
@@ -205,7 +217,7 @@ namespace restaurantSystem
             home_btn.BackColor = Color.Transparent;
 
             tableReservation_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
-
+            button1.BackColor = Color.Transparent;
 
             orderList_btn.BackColor = Color.Transparent;
         }
@@ -216,7 +228,7 @@ namespace restaurantSystem
 
             tableReservation_btn.BackColor = Color.Transparent;
 
-
+            button1.BackColor = Color.Transparent;
             orderList_btn.BackColor = ColorTranslator.FromHtml("#E1D7A6");
         }
 
@@ -232,7 +244,29 @@ namespace restaurantSystem
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
+                Application.Exit();
+            }
+ 
+        }
+
+        private void button1_Click_4(object sender, EventArgs e)
+        {
+            LoadKitchenForm();
+            label6.Text = "On Going Orders";
+        }
+
+        private void button1_MouseHover(object sender, EventArgs e)
+        {
+            home_btn.BackColor = Color.Transparent;
+
+            tableReservation_btn.BackColor = Color.Transparent;
+
+           orderList_btn.BackColor = Color.Transparent;
+            button1.BackColor = ColorTranslator.FromHtml("#E1D7A6");
         }
     }
 }

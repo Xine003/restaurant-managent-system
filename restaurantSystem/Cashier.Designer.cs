@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cashier));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dateTime_label = new System.Windows.Forms.Label();
             this.dashboard_panel = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,12 +42,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.home_btn = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -64,6 +65,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1540, 751);
             this.panel1.TabIndex = 39;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::restaurantSystem.Properties.Resources.x;
+            this.pictureBox3.Location = new System.Drawing.Point(1483, 23);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // dateTime_label
             // 
@@ -113,6 +125,7 @@
             // 
             this.panel2.BackgroundImage = global::restaurantSystem.Properties.Resources.navbar1;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.logOut_btn);
             this.panel2.Controls.Add(this.orderList_btn);
             this.panel2.Controls.Add(this.tableReservation_btn);
@@ -224,16 +237,23 @@
             this.home_btn.Click += new System.EventHandler(this.home_btn_Click);
             this.home_btn.MouseHover += new System.EventHandler(this.home_btn_MouseHover);
             // 
-            // pictureBox3
+            // button1
             // 
-            this.pictureBox3.Image = global::restaurantSystem.Properties.Resources.x;
-            this.pictureBox3.Location = new System.Drawing.Point(1483, 23);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 34);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 7;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(0, 435);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.button1.Size = new System.Drawing.Size(213, 49);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Kitchen";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_4);
+            this.button1.MouseHover += new System.EventHandler(this.button1_MouseHover);
             // 
             // Cashier
             // 
@@ -252,11 +272,11 @@
             this.Load += new System.EventHandler(this.Cashier_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -275,5 +295,6 @@
         private System.Windows.Forms.Panel dashboard_panel;
         private System.Windows.Forms.Label dateTime_label;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Button button1;
     }
 }

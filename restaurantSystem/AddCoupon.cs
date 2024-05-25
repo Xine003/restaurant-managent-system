@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,18 +36,51 @@ namespace restaurantSystem
 
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+
+
+            using (GraphicsPath path = new GraphicsPath())
+            {
+                int radius = 70;
+
+                path.AddArc(0, 0, radius, radius, 180, 90);
+                path.AddArc(this.Width - radius, 0, radius, radius, 270, 90);
+                path.AddArc(this.Width - radius, this.Height - radius, radius, radius, 0, 90);
+                path.AddArc(0, this.Height - radius, radius, radius, 90, 90);
+                path.CloseFigure();
+
+
+                this.Region = new Region(path);
+            }
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x00000020; // WS_EX_TRANSPARENT
+                return cp;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                // Retrieve discount details from form controls
+             
                 string discountCode = discText.Text;
+
+             
                 if (string.IsNullOrWhiteSpace(discountCode))
                 {
                     MessageBox.Show("Discount code cannot be empty.");
                     return;
                 }
 
+             
                 if (!decimal.TryParse(percent.Text, out decimal discountValue) || discountValue <= 0 || discountValue > 100)
                 {
                     MessageBox.Show("Invalid discount value. Please enter a valid number for the discount percent (between 1 and 100).");
@@ -54,20 +88,22 @@ namespace restaurantSystem
                 }
 
                 DateTime createdDate = DateTime.Now;
-                DateTime validDate = exp.Value; // Get the selected date from the DateTimePicker control
+                DateTime validDate = exp.Value; 
+
+              
                 if (validDate <= createdDate)
                 {
                     MessageBox.Show("Expiration date must be later than the current date.");
                     return;
                 }
 
+             
                 if (!int.TryParse(lim.Text, out int limit) || limit <= 0)
                 {
                     MessageBox.Show("Invalid limit value. Please enter a valid number for the limit.");
                     return;
                 }
 
-                // Insert discount details into the database
                 string query = "INSERT INTO discount (disc_code, disc_value, date_created, date_valid, `limit`) " +
                                "VALUES (@Code, @Value, @CreatedDate, @ValidDate, @Limit)";
 
@@ -84,28 +120,41 @@ namespace restaurantSystem
 
                 MessageBox.Show(rowsAffected + " discount added successfully.");
 
+              
                 discText.Text = "";
                 lim.Text = "";
                 percent.Text = "";
+
+              
                 CouponAdded?.Invoke();
                 this.Close();
             }
             catch (FormatException ex)
             {
-                // Handle format exception (e.g., parsing errors)
                 MessageBox.Show("Input format error: " + ex.Message);
             }
             catch (MySqlException ex)
             {
-                // Handle MySQL-related exceptions
+            
                 MessageBox.Show($"MySQL error: {ex.Message}\nError Code: {ex.Number}\nStack Trace: {ex.StackTrace}");
             }
             catch (Exception ex)
             {
-                // Handle other exceptions
+             
                 MessageBox.Show($"General error: {ex.Message}\nStack Trace: {ex.StackTrace}");
             }
 
+
+        }
+
+        private void AddCoupon_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

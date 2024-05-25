@@ -220,7 +220,13 @@ namespace restaurantSystem
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            this.Close();        }
+            DialogResult result = MessageBox.Show("Are you sure you want to close the application?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+
+                Application.Exit();
+            }
+        }
 
         private void home_btn_MouseHover(object sender, EventArgs e)
         {

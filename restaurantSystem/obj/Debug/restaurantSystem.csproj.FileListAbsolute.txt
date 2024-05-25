@@ -331,3 +331,4 @@ C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSys
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.comboBox1.resources
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.AddCoupon.resources
 C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.Coupons.resources
+C:\Users\Xine\Documents\Github Pro\restaurant-managent-system-main\restaurantSystem\obj\Debug\restaurantSystem.Kitchen.resources

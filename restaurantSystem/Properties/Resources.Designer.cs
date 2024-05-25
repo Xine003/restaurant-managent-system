@@ -193,6 +193,16 @@ namespace restaurantSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Group_195 {
+            get {
+                object obj = ResourceManager.GetObject("Group_195", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Group_195sdsdsadsadad {
             get {
                 object obj = ResourceManager.GetObject("Group_195sdsdsadsadad", resourceCulture);
@@ -266,6 +276,26 @@ namespace restaurantSystem.Properties {
         internal static System.Drawing.Bitmap navbar1 {
             get {
                 object obj = ResourceManager.GetObject("navbar1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nobg {
+            get {
+                object obj = ResourceManager.GetObject("nobg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nobgs {
+            get {
+                object obj = ResourceManager.GetObject("nobgs", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

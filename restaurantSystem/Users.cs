@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Sitecore.FakeDb;
 
 namespace restaurantSystem
 {
@@ -9,29 +10,24 @@ namespace restaurantSystem
     {
 
 
-
+        private DB db = new DB();
         public Users()
         {
             InitializeComponent();
             employee_Table.BackgroundColor = System.Drawing.Color.FromArgb(17, 19, 21);
 
-           
-
-
 
         }
-
-
 
 
         private void back_btn_Click(object sender, EventArgs e)
         {
-            // Handle back button click event
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Handle cell content click event
+            
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -41,28 +37,63 @@ namespace restaurantSystem
 
         public void RefreshUserData()
         {
-            employee_Table.DataSource = userlist();
-            foreach (DataGridViewColumn column in employee_Table.Columns)
-            {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
+            ClearDataGridView();
+            LoadDataToDataGridView();
         }
 
-        private DataTable userlist()
+        private void ClearDataGridView()
         {
-            DB db = new DB();
-            DataTable table = new DataTable();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM users", db.getConnection());
-            db.openConnection();
-            MySqlDataReader rdr = command.ExecuteReader();
-            table.Load(rdr);
-            db.closeConnection();
-            return table;
+
+            employee_Table.DataSource = null;
+
+
+           employee_Table.Rows.Clear();
+            employee_Table.Columns.Clear();
+            employee_Table.DataBindings.Clear();
+            employee_Table.Refresh();
+        }
+
+        private void LoadDataToDataGridView()
+        {
+            try
+            {
+                employee_Table.DataSource = null;
+
+                db.openConnection();
+
+                string query = "SELECT * FROM users";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, db.getConnection()))
+                {
+                    DataTable dataTable = new DataTable();
+
+                    using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
+                    {
+                        adapter.Fill(dataTable);
+                    }
+
+                    employee_Table.DataSource = dataTable;
+                    employee_Table.ForeColor = System.Drawing.Color.White;
+
+                    foreach (DataGridViewColumn column in employee_Table.Columns)
+                    {
+                        column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
+            }
+            finally
+            {
+                db.closeConnection();
+            }
         }
 
         private void user_table_AllowUserToAddRowsChanged(object sender, EventArgs e)
         {
-            // Handle allow user to add rows changed event
+           
         }
 
         private void adduser_btn_Click(object sender, EventArgs e)
@@ -83,7 +114,7 @@ namespace restaurantSystem
                 command.ExecuteNonQuery();
                 db.closeConnection();
                 MessageBox.Show("Row with ID " + idLocRemv + " got removed.", "Removed Row", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefreshUserData(); // Refresh data after deletion
+                RefreshUserData(); 
             }
             else
             {
@@ -93,27 +124,28 @@ namespace restaurantSystem
 
         private void employeeTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Handle employee table cell content click event
         }
 
         private void employee_Table_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Handle employee table cell content click event
+
         }
 
         private void addProducts_btn_Paint(object sender, PaintEventArgs e)
         {
-            // Handle add products button paint event
+           
         }
 
         private void addUser(object sender, MouseEventArgs e)
         {
             addEmployee addEmployeeForm = new addEmployee(this);
+            addEmployeeForm.DisableButton12();
             addEmployeeForm.Show();
         }
 
         private void employee_Table_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = employee_Table.Rows[e.RowIndex];
@@ -126,6 +158,7 @@ namespace restaurantSystem
 
                 addEmployee addEmployeeForm = new addEmployee(userId, firstName, lastName, emailAddress, userName, passWord, this);
                 addEmployeeForm.Show();
+                addEmployeeForm.FormBorderStyle = FormBorderStyle.None;
                 addEmployeeForm.DisableButton1();
             }
         }

@@ -23,6 +23,7 @@ namespace restaurantSystem
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             AddCoupon addDiscountsForm = new AddCoupon();
+            addDiscountsForm.FormBorderStyle = FormBorderStyle.None;
             addDiscountsForm.CouponAdded += AddDiscountsForm_CouponAdded;
 
             addDiscountsForm.Show();
@@ -30,16 +31,16 @@ namespace restaurantSystem
 
         private void AddDiscountsForm_CouponAdded()
         {
-            // Refresh the displayed discounts
+           
             DisplayDiscounts(couponPanel);
         }
 
 
         private void DisplayDiscounts(FlowLayoutPanel couponPanel)
         {
-            couponPanel.Controls.Clear(); // Clear existing controls in the panel
+            couponPanel.Controls.Clear(); 
             DatabaseHelper dbHelper = new DatabaseHelper();
-            List<DiscountData> discounts = dbHelper.GetDiscountData(); // Assuming GetDiscountData returns a list of DiscountData objects
+            List<DiscountData> discounts = dbHelper.GetDiscountData(); 
 
             foreach (var discount in discounts)
             {
@@ -63,7 +64,7 @@ namespace restaurantSystem
                     Text = discount.Code,
                     AutoSize = true,
                    
-                    Location = new Point(15, 60), // Set the location using absolute coordinates (left: 140px, top: 90px)
+                    Location = new Point(15, 60), 
                     Font = new Font("Impact", 30, labelFont.Style),
                     BackColor = Color.Transparent,
                     

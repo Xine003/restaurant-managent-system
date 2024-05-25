@@ -94,9 +94,7 @@ namespace restaurantSystem
 
         private void labelGoToSignUp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Hide();
-            RegisterForm registerform = new RegisterForm();
-            registerform.Show();
+          
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)

@@ -35,13 +35,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.productsPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.addProducts_btn = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.productsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,8 +60,9 @@
             // 
             this.productsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(19)))), ((int)(((byte)(21)))));
             this.productsPanel.BackgroundImage = global::restaurantSystem.Properties.Resources.Rectangle_373;
+            this.productsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.productsPanel.Controls.Add(this.panel2);
             this.productsPanel.Controls.Add(this.label2);
-            this.productsPanel.Controls.Add(this.dataGridView1);
             this.productsPanel.Controls.Add(this.addProducts_btn);
             this.productsPanel.Controls.Add(this.label1);
             this.productsPanel.Location = new System.Drawing.Point(24, 12);
@@ -68,22 +71,12 @@
             this.productsPanel.TabIndex = 0;
             this.productsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.productsPanel_Paint);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(921, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 25);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Refresh";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -108,7 +101,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -125,8 +118,7 @@
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Transparent;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dataGridView1.Size = new System.Drawing.Size(1214, 482);
+            this.dataGridView1.Size = new System.Drawing.Size(1203, 485);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableclicked);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
@@ -153,6 +145,26 @@
             this.label1.Text = "Add Products";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(915, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 25);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Refresh";
+            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Location = new System.Drawing.Point(17, 62);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1209, 491);
+            this.panel2.TabIndex = 8;
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -167,6 +179,7 @@
             this.productsPanel.ResumeLayout(false);
             this.productsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -179,5 +192,6 @@
         private System.Windows.Forms.Panel addProducts_btn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
     }
 }
